@@ -17,21 +17,22 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string jump = "Jump";
     [SerializeField] private string crawl = "Crawl";
     [SerializeField] private string sprint = "Sprint";
+    [SerializeField] private string interact = "Interact";
 
     private InputAction moveAction;
     private InputAction lookAction;
     private InputAction jumpAction;
     private InputAction crawlAction;
     private InputAction sprintAction;
+    private InputAction interactAction;
 
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
     public bool JumpTriggered { get; private set; }
     public bool CrawlTriggered { get; private set; }
-
     public float CrawlValue { get; private set; }
-
     public float SprintValue { get; private set; }
+    public bool InteractTriggered { get; private set; }
 
     public static PlayerInputHandler Instance { get; private set; }
 
@@ -52,6 +53,7 @@ public class PlayerInputHandler : MonoBehaviour
         jumpAction = playerControls.FindActionMap(actionMapName).FindAction(jump);
         crawlAction = playerControls.FindActionMap(actionMapName).FindAction(crawl);
         sprintAction = playerControls.FindActionMap(actionMapName).FindAction(sprint);
+        interactAction = playerControls.FindActionMap(actionMapName).FindAction(interact);
         RegisterInputActions();
     }
 
@@ -73,6 +75,9 @@ public class PlayerInputHandler : MonoBehaviour
 
         sprintAction.performed += context => SprintValue = context.ReadValue<float>();
         sprintAction.canceled += context => SprintValue = 0f;
+
+        interactAction.performed += context => InteractTriggered = true;
+        interactAction.canceled += context => InteractTriggered = false;
     }
 
     private void OnEnable()
@@ -82,6 +87,7 @@ public class PlayerInputHandler : MonoBehaviour
         jumpAction.Enable();
         crawlAction.Enable();
         sprintAction.Enable();
+        interactAction.Enable();
     }
 
     private void OnDisable()
@@ -91,6 +97,7 @@ public class PlayerInputHandler : MonoBehaviour
         jumpAction.Disable();
         crawlAction.Disable();
         sprintAction.Disable();
+        interactAction.Disable();
     }
 
 }
