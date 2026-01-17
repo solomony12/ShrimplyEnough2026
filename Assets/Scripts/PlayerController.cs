@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInputHandler inputHandler;
     private Vector3 currentMovement;
     private float verticalRotation;
+    private bool canControlCharacter;
 
     private void Awake()
     {
@@ -46,12 +47,28 @@ public class PlayerController : MonoBehaviour
         mainCamera = Camera.main;
         inputHandler = PlayerInputHandler.Instance;
         cameraPivot = mainCamera.transform;
+        canControlCharacter = true;
     }
+
+    public void EnablePlayerControl()
+    {
+        canControlCharacter = true;
+    }
+
+    public void DisablePlayerControl()
+    {
+        canControlCharacter = false;
+    }
+
+    public bool CanPlayerControl() { return canControlCharacter; }
 
     private void Update()
     {
-        HandleMovement();
-        HandleRotation();
+        if (canControlCharacter)
+        {
+            HandleMovement();
+            HandleRotation();
+        }
     }
 
     void HandleMovement()
