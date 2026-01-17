@@ -27,6 +27,8 @@ public class PlayerInputHandler : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
     public bool JumpTriggered { get; private set; }
+    public bool CrawlTriggered { get; private set; }
+
     public float CrawlValue { get; private set; }
 
     public float SprintValue { get; private set; }
@@ -64,7 +66,9 @@ public class PlayerInputHandler : MonoBehaviour
         jumpAction.performed += context => JumpTriggered = true;
         jumpAction.canceled += context => JumpTriggered = false;
 
+        crawlAction.performed += context => CrawlTriggered = true;
         crawlAction.performed += context => CrawlValue = context.ReadValue<float>();
+        crawlAction.canceled += context => CrawlTriggered = false;
         crawlAction.canceled += context => CrawlValue = 0f;
 
         sprintAction.performed += context => SprintValue = context.ReadValue<float>();
