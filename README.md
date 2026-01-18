@@ -3,7 +3,7 @@
 
 **Shrimp; Simple Enough**
 
-**Shrimple Enough** is a horror-adventure game centered around a mysterious shrimp product that slowly changes people as they consume it. The player must investigate the truth behind the product while navigating a haunting factory and uncovering a cult-like conspiracy.
+**Shrimple Enough** is a horror-adventure game centered around a mysterious shrimp product that is popular all over the nation. The player takes the role of an inspector sent from OSHRIMP (OSHA) to do a safety and health check. But throughout investigating, the truth behind the product slowly reveals itself as you navigate a haunting factory and uncover a cult-like conspiracy.
 
 ---
 
@@ -28,27 +28,11 @@
 1. **TV Advertisement**
    A catchy commercial introduces the product.
 
-2. **Hungry Protagonist**
-   A man on his couch becomes hungry and decides to buy the product.
+2. **OSHRIMP Inspector**
+   An inspector starts his journey at the tourist zone.
 
-3. **Purchase**
-   He goes to a store (or orders online).
-
-4. **Discovery & Revulsion**
-   He opens the bar, is revolted, and becomes determined to find out what’s really inside.
-
-5. **Attempts to Investigate**
-   He sends coupons and calls the company, but only receives more ads and coupons in return.
-
-6. **Decision to Investigate**
-   He decides to take matters into his own hands.
-
-7. **Zoom Into TV**
-   The screen zooms into the image of the factory, transitioning cinematically into the real location.
-
-8. **Tourist Area & Factory Break-In**
-   The player arrives in a bright tourist area. The factory door is locked, so they break in.
-   Inside is a rust-filled environment, and the same door will later be used for the escape.
+3. **Into the Factory**
+   He goes in and begins jotting down notes with his scanner.
 
 ---
 
