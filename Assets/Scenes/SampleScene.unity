@@ -581,6 +581,7 @@ MonoBehaviour:
   itemUp: ItemUp
   itemDown: ItemDown
   itemSelect: ItemSelect
+  escape: Escape
 --- !u!143 &563752021
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1256,13 +1257,15 @@ MonoBehaviour:
   walkSpeed: 3
   sprintMultiplier: 2
   crawlMultiplier: 0.75
-  mouseSensitivity: 2
   upDownRange: 80
   jumpForce: 3
   gravity: 9.81
   standingHeight: 2
   crawlingHeight: 1
   crawlTransitionTime: 0.25
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 8
   cameraPivot: {fileID: 0}
   cameraStandingHeight: 1.6
   cameraCrawlingHeight: 0.8

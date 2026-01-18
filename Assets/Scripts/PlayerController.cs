@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float crawlingHeight = 1.0f;
     [SerializeField] private float crawlTransitionTime = 0.25f;
 
+    [Header("Crouch Collision")]
+    [SerializeField] private LayerMask obstructionMask;
+
     private bool lastCrawlState;
     private float crawlProgress = 1f;
     private float startHeight;
@@ -40,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 currentMovement;
     private float verticalRotation;
     private static bool canControlCharacter;
+
 
     public static PlayerController Instance { get; private set; }
 
@@ -124,6 +128,12 @@ public class PlayerController : MonoBehaviour
         {
             bool crawling = inputHandler.CrawlTriggered;
 
+            // If player wants to stand but something is blocking, force crouch
+            if (!crawling && !CanStandUp())
+            {
+                crawling = true;
+            }
+
             // Only reset transition when state actually changes
             if (crawling != lastCrawlState)
             {
@@ -154,6 +164,21 @@ public class PlayerController : MonoBehaviour
                 cameraPivot.localPosition = camPos;
             }
         }
+    }
+
+    bool CanStandUp()
+    {
+        float radius = characterController.radius;
+        Vector3 bottom = transform.position + Vector3.up * radius;
+        Vector3 top = transform.position + Vector3.up * (standingHeight - radius);
+
+        return !Physics.CheckCapsule(
+            bottom,
+            top,
+            radius,
+            obstructionMask,
+            QueryTriggerInteraction.Ignore
+        );
     }
 
 
