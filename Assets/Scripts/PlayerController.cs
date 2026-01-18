@@ -41,8 +41,20 @@ public class PlayerController : MonoBehaviour
     private float verticalRotation;
     private bool canControlCharacter;
 
+    public static PlayerController Instance { get; private set; }
+
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
         inputHandler = PlayerInputHandler.Instance;
