@@ -18,6 +18,9 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string crawl = "Crawl";
     [SerializeField] private string sprint = "Sprint";
     [SerializeField] private string interact = "Interact";
+    [SerializeField] private string itemUp = "ItemUp";
+    [SerializeField] private string itemDown = "ItemDown";
+    [SerializeField] private string itemSelect = "ItemSelect";
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -25,6 +28,9 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction crawlAction;
     private InputAction sprintAction;
     private InputAction interactAction;
+    private InputAction itemUpAction;
+    private InputAction itemDownAction;
+    private InputAction itemSelectAction;
 
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
@@ -33,6 +39,9 @@ public class PlayerInputHandler : MonoBehaviour
     public float CrawlValue { get; private set; }
     public float SprintValue { get; private set; }
     public bool InteractTriggered { get; private set; }
+    public bool ItemUpTriggered { get; private set; }
+    public bool ItemDownTriggered { get; private set; }
+    public bool ItemSelectTriggered { get; private set; }
 
     public static PlayerInputHandler Instance { get; private set; }
 
@@ -54,6 +63,9 @@ public class PlayerInputHandler : MonoBehaviour
         crawlAction = playerControls.FindActionMap(actionMapName).FindAction(crawl);
         sprintAction = playerControls.FindActionMap(actionMapName).FindAction(sprint);
         interactAction = playerControls.FindActionMap(actionMapName).FindAction(interact);
+        itemUpAction = playerControls.FindActionMap(actionMapName).FindAction(itemUp);
+        itemDownAction = playerControls.FindActionMap(actionMapName).FindAction(itemDown);
+        itemSelectAction = playerControls.FindActionMap(actionMapName).FindAction(itemSelect);
         RegisterInputActions();
     }
 
@@ -78,6 +90,15 @@ public class PlayerInputHandler : MonoBehaviour
 
         interactAction.performed += context => InteractTriggered = true;
         interactAction.canceled += context => InteractTriggered = false;
+
+        itemUpAction.performed += context => ItemUpTriggered = true;
+        itemUpAction.canceled += context => ItemUpTriggered = false;
+
+        itemDownAction.performed += context => ItemDownTriggered = true;
+        itemDownAction.canceled += context => ItemDownTriggered = false;
+
+        itemSelectAction.performed += context => ItemSelectTriggered = true;
+        itemSelectAction.canceled += context => ItemSelectTriggered = false;
     }
 
     private void OnEnable()
@@ -88,6 +109,9 @@ public class PlayerInputHandler : MonoBehaviour
         crawlAction.Enable();
         sprintAction.Enable();
         interactAction.Enable();
+        itemUpAction.Enable();
+        itemDownAction.Enable();
+        itemSelectAction.Enable();
     }
 
     private void OnDisable()
@@ -98,6 +122,8 @@ public class PlayerInputHandler : MonoBehaviour
         crawlAction.Disable();
         sprintAction.Disable();
         interactAction.Disable();
+        itemUpAction.Disable();
+        itemDownAction.Disable();
+        itemSelectAction.Disable();
     }
-
 }

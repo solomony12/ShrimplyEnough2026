@@ -4,7 +4,7 @@
       "evidenceName": "Evidence",
       "scannedCompounds": ["H2O: 79%", "C6H12O6: 16%", "Unidentified: 5%"],
       "possibleItems": ["Water", "Sugar Water", "Blood"],
-      "correctAnswer": "Sugar Water"
+      "correctAnswer": 1
     }
   ]
 }

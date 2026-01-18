@@ -22,7 +22,7 @@ public class ScanEvidence : MonoBehaviour
     private float holdTimer = 0f;
     private GameObject currentEvidence = null;
 
-    private bool isSystemOpen = false;
+    public static bool IsDisplayOpen = false;
 
     private void Awake()
     {
@@ -100,9 +100,9 @@ public class ScanEvidence : MonoBehaviour
 
     private void SelectedEvidence(GameObject evidence)
     {
-        if (isSystemOpen) return;
+        if (IsDisplayOpen) return;
 
-        isSystemOpen = true;
+        IsDisplayOpen = true;
 
         Debug.Log("Evidence scanned: " + evidence.name);
 

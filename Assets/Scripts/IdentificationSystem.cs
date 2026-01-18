@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class IdentificationSystem : MonoBehaviour
@@ -11,6 +12,7 @@ public class IdentificationSystem : MonoBehaviour
     public static IdentificationSystem Instance { get; private set; }
 
     private PlayerController playerController;
+    private PlayerInputHandler inputHandler;
 
     private const string identificationSceneName = "IdentificationSystemDisplay";
 
@@ -19,11 +21,25 @@ public class IdentificationSystem : MonoBehaviour
     private TMP_Text basePossibleItem;
     private List<TMP_Text> scannedItemClones;
     private List<TMP_Text> possibleItemClones;
+    private GameObject selectorBox;
+    private Vector3 selectorStartingPos;
+    private Transform selectorPosition;
 
     private EvidenceList evidenceList;
 
     [Header("OSHRIMP Data for Scan")]
     private Evidence currentEvidence;
+    private int correctIndex;
+    private int evidenceGuessedCorrect;
+
+    private float itemSize;
+
+    [Header("Selector Box")]
+    [SerializeField] private int currentIndex;
+    private RectTransform selectorRect;
+    private Vector2 selectorStartingAnchoredPos;
+    private float inputDelay = 0.15f;
+    private float inputTimer = 0f;
 
     private void Awake()
     {
@@ -38,11 +54,30 @@ public class IdentificationSystem : MonoBehaviour
         }
 
         playerController = PlayerController.Instance;
+        inputHandler = PlayerInputHandler.Instance;
 
         scannedItemClones = new List<TMP_Text>();
         possibleItemClones = new List<TMP_Text>();
 
+        currentIndex = 0;
+        evidenceGuessedCorrect = 0;
+
         ReadJsonForEvidence();
+    }
+
+    private void Update()
+    {
+        if (!ScanEvidence.IsDisplayOpen) return;
+
+        inputTimer -= Time.deltaTime;
+
+        if (inputTimer > 0) return;
+
+        if (inputHandler.ItemUpTriggered || inputHandler.ItemDownTriggered || inputHandler.ItemSelectTriggered)
+        {
+            HandleItemSelection();
+            inputTimer = inputDelay;
+        }
     }
 
     private void ReadJsonForEvidence()
@@ -59,9 +94,46 @@ public class IdentificationSystem : MonoBehaviour
 
         yield return SceneManager.LoadSceneAsync(identificationSceneName, LoadSceneMode.Additive);
 
+        RemoveDuplicateEventSystems();
+
         FindBaseItems();
 
+        selectorPosition = selectorBox.transform;
+        selectorStartingPos = selectorPosition.position;
+        currentIndex = 0;
+        itemSize = baseScannedItem.GetPreferredValues().y;
+        selectorRect = selectorBox.GetComponent<RectTransform>();
+        selectorStartingAnchoredPos = selectorRect.anchoredPosition;
+
         LoadEvidenceScan(evidenceName);
+
+        ScanEvidence.IsDisplayOpen = true;
+    }
+
+    private void EndDisplaySystem()
+    {
+        ScanEvidence.IsDisplayOpen = false;
+
+        playerController.EnablePlayerControl();
+
+        if (SceneManager.GetSceneByName(identificationSceneName).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(identificationSceneName);
+        }
+    }
+
+    private void RemoveDuplicateEventSystems()
+    {
+        EventSystem[] eventSystems = FindObjectsByType<EventSystem>(FindObjectsSortMode.None);
+
+        if (eventSystems.Length > 1)
+        {
+            // Keep the first one and destroy the rest
+            for (int i = 1; i < eventSystems.Length; i++)
+            {
+                Destroy(eventSystems[i].gameObject);
+            }
+        }
     }
 
     private void FindBaseItems()
@@ -70,6 +142,7 @@ public class IdentificationSystem : MonoBehaviour
         {
             baseScannedItem = GameObject.FindWithTag("ScannedText").GetComponent<TMP_Text>();
             basePossibleItem = GameObject.FindWithTag("PossibleText").GetComponent<TMP_Text>();
+            selectorBox = GameObject.FindWithTag("SelectorBox");
         }
         catch (System.NullReferenceException)
         {
@@ -89,6 +162,9 @@ public class IdentificationSystem : MonoBehaviour
             return;
         }
 
+        // Get correct answer
+        correctIndex = currentEvidence.correctAnswer;
+
         // Create scanned compounds list
         int scannedIndex = 0;
         foreach (string scannedCompound in currentEvidence.scannedCompounds)
@@ -102,7 +178,7 @@ public class IdentificationSystem : MonoBehaviour
             clone.transform.localScale = baseScannedItem.transform.localScale;
 
             // Move it down based on index
-            clone.transform.localPosition -= new Vector3(0, baseScannedItem.GetPreferredValues().y * scannedIndex, 0);
+            clone.transform.localPosition -= new Vector3(0, itemSize * scannedIndex, 0);
 
             scannedItemClones.Add(clone);
             scannedIndex++;
@@ -121,7 +197,7 @@ public class IdentificationSystem : MonoBehaviour
             clone.transform.localScale = basePossibleItem.transform.localScale;
 
             // Move it down based on index
-            clone.transform.localPosition -= new Vector3(0, basePossibleItem.GetPreferredValues().y * possibleIndex, 0);
+            clone.transform.localPosition -= new Vector3(0, itemSize * possibleIndex, 0);
 
             possibleItemClones.Add(clone);
             possibleIndex++;
@@ -138,11 +214,25 @@ public class IdentificationSystem : MonoBehaviour
         basePossibleItem.enabled = true;
 
         // Destroy old items
-        foreach (var item in scannedItemClones) Destroy(item.gameObject);
-        scannedItemClones.Clear();
+        if (scannedItemClones != null)
+        {
+            foreach (var item in scannedItemClones)
+            {
+                if (item != null)
+                    Destroy(item.gameObject);
+            }
+            scannedItemClones.Clear();
+        }
 
-        foreach (var item in possibleItemClones) Destroy(item.gameObject);
-        possibleItemClones.Clear();
+        if (possibleItemClones != null)
+        {
+            foreach (var item in possibleItemClones)
+            {
+                if (item != null)
+                    Destroy(item.gameObject);
+            }
+            possibleItemClones.Clear();
+        }
     }
 
     Evidence GetEvidence(string name)
@@ -154,6 +244,38 @@ public class IdentificationSystem : MonoBehaviour
         }
         return null;
     }
+
+    void HandleItemSelection()
+    {
+        int listLength = possibleItemClones.Count;
+
+        if (inputHandler.ItemSelectTriggered)
+        {
+            if (currentIndex == correctIndex)
+            {
+                evidenceGuessedCorrect++;
+                Debug.Log("You guessed correctly!");
+            }
+            Debug.Log("Evidence Got: " + evidenceGuessedCorrect.ToString());
+            EndDisplaySystem();
+            return;
+        }
+
+        if (inputHandler.ItemUpTriggered)
+            currentIndex--;
+
+        if (inputHandler.ItemDownTriggered)
+            currentIndex++;
+
+        if (currentIndex < 0)
+            currentIndex = listLength - 1;
+
+        if (currentIndex >= listLength)
+            currentIndex = 0;
+
+        selectorRect.anchoredPosition = selectorStartingAnchoredPos + new Vector2(0, -itemSize * currentIndex);
+    }
+
 }
 
 [System.Serializable]
@@ -162,7 +284,7 @@ public class Evidence
     public string evidenceName;
     public string[] scannedCompounds;
     public string[] possibleItems;
-    public string correctAnswer;
+    public int correctAnswer;
 }
 
 [System.Serializable]
