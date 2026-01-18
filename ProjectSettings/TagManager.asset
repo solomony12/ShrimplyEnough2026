@@ -7,6 +7,9 @@ TagManager:
   - Captions
   - Evidence
   - HoverCaptions
+  - ScannedText
+  - PossibleText
+  - SelectorBox
   layers:
   - Default
   - TransparentFX

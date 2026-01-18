@@ -1,5 +1,6 @@
 using System;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,9 +8,10 @@ public class ScanEvidence : MonoBehaviour
 {
     private Camera mainCamera;
     private GameObject player;
-    private PlayerInputHandler inputHandler;
 
+    private PlayerInputHandler inputHandler;
     private HoverCaptions evidenceCaptions;
+    private IdentificationSystem identificationSystem;
 
     [Header("Distane to Scan")]
     private float maxPlayerObjectDistance = 5f;
@@ -20,12 +22,15 @@ public class ScanEvidence : MonoBehaviour
     private float holdTimer = 0f;
     private GameObject currentEvidence = null;
 
+    public static bool IsDisplayOpen = false;
+
     private void Awake()
     {
         mainCamera = Camera.main;
         player = GameObject.FindWithTag("Player");
         evidenceCaptions = HoverCaptions.Instance;
         inputHandler = PlayerInputHandler.Instance;
+        identificationSystem = IdentificationSystem.Instance;
 
         if (inputHandler == null)
             Debug.LogError("PlayerInputHandler.Instance is NULL!");
@@ -95,8 +100,15 @@ public class ScanEvidence : MonoBehaviour
 
     private void SelectedEvidence(GameObject evidence)
     {
+        if (IsDisplayOpen) return;
+
+        IsDisplayOpen = true;
+
         Debug.Log("Evidence scanned: " + evidence.name);
 
         // Add scanning logic here
+        // Call EvidenceManager to remove this evidence trigger from scene and update generation
+        // Call IdentificationSystem
+        StartCoroutine(identificationSystem.StartDisplaySystem(evidence.name));
     }
 }
