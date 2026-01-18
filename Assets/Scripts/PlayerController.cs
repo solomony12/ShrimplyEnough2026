@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInputHandler inputHandler;
     private Vector3 currentMovement;
     private float verticalRotation;
-    private bool canControlCharacter;
+    private static bool canControlCharacter;
 
     public static PlayerController Instance { get; private set; }
 
@@ -61,12 +61,12 @@ public class PlayerController : MonoBehaviour
         canControlCharacter = true;
     }
 
-    public void EnablePlayerControl()
+    public static void EnablePlayerControl()
     {
         canControlCharacter = true;
     }
 
-    public void DisablePlayerControl()
+    public static void DisablePlayerControl()
     {
         canControlCharacter = false;
     }
