@@ -11,7 +11,6 @@ public class IdentificationSystem : MonoBehaviour
 {
     public static IdentificationSystem Instance { get; private set; }
 
-    private PlayerController playerController;
     private PlayerInputHandler inputHandler;
 
     private const string identificationSceneName = "IdentificationSystemDisplay";
@@ -52,7 +51,6 @@ public class IdentificationSystem : MonoBehaviour
             Destroy(gameObject);
         }
 
-        playerController = PlayerController.Instance;
         inputHandler = PlayerInputHandler.Instance;
 
         scannedItemClones = new List<TMP_Text>();
@@ -88,7 +86,7 @@ public class IdentificationSystem : MonoBehaviour
 
     public IEnumerator StartDisplaySystem(string evidenceName)
     {
-        playerController.DisablePlayerControl();
+        PlayerController.DisablePlayerControl();
 
         yield return SceneManager.LoadSceneAsync(identificationSceneName, LoadSceneMode.Additive);
 
@@ -112,7 +110,7 @@ public class IdentificationSystem : MonoBehaviour
     {
         ScanEvidence.IsDisplayOpen = false;
 
-        playerController.EnablePlayerControl();
+        PlayerController.EnablePlayerControl();
 
         if (SceneManager.GetSceneByName(identificationSceneName).isLoaded)
         {

@@ -16,8 +16,6 @@ public class SettingsMenuUI : MonoBehaviour
     private const string mainMenuSceneString = "MainMenu";
     private const string settingsSceneString = "Settings";
 
-    private PlayerController playerController;
-
     private void Start()
     {
         // Load saved values into sliders
@@ -72,9 +70,7 @@ public class SettingsMenuUI : MonoBehaviour
         if (!SceneManager.GetSceneByName(mainMenuSceneString).isLoaded)
         {
             Cursor.lockState = CursorLockMode.Locked;
-            if (playerController == null)
-                playerController = PlayerController.Instance;
-            playerController.EnablePlayerControl();
+            PlayerController.EnablePlayerControl();
         }
         if (SceneManager.GetSceneByName(settingsSceneString).isLoaded)
         {
@@ -93,7 +89,9 @@ public class SettingsMenuUI : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(mainMenuSceneString);
+            ScanEvidence.IsDisplayOpen = false;
+            Cursor.lockState = CursorLockMode.None;
+            SceneTransition.Instance.StartTransition(mainMenuSceneString);
         }
     }
 }

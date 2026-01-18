@@ -14,7 +14,6 @@ public class GameSettings : MonoBehaviour
     public float mouseSensitivity = 2f;
 
     private PlayerInputHandler inputHandler;
-    private PlayerController playerController;
 
     private float inputDelay = 0.15f;
     private float inputTimer = 0f;
@@ -43,10 +42,8 @@ public class GameSettings : MonoBehaviour
         {
             if (inputHandler == null)
                 inputHandler = PlayerInputHandler.Instance;
-            if (playerController == null)
-                playerController = PlayerController.Instance;
 
-            if (inputHandler.EscapeTriggered)
+            if (inputHandler.EscapeTriggered && !SceneTransition.IsTransitioning)
             {
                 PauseResume();
                 inputTimer = inputDelay;
@@ -60,15 +57,18 @@ public class GameSettings : MonoBehaviour
 
         if (SceneManager.GetSceneByName(settingsSceneString).isLoaded)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            playerController.EnablePlayerControl();
+            if (!ScanEvidence.IsDisplayOpen)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                PlayerController.EnablePlayerControl();
+            }
             SceneManager.UnloadSceneAsync(settingsSceneString);
         }
         else
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            playerController.DisablePlayerControl();
+            PlayerController.DisablePlayerControl();
             SceneManager.LoadScene(settingsSceneString, LoadSceneMode.Additive);
         }
     }
