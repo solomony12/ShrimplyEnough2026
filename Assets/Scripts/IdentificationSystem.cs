@@ -30,7 +30,6 @@ public class IdentificationSystem : MonoBehaviour
     [Header("OSHRIMP Data for Scan")]
     private Evidence currentEvidence;
     private int correctIndex;
-    private int evidenceGuessedCorrect;
 
     private float itemSize;
 
@@ -60,7 +59,6 @@ public class IdentificationSystem : MonoBehaviour
         possibleItemClones = new List<TMP_Text>();
 
         currentIndex = 0;
-        evidenceGuessedCorrect = 0;
 
         ReadJsonForEvidence();
     }
@@ -253,10 +251,10 @@ public class IdentificationSystem : MonoBehaviour
         {
             if (currentIndex == correctIndex)
             {
-                evidenceGuessedCorrect++;
+                EvidenceGeneration.CorrectEvidenceAmount++;
                 Debug.Log("You guessed correctly!");
             }
-            Debug.Log("Evidence Got: " + evidenceGuessedCorrect.ToString());
+            Debug.Log("Evidence Got: " + EvidenceGeneration.CorrectEvidenceAmount.ToString());
             EndDisplaySystem();
             return;
         }
