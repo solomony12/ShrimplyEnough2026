@@ -110,5 +110,8 @@ public class ScanEvidence : MonoBehaviour
         // Call EvidenceManager to remove this evidence trigger from scene and update generation
         // Call IdentificationSystem
         StartCoroutine(identificationSystem.StartDisplaySystem(evidence.name));
+
+        // Make sure the evidence can't be re-accessed
+        evidence.tag = "Untagged";
     }
 }

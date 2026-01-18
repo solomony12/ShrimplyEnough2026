@@ -1,3 +1,4 @@
+
 {
   "evidences": [
     {
@@ -5,6 +6,510 @@
       "scannedCompounds": ["H2O: 79%", "C6H12O6: 16%", "Unidentified: 5%"],
       "possibleItems": ["Water", "Sugar Water", "Blood"],
       "correctAnswer": 1
+    },
+
+
+
+    {
+      "evidenceName": "T0_01",
+      "scannedCompounds": ["H2O: 75%", "NaCl: 3%", "Shrimp Proteins: 22%"],
+      "possibleItems": ["Shrimp Meat", "Fish Fillet", "Chicken"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T0_02",
+      "scannedCompounds": ["H2O: 89%", "Salt: 9%", "Trace Minerals: 2%"],
+      "possibleItems": ["Pure Water", "Seawater", "Tap Water"],
+      "correctAnswer": 1
+    },
+    {
+      "evidenceName": "T0_03",
+      "scannedCompounds": ["Proteins: 15%", "Lipids: 10%", "H2O: 35%", "Shrimp Proteins: 40%"],
+      "possibleItems": ["Protein Paste", "Shrimp Paste", "Meat Spread"],
+      "correctAnswer": 1
+    },
+    {
+      "evidenceName": "T0_04",
+      "scannedCompounds": ["Chitin: 60%", "Calcium Carbonate: 25%", "H2O: 15%"],
+      "possibleItems": ["Egg Shell", "Plastic Shard", "Shrimp Shell"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T0_05",
+      "scannedCompounds": ["H2O: 85%", "Proteins: 10%", "Lipids: 5%"],
+      "possibleItems": ["Soup Stock", "Shrimp Juice", "Rinse Water"],
+      "correctAnswer": 1
+    },
+    {
+      "evidenceName": "T0_06",
+      "scannedCompounds": ["H2O: 78%", "Hemocyanin: 18%", "Salt: 4%"],
+      "possibleItems": ["Animal Blood", "Shrimp Blood", "Dirty Water"],
+      "correctAnswer": 1
+    },
+    {
+      "evidenceName": "T0_07",
+      "scannedCompounds": ["Proteins: 50%", "H2O: 40%", "Lipids: 10%"],
+      "possibleItems": ["Cooked Shrimp", "Raw Meat", "Protein Bar"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T0_08",
+      "scannedCompounds": ["H2O: 95%", "Salt: 5%"],
+      "possibleItems": ["Tap Water", "Rinse Water", "Mineral Water"],
+      "correctAnswer": 1
+    },
+    {
+      "evidenceName": "T0_09",
+      "scannedCompounds": ["Proteins: 62%", "Lipids: 18%", "H2O: 20%"],
+      "possibleItems": ["Shrimp Filling", "Fish Paste", "Meat Slurry"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T0_10",
+      "scannedCompounds": ["H2O: 88%", "Salt: 7%", "Organic Residue: 5%"],
+      "possibleItems": ["Rinse Basin Water", "Soup", "Cleaning Mix"],
+      "correctAnswer": 0
+    },
+
+
+    
+    {
+      "evidenceName": "T1_01",
+      "scannedCompounds": ["H2O: 70%", "Hemoglobin: 25%", "Salt: 5%"],
+      "possibleItems": ["Human Blood", "Shrimp Blood", "Rusty Water"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T1_02",
+      "scannedCompounds": ["Dirt Minerals: 55%", "H2O: 45%"],
+      "possibleItems": ["Soil", "Seasoning Powder", "Concrete Dust"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T1_03",
+      "scannedCompounds": ["Cellulose: 60%", "H2O: 40%"],
+      "possibleItems": ["Paper Pulp", "Plant Fiber", "Food Filler"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T1_04",
+      "scannedCompounds": ["H2O: 75%", "Skin Cells: 15%", "Salt: 10%"],
+      "possibleItems": ["Sweat Residue", "Brine", "Cleaning Water"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T1_05",
+      "scannedCompounds": ["Lipids: 45%", "H2O: 35%", "Proteins: 20%"],
+      "possibleItems": ["Machine Grease", "Cooking Oil", "Shrimp Oil"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T1_06",
+      "scannedCompounds": ["H2O: 65%", "Sugars: 20%", "Ethanol: 15%"],
+      "possibleItems": ["Spilled Soda", "Cleaning Solution", "Fermenting Drink"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T1_07",
+      "scannedCompounds": ["Iron Oxide: 20%", "H2O: 80%"],
+      "possibleItems": ["Rusty Water", "Blood Dilution", "Paint Runoff"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T1_08",
+      "scannedCompounds": ["Keratin: 35%", "H2O: 65%"],
+      "possibleItems": ["Hair Residue", "Fabric Fibers", "Plastic Threads"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T1_09",
+      "scannedCompounds": ["H2O: 85%", "Organic Matter: 15%"],
+      "possibleItems": ["Waste Water", "Soup Base", "Puddle Water"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T1_10",
+      "scannedCompounds": ["Proteins: 30%", "H2O: 70%"],
+      "possibleItems": ["Food Spill", "Shrimp Feed", "Animal Slurry"],
+      "correctAnswer": 1
+    },
+
+
+    
+    {
+      "evidenceName": "T2_01",
+      "scannedCompounds": ["Human Blood: 20%", "Shrimp Proteins: 25%", "H2O: 55%"],
+      "possibleItems": ["Cross-Contaminated Blood", "Waste Slurry", "Spoiled Food"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T2_02",
+      "scannedCompounds": ["Ammonia: 15%", "Organic Waste: 45%", "H2O: 40%"],
+      "possibleItems": ["Shrimp Waste", "Fertilizer", "Cleaning Foam"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T2_03",
+      "scannedCompounds": ["Detergents: 25%", "Organic Matter: 30%", "H2O: 45%"],
+      "possibleItems": ["Improperly Rinsed Equipment", "Soap Spill", "Food Additive"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T2_04",
+      "scannedCompounds": ["Formaldehyde: 5%", "Organic Tissue: 35%", "H2O: 60%"],
+      "possibleItems": ["Preserved Tissue", "Medical Waste", "Spoiled Meat"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T2_05",
+      "scannedCompounds": ["Industrial Solvent: 40%", "Proteins: 30%", "H2O: 30%"],
+      "possibleItems": ["Chemical Contamination", "Machine Runoff", "Lubricant Spill"],
+      "correctAnswer": 1
+    },
+    {
+      "evidenceName": "T2_06",
+      "scannedCompounds": ["Blood Components: 30%", "Proteins: 30%", "H2O: 40%"],
+      "possibleItems": ["Cross-Contaminated Sample", "Waste Bin Leak", "Food Slurry"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T2_07",
+      "scannedCompounds": ["Sulfur Compounds: 20%", "Organic Waste: 30%", "H2O: 50%"],
+      "possibleItems": ["Rotting Waste", "Sewer Backflow", "Food Spoilage"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T2_08",
+      "scannedCompounds": ["Cleaning Acid: 15%", "Organic Matter: 30%", "H2O: 55%"],
+      "possibleItems": ["Improper Disposal", "Acid Wash Residue", "Food Marinade"],
+      "correctAnswer": 1
+    },
+    {
+      "evidenceName": "T2_09",
+      "scannedCompounds": ["Unknown Dye: 10%", "Proteins: 25%", "H2O: 65%"],
+      "possibleItems": ["Contaminated Batch", "Ink Spill", "Food Coloring"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T2_10",
+      "scannedCompounds": ["Shrimp Proteins: 40%", "Human Skin Cells: 20%", "H2O: 40%"],
+      "possibleItems": ["Severe Cross-Contamination", "Food Spill", "Waste Slurry"],
+      "correctAnswer": 0
+    },
+
+    
+
+    {
+      "evidenceName": "T3_01",
+      "scannedCompounds": ["H2O: 55%", "Acidic Compounds: 15%", "Unidentified: 30%"],
+      "possibleItems": ["Cleaning Acid Spill", "Fermenting Waste", "Battery Leakage"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T3_02",
+      "scannedCompounds": ["H2O: 45%", "Unidentified Gel: 40%", "Proteins: 15%"],
+      "possibleItems": ["Industrial Gel", "Food Thickener", "Unknown Slime"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T3_03",
+      "scannedCompounds": ["H2O: 40%", "CO2: 5%", "Unidentified: 55%"],
+      "possibleItems": ["Chemical Reaction Residue", "Carbonated Spill", "Fizzing Waste"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T3_04",
+      "scannedCompounds": ["Proteins: 35%", "Acid Traces: 25%", "Unidentified: 40%"],
+      "possibleItems": ["Dissolving Tissue", "Spoiled Food", "Cleaning Accident"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T3_05",
+      "scannedCompounds": ["Crystalline Solids: 45%", "H2O: 35%", "Unidentified: 20%"],
+      "possibleItems": ["Chemical Crystals", "Salt Buildup", "Unknown Byproduct"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T3_06",
+      "scannedCompounds": ["H2O: 50%", "Gas Residue: 20%", "Organic Matter: 30%"],
+      "possibleItems": ["Steam Condensate", "Leaking Pipe Residue", "Reaction Vapor"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T3_07",
+      "scannedCompounds": ["Reactive Salts: 30%", "H2O: 25%", "Unidentified: 45%"],
+      "possibleItems": ["Unstable Chemical Mix", "Improper Storage", "Experimental Compound"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T3_08",
+      "scannedCompounds": ["Gelatinous Matter: 35%", "Organic Tissue: 25%", "Unidentified: 40%"],
+      "possibleItems": ["Lab Waste Slime", "Food Byproduct", "Unknown Growth"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T3_09",
+      "scannedCompounds": ["H2O: 45%", "Enzyme Activity: High", "Proteins: 10%"],
+      "possibleItems": ["Biological Reaction", "Spoilage Culture", "Cleaning Solution"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T3_10",
+      "scannedCompounds": ["H2O: 20%", "Unidentified Compound: 60%", "Trace Organics: 20%"],
+      "possibleItems": ["Experimental Additive", "Unknown Chemical", "Machine Cleaner"],
+      "correctAnswer": 1
+    },
+    
+
+
+    {
+      "evidenceName": "T4_01",
+      "scannedCompounds": ["H2O: 35%", "Light-Emitting Proteins: 25%", "Unidentified: 40%"],
+      "possibleItems": ["Glowing Liquid", "Algae Growth", "Chemical Dye"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T4_02",
+      "scannedCompounds": ["Thermal Output: High", "H2O: 15%", "Unidentified: 85%"],
+      "possibleItems": ["Self-Warming Substance", "Coolant Failure", "Chemical Heater"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T4_03",
+      "scannedCompounds": ["Unknown Polymer: 65%", "H2O: 35%"],
+      "possibleItems": ["Permanent Residue", "Hardened Plastic", "Sealant"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T4_04",
+      "scannedCompounds": ["Aromatic Compounds: 60%", "No Visible Source"],
+      "possibleItems": ["Source-less Smell", "Perfume Spill", "Chemical Fragrance"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T4_05",
+      "scannedCompounds": ["Reactive Biofilm: 40%", "H2O: 30%", "Unidentified: 30%"],
+      "possibleItems": ["Living Residue", "Bacterial Mat", "Contamination Layer"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T4_06",
+      "scannedCompounds": ["Extreme Cold Signature", "Unidentified Substance"],
+      "possibleItems": ["Cryogenic Leak", "Refrigerant Gel", "Cold Storage Failure"],
+      "correctAnswer": 1
+    },
+    {
+      "evidenceName": "T4_07",
+      "scannedCompounds": ["Fibrous Growth: 50%", "Organic Matter: 25%", "H2O: 25%"],
+      "possibleItems": ["Growing Material", "Mold Colony", "Fabric Debris"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T4_08",
+      "scannedCompounds": ["H2O: 40%", "Light Particles: 30%", "Unidentified: 30%"],
+      "possibleItems": ["Glowing Mist", "Steam Effect", "Chemical Aerosol"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T4_09",
+      "scannedCompounds": ["Dense Sludge: 80%", "Trace Metals: 20%"],
+      "possibleItems": ["Impossible Residue", "Industrial Waste", "Tar"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T4_10",
+      "scannedCompounds": ["Unknown Energy Reading", "Scanner Stability Warning"],
+      "possibleItems": ["Anomalous Substance", "Faulty Scan", "Experimental Tech"],
+      "correctAnswer": 0
+    },
+
+    
+
+    {
+      "evidenceName": "T5_01",
+      "scannedCompounds": ["Corrosive Acids: 45%", "H2O: 20%", "Unidentified: 35%"],
+      "possibleItems": ["Corrosive Slurry", "Chemical Cleaner", "Machine Coolant"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T5_02",
+      "scannedCompounds": ["Mutated Tissue Cells: 55%", "Proteins: 25%", "Unidentified: 20%"],
+      "possibleItems": ["Mutated Shrimp Tissue", "Spoiled Meat", "Medical Sample"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T5_03",
+      "scannedCompounds": ["Exothermic Reaction: Active", "H2O: 10%", "Unidentified: 90%"],
+      "possibleItems": ["Self-Heating Container", "Chemical Heater", "Overheated Waste"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T5_04",
+      "scannedCompounds": ["Motile Cells: 40%", "Organic Matter: 30%", "Unidentified: 30%"],
+      "possibleItems": ["Moving Substance", "Larval Cluster", "Feed Contamination"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T5_05",
+      "scannedCompounds": ["Neuroactive Compounds: 30%", "H2O: 25%", "Unidentified: 45%"],
+      "possibleItems": ["Brain-Affecting Additive", "Illegal Drug", "Experimental Compound"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T5_06",
+      "scannedCompounds": ["Metal Corrosion: Severe", "Acid Gel Residue"],
+      "possibleItems": ["Structural Melt", "Acid Spill", "Rust Sludge"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T5_07",
+      "scannedCompounds": ["Living Biofilm: 55%", "Proteins: 20%", "Unidentified: 25%"],
+      "possibleItems": ["Aggressive Growth", "Mold Infestation", "Bacterial Culture"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T5_08",
+      "scannedCompounds": ["Unknown Muscle Fibers: 60%", "H2O: 15%", "Unidentified: 25%"],
+      "possibleItems": ["Mutated Shrimp Flesh", "Animal Tissue", "Non-Food Organ"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T5_09",
+      "scannedCompounds": ["Self-Activating Organics: 70%", "Thermal Rise Detected"],
+      "possibleItems": ["Self-Reacting Substance", "Chemical Reactor", "Waste Pile"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T5_10",
+      "scannedCompounds": ["Corrosive Vapors: 50%", "Unidentified: 50%"],
+      "possibleItems": ["Air-Eating Chemical", "Gas Leak", "Cleaning Fumes"],
+      "correctAnswer": 0
+    },
+
+    
+
+    {
+      "evidenceName": "T6_01",
+      "scannedCompounds": ["Toxic Gas Residue: 65%", "H2O: 10%", "Unidentified: 25%"],
+      "possibleItems": ["Toxic Gas Release", "Vent Backflow", "Smoke Damage"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T6_02",
+      "scannedCompounds": ["Aggressive Biomass: 75%", "Organic Matter: 15%"],
+      "possibleItems": ["Hostile Growth", "Mold Bloom", "Algae Cluster"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T6_03",
+      "scannedCompounds": ["Rapid Corrosion: Active", "Metal Loss Detected"],
+      "possibleItems": ["Structural Failure Zone", "Rust Spill", "Chemical Reaction"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T6_04",
+      "scannedCompounds": ["Persistent Alarm Signal", "Electrical Interference"],
+      "possibleItems": ["Alarm System Failure", "Power Surge", "Containment Alert"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T6_05",
+      "scannedCompounds": ["Neurotoxin Traces: 50%", "Airborne Residue Detected"],
+      "possibleItems": ["Airborne Neurotoxin", "Pesticide Spill", "Chemical Weapon Leak"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T6_06",
+      "scannedCompounds": ["Living Tissue Embedded in Walls"],
+      "possibleItems": ["Structural Infestation", "Bio-Growth", "Severe Mold"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T6_07",
+      "scannedCompounds": ["Extreme Heat Signature", "Unknown Fuel Source"],
+      "possibleItems": ["Runaway Reaction", "Fire Hazard", "Overheated Machinery"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T6_08",
+      "scannedCompounds": ["Shrimp DNA: 45%", "Unknown DNA: 45%"],
+      "possibleItems": ["Hybrid Organism", "Genetic Spill", "Cross-Contamination"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T6_09",
+      "scannedCompounds": ["Vacuum Signature Detected", "No Atmosphere Present"],
+      "possibleItems": ["Containment Breach", "Scanner Error", "Environmental Failure"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T6_10",
+      "scannedCompounds": ["Unknown Signal Looping", "Biological Response Detected"],
+      "possibleItems": ["Active Containment Event", "Alarm Feedback Loop", "Facility-Wide Hazard"],
+      "correctAnswer": 0
+    },
+
+    
+
+    {
+      "evidenceName": "T7_01",
+      "scannedCompounds": ["Reality Distortion Detected", "Scanner Calibration Failing"],
+      "possibleItems": ["Scanner Malfunction", "Containment Breach", "Reality Instability"],
+      "correctAnswer": 2
+    },
+    {
+      "evidenceName": "T7_02",
+      "scannedCompounds": ["Hostile Biological Mass", "Shrimp DNA Overload"],
+      "possibleItems": ["Shrimp Entity", "Animal Swarm", "Waste Pile"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T7_03",
+      "scannedCompounds": ["Space-Time Fluctuation", "No Stable Reading"],
+      "possibleItems": ["Dimensional Tear", "Power Failure", "Sensor Error"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T7_04",
+      "scannedCompounds": ["Unknown Signal Demanding Response"],
+      "possibleItems": ["Sentient Substance", "Emergency Beacon", "Control System"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T7_05",
+      "scannedCompounds": ["Biological Presence: Massive", "Water Tank Origin"],
+      "possibleItems": ["Shrimp God Entity", "Industrial Reactor", "Storage Tank"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T7_06",
+      "scannedCompounds": ["Scanner Refuses Classification"],
+      "possibleItems": ["Unknown Existence", "Corrupted Data", "Device Failure"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T7_07",
+      "scannedCompounds": ["Multiple Impossible Readings", "Reality Instability"],
+      "possibleItems": ["Containment Collapse", "Environmental Glitch", "System Overload"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T7_08",
+      "scannedCompounds": ["Shrimp DNA: 100%", "Mass Increasing"],
+      "possibleItems": ["Ultimate Shrimp Form", "Genetic Sludge", "Protein Cluster"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T7_09",
+      "scannedCompounds": ["Observer Effect Detected"],
+      "possibleItems": ["Entity Acknowledgement", "Sensor Feedback", "Mental Stress"],
+      "correctAnswer": 0
+    },
+    {
+      "evidenceName": "T7_10",
+      "scannedCompounds": ["No Data Returned", "Presence Confirmed"],
+      "possibleItems": ["Unknowable Entity", "Scanner Shutdown", "Total Failure"],
+      "correctAnswer": 0
     }
   ]
 }

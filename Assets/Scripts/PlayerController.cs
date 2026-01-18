@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float crawlMultiplier = 0.75f;
 
     [Header("Look Sensitivity")]
-    [SerializeField] private float mouseSensitivity = 2.0f;
+    [SerializeField] private float mouseSensitivity => GameSettings.Instance.mouseSensitivity;
     [SerializeField] private float upDownRange = 80.0f;
 
     [Header("Jump Parameters")]
@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

@@ -21,6 +21,7 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string itemUp = "ItemUp";
     [SerializeField] private string itemDown = "ItemDown";
     [SerializeField] private string itemSelect = "ItemSelect";
+    [SerializeField] private string escape = "Escape";
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -31,6 +32,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction itemUpAction;
     private InputAction itemDownAction;
     private InputAction itemSelectAction;
+    private InputAction escapeAction;
 
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
@@ -42,6 +44,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool ItemUpTriggered { get; private set; }
     public bool ItemDownTriggered { get; private set; }
     public bool ItemSelectTriggered { get; private set; }
+    public bool EscapeTriggered { get; private set; }
 
     public static PlayerInputHandler Instance { get; private set; }
 
@@ -50,7 +53,6 @@ public class PlayerInputHandler : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -66,6 +68,7 @@ public class PlayerInputHandler : MonoBehaviour
         itemUpAction = playerControls.FindActionMap(actionMapName).FindAction(itemUp);
         itemDownAction = playerControls.FindActionMap(actionMapName).FindAction(itemDown);
         itemSelectAction = playerControls.FindActionMap(actionMapName).FindAction(itemSelect);
+        escapeAction = playerControls.FindActionMap(actionMapName).FindAction(escape);
         RegisterInputActions();
     }
 
@@ -99,6 +102,9 @@ public class PlayerInputHandler : MonoBehaviour
 
         itemSelectAction.performed += context => ItemSelectTriggered = true;
         itemSelectAction.canceled += context => ItemSelectTriggered = false;
+
+        escapeAction.performed += context => EscapeTriggered = true;
+        escapeAction.canceled += context => EscapeTriggered = false;
     }
 
     private void OnEnable()
@@ -112,6 +118,7 @@ public class PlayerInputHandler : MonoBehaviour
         itemUpAction.Enable();
         itemDownAction.Enable();
         itemSelectAction.Enable();
+        escapeAction.Enable();
     }
 
     private void OnDisable()
@@ -125,5 +132,6 @@ public class PlayerInputHandler : MonoBehaviour
         itemUpAction.Disable();
         itemDownAction.Disable();
         itemSelectAction.Disable();
+        escapeAction.Disable();
     }
 }
