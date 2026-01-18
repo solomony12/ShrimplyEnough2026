@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsMenuUI : MonoBehaviour
@@ -8,6 +9,14 @@ public class SettingsMenuUI : MonoBehaviour
     public Slider sfxSlider;
     public Slider voiceSlider;
     public Slider sensitivitySlider;
+
+    public Button resumeButton;
+    public Button mainMenuButton;
+
+    private const string mainMenuSceneString = "MainMenu";
+    private const string settingsSceneString = "Settings";
+
+    private PlayerController playerController;
 
     private void Start()
     {
@@ -22,6 +31,16 @@ public class SettingsMenuUI : MonoBehaviour
         sfxSlider.onValueChanged.AddListener(OnSFXChanged);
         voiceSlider.onValueChanged.AddListener(OnVoiceChanged);
         sensitivitySlider.onValueChanged.AddListener(OnSensitivityChanged);
+
+        // Check which screen
+        if (SceneManager.GetActiveScene().name == mainMenuSceneString)
+        {
+            resumeButton.interactable = false;
+        }
+        else
+        {
+            resumeButton.interactable = true;
+        }
     }
 
     public void OnMusicChanged(float value)
@@ -46,5 +65,35 @@ public class SettingsMenuUI : MonoBehaviour
     {
         GameSettings.Instance.mouseSensitivity = value;
         GameSettings.Instance.SaveSettings();
+    }
+
+    public void ResumeGame()
+    {
+        if (!SceneManager.GetSceneByName(mainMenuSceneString).isLoaded)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            if (playerController == null)
+                playerController = PlayerController.Instance;
+            playerController.EnablePlayerControl();
+        }
+        if (SceneManager.GetSceneByName(settingsSceneString).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(settingsSceneString);
+        }
+    }
+
+    public void MainMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (SceneManager.GetSceneByName(mainMenuSceneString).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(settingsSceneString);
+        }
+        else
+        {
+            SceneManager.LoadScene(mainMenuSceneString);
+        }
     }
 }
