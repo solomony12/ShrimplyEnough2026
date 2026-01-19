@@ -14,6 +14,14 @@ public class SceneTransition : MonoBehaviour
 
     public static bool IsTransitioning = false;
 
+    [Header("GameObjects")]
+    private Camera mainCamera;
+    private GameObject player;
+    private GameObject scanner;
+    private GameObject canvas;
+
+    private Animator cameraAnimator;
+
     private void Awake()
     {
         if (Instance == null)
@@ -75,5 +83,62 @@ public class SceneTransition : MonoBehaviour
         }
 
         fadeImage.color = new Color(0, 0, 0, endAlpha);
+    }
+
+    public void StartOpeningCutscene(string sceneName)
+    {
+        StartCoroutine(FadeAndLoadOpening(sceneName));
+    }
+
+    private IEnumerator FadeAndLoadOpening(string sceneName)
+    {
+        // Block clicks
+        canvasGroup.blocksRaycasts = true;
+        IsTransitioning = true;
+
+        // Fade in
+        yield return StartCoroutine(Fade(0f, 2f));
+
+        // Load the new scene
+        yield return SceneManager.LoadSceneAsync(sceneName);
+
+        // Set variables upon scene loaded
+        mainCamera = Camera.main;
+        player = GameObject.FindWithTag("Player");
+        scanner = GameObject.FindWithTag("Scanner");
+        canvas = GameObject.FindWithTag("GameCanvas");
+        cameraAnimator = mainCamera.GetComponent<Animator>();
+        cameraAnimator.ResetTrigger("StartZoomingOut");
+        PlayerController.DisablePlayerControl();
+
+        // Set views (animation for camera is already set)
+        scanner.SetActive(false);
+        canvas.SetActive(false);
+
+        // Fade out
+        yield return StartCoroutine(Fade(0.5f, 0f));
+
+        // Allow clicks again
+        canvasGroup.blocksRaycasts = false;
+
+        float zoomLength = 10f;
+        float lengthOfVideoMinusZoom = 15f - zoomLength;
+        yield return new WaitForSeconds(lengthOfVideoMinusZoom);
+
+        // As the video nears the end, we start zooming out
+        cameraAnimator.SetTrigger("StartZoomingOut");
+
+        yield return new WaitForSeconds(zoomLength);
+
+        // Start game
+        scanner.SetActive(true);
+        canvas.SetActive(true);
+        Captions.Instance.HideCaptions(0f);
+        Destroy(cameraAnimator); // this is cause it breaks the camera crouching
+        PlayerController.Instance.StartingPositionSet(0.2f);
+        yield return new WaitForSeconds(0.2f);
+        IsTransitioning = false;
+        PlayerController.EnablePlayerControl();
+        Captions.Instance.TimedShowCaptions("Explore the factory", 7f);
     }
 }

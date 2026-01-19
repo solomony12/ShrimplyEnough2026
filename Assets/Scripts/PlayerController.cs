@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -37,9 +38,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraStandingHeight = 1.6f;
     [SerializeField] private float cameraCrawlingHeight = 0.8f;
 
+    [Header("Starting Information")]
+    private Vector3 gameStartPlayerPos = new Vector3(13.2f, 1.08f, 1.4f);
+    private Vector3 gameStartCameraRot = new Vector3(351.826538f, 0f, 0f);
+
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerInputHandler inputHandler;
+    private GameObject player;
     private Vector3 currentMovement;
     private float verticalRotation;
     private static bool canControlCharacter;
@@ -60,6 +66,7 @@ public class PlayerController : MonoBehaviour
 
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
+        player = GameObject.FindWithTag("Player");
         inputHandler = PlayerInputHandler.Instance;
         cameraPivot = mainCamera.transform;
         canControlCharacter = true;
@@ -191,4 +198,36 @@ public class PlayerController : MonoBehaviour
         verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
         mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
+
+    public void StartingPositionSet(float duration = 1f)
+    {
+        StopAllCoroutines();
+        StartCoroutine(LerpToStart(duration));
+    }
+
+    private IEnumerator LerpToStart(float duration)
+    {
+        Vector3 startPos = player.transform.position;
+        Quaternion startRot = mainCamera.transform.localRotation;
+
+        Vector3 targetPos = gameStartPlayerPos;
+        Quaternion targetRot = Quaternion.Euler(gameStartCameraRot);
+
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duration;
+
+            player.transform.position = Vector3.Lerp(startPos, targetPos, t);
+            mainCamera.transform.localRotation = Quaternion.Lerp(startRot, targetRot, t);
+
+            yield return null;
+        }
+
+        // Ensure exact final values
+        player.transform.position = targetPos;
+        mainCamera.transform.localRotation = targetRot;
+    }
+
 }

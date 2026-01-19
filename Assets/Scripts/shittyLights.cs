@@ -42,12 +42,7 @@ public class shittyLights : MonoBehaviour
         Debug.LogWarning("Min Intensity is greater than max Intensity, Swapping values!");
         (minIntensity, maxIntensity) = (maxIntensity, minIntensity);
     }
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Time.time > timer)
@@ -55,20 +50,28 @@ public class shittyLights : MonoBehaviour
             if (lightOn)
             {
                 timer = Time.time + Random.Range(minLightOut, maxLightOut);
-                audioSource.clip = creepySounds[UnityEngine.Random.Range(0, creepySounds.Length)];
-                audioSource.Play();
 
+                try
+                {
+                    if (audioSource != null && creepySounds != null && creepySounds.Length > 0)
+                    {
+                        audioSource.clip = creepySounds[UnityEngine.Random.Range(0, creepySounds.Length)];
+                        audioSource.Play();
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogWarning($"Audio failed, continuing lights: {e.Message}");
+                }
             }
-            else {
+            else
+            {
                 timer = Time.time + Random.Range(minTime, maxTime);
             }
+
             light2.enabled = !light2.enabled;
             lightOn = !lightOn;
-
-
-
-            //Debug.Log("erngiujewrg");
-            //timer = 
         }
     }
+
 }
