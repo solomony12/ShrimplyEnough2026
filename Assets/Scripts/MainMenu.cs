@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void Settings()
     {
+        SettingsMenuUI.SettingsIsOpen = true;
         SceneManager.LoadScene(settingsSceneName, LoadSceneMode.Additive);
     }
 

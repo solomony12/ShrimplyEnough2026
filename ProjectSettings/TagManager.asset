@@ -10,6 +10,7 @@ TagManager:
   - ScannedText
   - PossibleText
   - SelectorBox
+  - Scanner
   layers:
   - Default
   - TransparentFX

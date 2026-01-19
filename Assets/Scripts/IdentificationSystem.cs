@@ -63,7 +63,8 @@ public class IdentificationSystem : MonoBehaviour
 
     private void Update()
     {
-        if (!ScanEvidence.IsDisplayOpen) return;
+        if (!ScanEvidence.IsDisplayOpen || SettingsMenuUI.SettingsIsOpen)
+            return;
 
         inputTimer -= Time.deltaTime;
 
