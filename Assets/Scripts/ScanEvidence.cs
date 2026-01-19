@@ -22,7 +22,7 @@ public class ScanEvidence : MonoBehaviour
     private HoverCaptions evidenceCaptions;
     private IdentificationSystem identificationSystem;
 
-    [Header("Distane to Scan")]
+    [Header("Distance to Scan")]
     private float maxPlayerObjectDistance = 5f;
     private float maxCameraObjectDistance = 3f;
 
@@ -143,6 +143,8 @@ public class ScanEvidence : MonoBehaviour
         if (IsDisplayOpen) return;
 
         IsDisplayOpen = true;
+
+        evidenceCaptions.HideCaptions();
 
         Debug.Log("Evidence scanned: " + evidence.name);
 
