@@ -67,7 +67,7 @@ public class ScanEvidence : MonoBehaviour
                     isHoveringEvidence = true;
                     currentEvidence = hit.collider.gameObject;
 
-                    evidenceCaptions.ShowCaptions("Hold 'E' to scan evidence");
+                    evidenceCaptions.ShowCaptions("Hold 'Left Click' to scan evidence");
                 }
             }
         }
@@ -81,7 +81,7 @@ public class ScanEvidence : MonoBehaviour
         }
 
         // HOLD logic
-        if (inputHandler.InteractTriggered)
+        if (inputHandler.ScanTriggered)
         {
             holdTimer += Time.deltaTime;
 
