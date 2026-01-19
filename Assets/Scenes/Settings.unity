@@ -2846,6 +2846,7 @@ MonoBehaviour:
   sensitivitySlider: {fileID: 291244792}
   resumeButton: {fileID: 367500998}
   mainMenuButton: {fileID: 1696897980}
+  testSound: {fileID: 8300000, guid: c674a897bc9feee408e3fe21d8f82dc1, type: 3}
 --- !u!4 &1569808485
 Transform:
   m_ObjectHideFlags: 0
