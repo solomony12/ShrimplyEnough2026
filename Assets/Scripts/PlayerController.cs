@@ -69,9 +69,6 @@ public class PlayerController : MonoBehaviour
         inputHandler = PlayerInputHandler.Instance;
         cameraPivot = mainCamera.transform;
         canControlCharacter = true;
-
-        player.transform.position = gameStartPlayerPos;
-        mainCamera.transform.localRotation = Quaternion.Euler(gameStartCameraRot);
     }
 
     public static void EnablePlayerControl()
@@ -199,5 +196,11 @@ public class PlayerController : MonoBehaviour
         verticalRotation -= inputHandler.LookInput.y * mouseSensitivity;
         verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
         mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+    }
+
+    public void StartingPositionSet()
+    {
+        player.transform.position = gameStartPlayerPos;
+        mainCamera.transform.localRotation = Quaternion.Euler(gameStartCameraRot);
     }
 }
