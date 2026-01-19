@@ -33,6 +33,8 @@ public class ScanEvidence : MonoBehaviour
 
     public static bool IsDisplayOpen = false;
 
+    [SerializeField] private AudioClip scannedClip;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -49,6 +51,8 @@ public class ScanEvidence : MonoBehaviour
 
         if (evidenceCaptions == null)
             Debug.LogError("HoverCaptions.Instance is NULL!");
+
+        scannedClip = Resources.Load<AudioClip>("Sounds/correct-156911");
     }
 
     void Update()
@@ -143,6 +147,8 @@ public class ScanEvidence : MonoBehaviour
         if (IsDisplayOpen) return;
 
         IsDisplayOpen = true;
+
+        AudioManager.Instance.PlaySFX(scannedClip);
 
         evidenceCaptions.HideCaptions();
 
