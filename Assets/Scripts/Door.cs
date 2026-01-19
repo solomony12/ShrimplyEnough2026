@@ -9,16 +9,19 @@ public class Door : MonoBehaviour
     [SerializeField] private float openAngle = 90f;
     [SerializeField] private float openSpeed = 4f;
 
+    [Header("One Way Door")]
+    [SerializeField] private bool oneWay = false;
+
     private bool isOpen = false;
+    private bool locked = false;
+
     private Quaternion closedRot;
     private Quaternion openRot;
 
     private void Awake()
     {
         if (hinge == null)
-        {
             hinge = transform;
-        }
 
         closedRot = hinge.localRotation;
         openRot = closedRot * Quaternion.Euler(0, openAngle, 0);
@@ -32,6 +35,19 @@ public class Door : MonoBehaviour
 
     public void ToggleDoor()
     {
+        if (locked) return;   // locked doors can't open
+
         isOpen = !isOpen;
+    }
+
+    public void CloseAndLock()
+    {
+        isOpen = false;
+        locked = true;
+    }
+
+    public bool IsOneWay()
+    {
+        return oneWay;
     }
 }
