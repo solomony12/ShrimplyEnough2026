@@ -37,9 +37,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraStandingHeight = 1.6f;
     [SerializeField] private float cameraCrawlingHeight = 0.8f;
 
+    [Header("Starting Information")]
+    private Vector3 gameStartPlayerPos = new Vector3(13.2f, 1.08f, 1.4f);
+    private Vector3 gameStartCameraRot = new Vector3(351.826538f, 0f, 0f);
+
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerInputHandler inputHandler;
+    private GameObject player;
     private Vector3 currentMovement;
     private float verticalRotation;
     private static bool canControlCharacter;
@@ -60,9 +65,13 @@ public class PlayerController : MonoBehaviour
 
         characterController = GetComponent<CharacterController>();
         mainCamera = Camera.main;
+        player = GameObject.FindWithTag("Player");
         inputHandler = PlayerInputHandler.Instance;
         cameraPivot = mainCamera.transform;
         canControlCharacter = true;
+
+        player.transform.position = gameStartPlayerPos;
+        mainCamera.transform.localRotation = Quaternion.Euler(gameStartCameraRot);
     }
 
     public static void EnablePlayerControl()

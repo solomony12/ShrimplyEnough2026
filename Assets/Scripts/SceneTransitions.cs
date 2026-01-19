@@ -14,6 +14,13 @@ public class SceneTransition : MonoBehaviour
 
     public static bool IsTransitioning = false;
 
+    [Header("GameObjects")]
+    private Camera mainCamera;
+    private GameObject player;
+    private GameObject scanner;
+
+    private Animator cameraAnimator;
+
     private void Awake()
     {
         if (Instance == null)
@@ -75,5 +82,55 @@ public class SceneTransition : MonoBehaviour
         }
 
         fadeImage.color = new Color(0, 0, 0, endAlpha);
+    }
+
+    public void StartOpeningCutscene(string sceneName)
+    {
+        StartCoroutine(FadeAndLoadOpening(sceneName));
+    }
+
+    private IEnumerator FadeAndLoadOpening(string sceneName)
+    {
+        // Block clicks
+        canvasGroup.blocksRaycasts = true;
+        IsTransitioning = true;
+
+        // Fade in
+        yield return StartCoroutine(Fade(0f, 2f));
+
+        // Load the new scene
+        yield return SceneManager.LoadSceneAsync(sceneName);
+
+        // Set variables upon scene loaded
+        mainCamera = Camera.main;
+        player = GameObject.FindWithTag("Player");
+        scanner = GameObject.FindWithTag("Scanner");
+        cameraAnimator = mainCamera.GetComponent<Animator>();
+        cameraAnimator.ResetTrigger("StartZoomingOut");
+        PlayerController.DisablePlayerControl();
+
+        // Set views (animation for camera is already set)
+        scanner.SetActive(false);
+
+        // Fade out
+        yield return StartCoroutine(Fade(0.5f, 0f));
+
+        float zoomLength = 10f;
+        float lengthOfVideoMinusZoom = 15f - zoomLength;
+        yield return new WaitForSeconds(lengthOfVideoMinusZoom);
+
+        // As the video nears the end, we start zooming out
+        cameraAnimator.SetTrigger("StartZoomingOut");
+
+        yield return new WaitForSeconds(zoomLength);
+
+        // Allow clicks again
+        canvasGroup.blocksRaycasts = false;
+        IsTransitioning = false;
+
+        // Start game
+        scanner.SetActive(true);
+        Destroy(cameraAnimator); // this is cause it breaks the camera crouching
+        PlayerController.EnablePlayerControl();
     }
 }

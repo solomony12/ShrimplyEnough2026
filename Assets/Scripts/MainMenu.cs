@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        SceneTransition.Instance.StartTransition(playSceneName);
+        SceneTransition.Instance.StartOpeningCutscene(playSceneName);
     }
 
     public void Credits()
