@@ -14,6 +14,7 @@ public class VideoEndDetector : MonoBehaviour
 
     void OnVideoFinished(VideoPlayer vp)
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.UnloadSceneAsync(videoScene);
     }
 }

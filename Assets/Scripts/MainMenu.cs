@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void Tutorial()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene(tutorialSceneName, LoadSceneMode.Additive);
         playButton.interactable = true;
     }
