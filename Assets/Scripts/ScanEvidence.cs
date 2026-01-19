@@ -33,6 +33,12 @@ public class ScanEvidence : MonoBehaviour
 
     public static bool IsDisplayOpen = false;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip scannedClip;
+    [SerializeField] private AudioClip scanningClip;
+    [SerializeField] private float scanningPlayInterval = 0.5f;
+    private float scanningCooldown = 0f;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -49,6 +55,9 @@ public class ScanEvidence : MonoBehaviour
 
         if (evidenceCaptions == null)
             Debug.LogError("HoverCaptions.Instance is NULL!");
+
+        scannedClip = Resources.Load<AudioClip>("Sounds/correct-156911");
+        scanningClip = Resources.Load<AudioClip>("Sounds/doorscan-102283");
     }
 
     void Update()
@@ -103,6 +112,13 @@ public class ScanEvidence : MonoBehaviour
             isScanning = true;
             holdTimer += Time.deltaTime;
 
+            scanningCooldown -= Time.deltaTime;
+            if (scanningCooldown <= 0f)
+            {
+                AudioManager.Instance.PlaySFX(scanningClip, 2f);
+                scanningCooldown = scanningPlayInterval;
+            }
+
             if (holdTimer >= holdTimeToScan)
             {
                 SelectedEvidence(currentEvidence);
@@ -115,7 +131,9 @@ public class ScanEvidence : MonoBehaviour
             // Player released hold
             isScanning = false;
             holdTimer = 0f;
+            scanningCooldown = 0f;
         }
+
     }
 
     void HandleScannerLerp()
@@ -143,6 +161,8 @@ public class ScanEvidence : MonoBehaviour
         if (IsDisplayOpen) return;
 
         IsDisplayOpen = true;
+
+        AudioManager.Instance.PlaySFX(scannedClip);
 
         evidenceCaptions.HideCaptions();
 
