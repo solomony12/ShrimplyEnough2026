@@ -134,6 +134,7 @@ public class SceneTransition : MonoBehaviour
         // Start game
         scanner.SetActive(true);
         canvas.SetActive(true);
+        Captions.Instance.HideCaptions(0f);
         Destroy(cameraAnimator); // this is cause it breaks the camera crouching
         PlayerController.Instance.StartingPositionSet(0.2f);
         yield return new WaitForSeconds(0.2f);
