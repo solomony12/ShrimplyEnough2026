@@ -12,6 +12,7 @@ TagManager:
   - SelectorBox
   - Scanner
   - GameCanvas
+  - Door
   layers:
   - Default
   - TransparentFX
