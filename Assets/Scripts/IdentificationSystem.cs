@@ -39,6 +39,8 @@ public class IdentificationSystem : MonoBehaviour
     private float inputDelay = 0.15f;
     private float inputTimer = 0f;
 
+    [SerializeField] private AudioClip uiClip;
+
     private void Awake()
     {
         if (Instance == null)
@@ -57,6 +59,8 @@ public class IdentificationSystem : MonoBehaviour
         possibleItemClones = new List<TMP_Text>();
 
         currentIndex = 0;
+
+        uiClip = Resources.Load<AudioClip>("Sounds/ui-button-sound-cancel-back-exit-continue-467877");
 
         ReadJsonForEvidence();
     }
@@ -244,6 +248,8 @@ public class IdentificationSystem : MonoBehaviour
 
     void HandleItemSelection()
     {
+        AudioManager.Instance.PlaySFX(uiClip);
+
         int listLength = possibleItemClones.Count;
 
         if (inputHandler.ItemSelectTriggered)
