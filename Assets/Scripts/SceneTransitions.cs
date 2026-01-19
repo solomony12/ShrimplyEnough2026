@@ -18,6 +18,7 @@ public class SceneTransition : MonoBehaviour
     private Camera mainCamera;
     private GameObject player;
     private GameObject scanner;
+    private GameObject canvas;
 
     private Animator cameraAnimator;
 
@@ -105,12 +106,14 @@ public class SceneTransition : MonoBehaviour
         mainCamera = Camera.main;
         player = GameObject.FindWithTag("Player");
         scanner = GameObject.FindWithTag("Scanner");
+        canvas = GameObject.FindWithTag("GameCanvas");
         cameraAnimator = mainCamera.GetComponent<Animator>();
         cameraAnimator.ResetTrigger("StartZoomingOut");
         PlayerController.DisablePlayerControl();
 
         // Set views (animation for camera is already set)
         scanner.SetActive(false);
+        canvas.SetActive(false);
 
         // Fade out
         yield return StartCoroutine(Fade(0.5f, 0f));
@@ -130,8 +133,10 @@ public class SceneTransition : MonoBehaviour
 
         // Start game
         scanner.SetActive(true);
+        canvas.SetActive(true);
         Destroy(cameraAnimator); // this is cause it breaks the camera crouching
-        PlayerController.Instance.StartingPositionSet();
+        PlayerController.Instance.StartingPositionSet(0.2f);
+        yield return new WaitForSeconds(0.2f);
         PlayerController.EnablePlayerControl();
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - PossibleText
   - SelectorBox
   - Scanner
+  - GameCanvas
   layers:
   - Default
   - TransparentFX

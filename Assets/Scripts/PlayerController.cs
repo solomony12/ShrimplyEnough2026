@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -198,9 +199,35 @@ public class PlayerController : MonoBehaviour
         mainCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
     }
 
-    public void StartingPositionSet()
+    public void StartingPositionSet(float duration = 1f)
     {
-        player.transform.position = gameStartPlayerPos;
-        mainCamera.transform.localRotation = Quaternion.Euler(gameStartCameraRot);
+        StopAllCoroutines();
+        StartCoroutine(LerpToStart(duration));
     }
+
+    private IEnumerator LerpToStart(float duration)
+    {
+        Vector3 startPos = player.transform.position;
+        Quaternion startRot = mainCamera.transform.localRotation;
+
+        Vector3 targetPos = gameStartPlayerPos;
+        Quaternion targetRot = Quaternion.Euler(gameStartCameraRot);
+
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duration;
+
+            player.transform.position = Vector3.Lerp(startPos, targetPos, t);
+            mainCamera.transform.localRotation = Quaternion.Lerp(startRot, targetRot, t);
+
+            yield return null;
+        }
+
+        // Ensure exact final values
+        player.transform.position = targetPos;
+        mainCamera.transform.localRotation = targetRot;
+    }
+
 }
