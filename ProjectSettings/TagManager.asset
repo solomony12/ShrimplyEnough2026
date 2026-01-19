@@ -10,11 +10,12 @@ TagManager:
   - ScannedText
   - PossibleText
   - SelectorBox
+  - Scanner
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - 3DModels
   - Water
   - UI
   - 

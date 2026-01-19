@@ -22,6 +22,7 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string itemDown = "ItemDown";
     [SerializeField] private string itemSelect = "ItemSelect";
     [SerializeField] private string escape = "Escape";
+    [SerializeField] private string scan = "Scan";
 
     private InputAction moveAction;
     private InputAction lookAction;
@@ -33,6 +34,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction itemDownAction;
     private InputAction itemSelectAction;
     private InputAction escapeAction;
+    private InputAction scanAction;
 
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
@@ -45,6 +47,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool ItemDownTriggered { get; private set; }
     public bool ItemSelectTriggered { get; private set; }
     public bool EscapeTriggered { get; private set; }
+    public bool ScanTriggered { get; private set; }
 
     public static PlayerInputHandler Instance { get; private set; }
 
@@ -69,6 +72,7 @@ public class PlayerInputHandler : MonoBehaviour
         itemDownAction = playerControls.FindActionMap(actionMapName).FindAction(itemDown);
         itemSelectAction = playerControls.FindActionMap(actionMapName).FindAction(itemSelect);
         escapeAction = playerControls.FindActionMap(actionMapName).FindAction(escape);
+        scanAction = playerControls.FindActionMap(actionMapName).FindAction(scan);
         RegisterInputActions();
     }
 
@@ -105,6 +109,9 @@ public class PlayerInputHandler : MonoBehaviour
 
         escapeAction.performed += context => EscapeTriggered = true;
         escapeAction.canceled += context => EscapeTriggered = false;
+
+        scanAction.performed += context => ScanTriggered = true;
+        scanAction.canceled += context => ScanTriggered = false;
     }
 
     private void OnEnable()
@@ -119,6 +126,7 @@ public class PlayerInputHandler : MonoBehaviour
         itemDownAction.Enable();
         itemSelectAction.Enable();
         escapeAction.Enable();
+        scanAction.Enable();
     }
 
     private void OnDisable()
@@ -133,5 +141,6 @@ public class PlayerInputHandler : MonoBehaviour
         itemDownAction.Disable();
         itemSelectAction.Disable();
         escapeAction.Disable();
+        scanAction.Disable();
     }
 }

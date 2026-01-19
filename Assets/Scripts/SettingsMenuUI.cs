@@ -16,6 +16,8 @@ public class SettingsMenuUI : MonoBehaviour
     private const string mainMenuSceneString = "MainMenu";
     private const string settingsSceneString = "Settings";
 
+    public static bool SettingsIsOpen = false;
+
     private void Start()
     {
         // Load saved values into sliders
@@ -67,6 +69,7 @@ public class SettingsMenuUI : MonoBehaviour
 
     public void ResumeGame()
     {
+        SettingsIsOpen = false;
         if (!SceneManager.GetSceneByName(mainMenuSceneString).isLoaded)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -82,6 +85,7 @@ public class SettingsMenuUI : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        SettingsIsOpen = false;
 
         if (SceneManager.GetSceneByName(mainMenuSceneString).isLoaded)
         {

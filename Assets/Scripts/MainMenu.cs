@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [Header("Scene Names")]
-    [SerializeField] private string playSceneName = "SampleScene";
-    [SerializeField] private string creditsSceneName = "CreditsScene";
-    [SerializeField] private string settingsSceneName = "Settings";
+    [SerializeField] private const string playSceneName = "1_IntroScene";
+    [SerializeField] private const string creditsSceneName = "CreditsScene";
+    [SerializeField] private const string settingsSceneName = "Settings";
 
     public void Play()
     {
@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void Settings()
     {
+        SettingsMenuUI.SettingsIsOpen = true;
         SceneManager.LoadScene(settingsSceneName, LoadSceneMode.Additive);
     }
 

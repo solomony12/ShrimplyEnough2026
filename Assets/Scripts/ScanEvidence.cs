@@ -8,6 +8,15 @@ public class ScanEvidence : MonoBehaviour
 {
     private Camera mainCamera;
     private GameObject player;
+    private GameObject scanner;
+
+    [Header("Scanner Info")]
+    private Vector3 scannerOrigPos = new Vector3(0.47f, -0.362f, 0.748f);
+    private Vector3 scannerOrigRot = Vector3.zero;
+    private Vector3 scannerNewPos = new Vector3(0.056694299f, -0.383044481f, 0.784358799f);
+    private Vector3 scannerNewRot = new Vector3(12.8708248f, 17.9218407f, 359.800537f);
+    [SerializeField] private float scannerLerpSpeed = 8f;
+    private bool isScanning = false;
 
     private PlayerInputHandler inputHandler;
     private HoverCaptions evidenceCaptions;
@@ -28,6 +37,9 @@ public class ScanEvidence : MonoBehaviour
     {
         mainCamera = Camera.main;
         player = GameObject.FindWithTag("Player");
+        scanner = GameObject.FindWithTag("Scanner");
+        scanner.transform.position = scannerOrigPos;
+        scanner.transform.rotation = Quaternion.Euler(scannerOrigRot);
         evidenceCaptions = HoverCaptions.Instance;
         inputHandler = PlayerInputHandler.Instance;
         identificationSystem = IdentificationSystem.Instance;
@@ -42,10 +54,14 @@ public class ScanEvidence : MonoBehaviour
     void Update()
     {
         HandleScan();
+        HandleScannerLerp();
     }
 
     void HandleScan()
     {
+        if (IsDisplayOpen || SettingsMenuUI.SettingsIsOpen)
+            return;
+
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
 
@@ -67,7 +83,7 @@ public class ScanEvidence : MonoBehaviour
                     isHoveringEvidence = true;
                     currentEvidence = hit.collider.gameObject;
 
-                    evidenceCaptions.ShowCaptions("Hold 'E' to scan evidence");
+                    evidenceCaptions.ShowCaptions("Hold 'Left Click' to scan evidence");
                 }
             }
         }
@@ -76,26 +92,50 @@ public class ScanEvidence : MonoBehaviour
         {
             currentEvidence = null;
             holdTimer = 0f;
+            isScanning = false;
             evidenceCaptions.HideCaptions();
             return;
         }
 
         // HOLD logic
-        if (inputHandler.InteractTriggered)
+        if (inputHandler.ScanTriggered)
         {
+            isScanning = true;
             holdTimer += Time.deltaTime;
 
             if (holdTimer >= holdTimeToScan)
             {
                 SelectedEvidence(currentEvidence);
                 holdTimer = 0f;
+                isScanning = false;
             }
         }
         else
         {
             // Player released hold
+            isScanning = false;
             holdTimer = 0f;
         }
+    }
+
+    void HandleScannerLerp()
+    {
+        if (scanner == null) return;
+
+        Vector3 targetPos = isScanning ? scannerNewPos : scannerOrigPos;
+        Quaternion targetRot = Quaternion.Euler(isScanning ? scannerNewRot : scannerOrigRot);
+
+        scanner.transform.localPosition = Vector3.Lerp(
+            scanner.transform.localPosition,
+            targetPos,
+            Time.deltaTime * scannerLerpSpeed
+        );
+
+        scanner.transform.localRotation = Quaternion.Lerp(
+            scanner.transform.localRotation,
+            targetRot,
+            Time.deltaTime * scannerLerpSpeed
+        );
     }
 
     private void SelectedEvidence(GameObject evidence)

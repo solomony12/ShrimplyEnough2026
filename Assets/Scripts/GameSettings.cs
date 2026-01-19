@@ -55,8 +55,10 @@ public class GameSettings : MonoBehaviour
     {
         string settingsSceneString = "Settings";
 
+        // Resume
         if (SceneManager.GetSceneByName(settingsSceneString).isLoaded)
         {
+            SettingsMenuUI.SettingsIsOpen = false;
             if (!ScanEvidence.IsDisplayOpen)
             {
                 Cursor.lockState = CursorLockMode.Locked;
@@ -64,8 +66,10 @@ public class GameSettings : MonoBehaviour
             }
             SceneManager.UnloadSceneAsync(settingsSceneString);
         }
+        // Pause
         else
         {
+            SettingsMenuUI.SettingsIsOpen = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             PlayerController.DisablePlayerControl();
