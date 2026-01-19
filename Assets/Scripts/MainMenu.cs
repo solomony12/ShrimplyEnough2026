@@ -1,12 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     [Header("Scene Names")]
     [SerializeField] private const string playSceneName = "1_IntroScene";
-    [SerializeField] private const string creditsSceneName = "CreditsScene";
+    [SerializeField] private const string tutorialSceneName = "TutorialVideo";
     [SerializeField] private const string settingsSceneName = "Settings";
+
+    public Button playButton;
+
+    private void Awake()
+    {
+        playButton.interactable = false;
+    }
 
     public void Play()
     {
@@ -14,9 +22,11 @@ public class MainMenu : MonoBehaviour
         SceneTransition.Instance.StartOpeningCutscene(playSceneName);
     }
 
-    public void Credits()
+    public void Tutorial()
     {
-        SceneManager.LoadScene(creditsSceneName);
+        Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene(tutorialSceneName, LoadSceneMode.Additive);
+        playButton.interactable = true;
     }
 
     public void Settings()
