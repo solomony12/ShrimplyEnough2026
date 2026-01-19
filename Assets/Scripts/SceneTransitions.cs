@@ -118,6 +118,10 @@ public class SceneTransition : MonoBehaviour
         // Fade out
         yield return StartCoroutine(Fade(0.5f, 0f));
 
+        // Allow clicks again
+        canvasGroup.blocksRaycasts = false;
+        IsTransitioning = false;
+
         float zoomLength = 10f;
         float lengthOfVideoMinusZoom = 15f - zoomLength;
         yield return new WaitForSeconds(lengthOfVideoMinusZoom);
@@ -126,10 +130,6 @@ public class SceneTransition : MonoBehaviour
         cameraAnimator.SetTrigger("StartZoomingOut");
 
         yield return new WaitForSeconds(zoomLength);
-
-        // Allow clicks again
-        canvasGroup.blocksRaycasts = false;
-        IsTransitioning = false;
 
         // Start game
         scanner.SetActive(true);

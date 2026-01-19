@@ -889,6 +889,88 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5730862460310306472, guid: 0adb85355ecdc8140948c18fd12ad08b, type: 3}
   m_PrefabInstance: {fileID: 177687254}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &193898913
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1590754883}
+    m_Modifications:
+    - target: {fileID: 267350639836934356, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 267350639836934356, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_Intensity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 267350639836934356, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_SpotAngle
+      value: 51.081657
+      objectReference: {fileID: 0}
+    - target: {fileID: 267350639836934356, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 5.651697
+      objectReference: {fileID: 0}
+    - target: {fileID: 267350639836934356, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_ColorTemperature
+      value: 7471
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.690001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.08498535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.9728985
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.062506646
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.20576434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 168.984
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 23.395004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -5.0650024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206307099792946913, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+      propertyPath: m_Name
+      value: Warm Spot Light (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+--- !u!4 &193898914 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1441226032683454935, guid: 1b1bd10d6e4517a49a216b13e377cb4a, type: 3}
+  m_PrefabInstance: {fileID: 193898913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &260653455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,6 +4963,7 @@ Transform:
   - {fileID: 933649864}
   - {fileID: 26771714}
   - {fileID: 1313129425}
+  - {fileID: 193898914}
   - {fileID: 599910637}
   - {fileID: 2102427432}
   - {fileID: 1402023966}
