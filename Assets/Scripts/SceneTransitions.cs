@@ -120,7 +120,6 @@ public class SceneTransition : MonoBehaviour
 
         // Allow clicks again
         canvasGroup.blocksRaycasts = false;
-        IsTransitioning = false;
 
         float zoomLength = 10f;
         float lengthOfVideoMinusZoom = 15f - zoomLength;
@@ -138,6 +137,7 @@ public class SceneTransition : MonoBehaviour
         Destroy(cameraAnimator); // this is cause it breaks the camera crouching
         PlayerController.Instance.StartingPositionSet(0.2f);
         yield return new WaitForSeconds(0.2f);
+        IsTransitioning = false;
         PlayerController.EnablePlayerControl();
         Captions.Instance.TimedShowCaptions("Explore the factory", 7f);
     }
