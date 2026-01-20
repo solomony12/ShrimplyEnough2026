@@ -1,8 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorEntryTrigger : MonoBehaviour
 {
     private Door door;
+
+    private bool isLoaded = false;
+
+    public string previousSectionName;
 
     private void Awake()
     {
@@ -12,12 +17,15 @@ public class DoorEntryTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (door == null) return;
-
         if (!door.IsOneWay()) return;
+        if (!other.CompareTag("Player")) return;
 
-        if (other.CompareTag("Player"))
+        door.CloseAndLock();
+
+        if (!isLoaded)
         {
-            door.CloseAndLock();
+            isLoaded = true;
+            TransitionManager.Instance.UnloadSection(previousSectionName);
         }
     }
 }
