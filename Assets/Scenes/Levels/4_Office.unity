@@ -23683,6 +23683,7 @@ GameObject:
   - component: {fileID: 1495682216}
   - component: {fileID: 1495682215}
   - component: {fileID: 1495682214}
+  - component: {fileID: 1495682219}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -23789,6 +23790,18 @@ Transform:
   - {fileID: 686719081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 15, z: 0}
+--- !u!114 &1495682219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495682213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e914cfc98a01e024694974c10c338a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerChairInteraction
 --- !u!1 &1499375715
 GameObject:
   m_ObjectHideFlags: 0

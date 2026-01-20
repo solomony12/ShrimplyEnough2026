@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
+      propertyPath: m_TagString
+      value: Chair
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -477,6 +481,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1248877797745564851}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2282243647340798171}
   m_SourcePrefab: {fileID: 100100000, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
 --- !u!4 &3682497044510529629 stripped
 Transform:
@@ -510,6 +517,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7759331768739107841, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
+--- !u!114 &2282243647340798171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4058036978733122279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ad99e03538d964aaeabef8f350f4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChairSwivel
+  swivelAmount: 10
 --- !u!1001 &4602058712187708136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -582,6 +602,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
+      propertyPath: m_TagString
+      value: Chair
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -589,6 +613,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7483087554603427097}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3128095674399033707}
   m_SourcePrefab: {fileID: 100100000, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
 --- !u!1 &3683000933613936569 stripped
 GameObject:
@@ -617,6 +644,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7759331768739107841, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
+--- !u!114 &3128095674399033707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683000933613936569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ad99e03538d964aaeabef8f350f4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChairSwivel
+  swivelAmount: 10
 --- !u!4 &4059842753424377091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dfa4691070a34eb479c5bf7f7cd4510d, type: 3}
