@@ -39,6 +39,15 @@ public class DoorInteraction : MonoBehaviour
                     door.ToggleDoor();
                 }
             }
+            if (hit.collider.CompareTag("LevelDoor"))
+            {
+                ChangeLevel door = hit.collider.GetComponent<ChangeLevel>();
+
+                if (door != null)
+                {
+                    door.MoveToNextLevel();
+                }
+            }
         }
     }
 }

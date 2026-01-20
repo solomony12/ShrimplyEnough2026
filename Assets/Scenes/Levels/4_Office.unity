@@ -11174,7 +11174,6 @@ GameObject:
   - component: {fileID: 686719085}
   - component: {fileID: 686719084}
   - component: {fileID: 686719083}
-  - component: {fileID: 686719082}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11198,28 +11197,6 @@ Transform:
   - {fileID: 1981478735}
   m_Father: {fileID: 1495682218}
   m_LocalEulerAnglesHint: {x: 351.82654, y: 0, z: 0}
---- !u!95 &686719082
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 686719080}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 030e4900b7c9220449204f7bd9b01fbe, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &686719083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24662,14 +24639,14 @@ MonoBehaviour:
   upDownRange: 80
   jumpForce: 3
   gravity: 9.81
-  standingHeight: 2
+  standingHeight: 3
   crawlingHeight: 1
   crawlTransitionTime: 0.25
   obstructionMask:
     serializedVersion: 2
     m_Bits: 8
   cameraPivot: {fileID: 0}
-  cameraStandingHeight: 1.6
+  cameraStandingHeight: 2
   cameraCrawlingHeight: 0.8
 --- !u!143 &1495682217
 CharacterController:
