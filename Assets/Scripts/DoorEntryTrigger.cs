@@ -5,10 +5,6 @@ public class DoorEntryTrigger : MonoBehaviour
 {
     private Door door;
 
-    private bool isLoaded = false;
-
-    public string previousSectionName;
-
     private void Awake()
     {
         door = GetComponentInParent<Door>();
@@ -21,11 +17,5 @@ public class DoorEntryTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         door.CloseAndLock();
-
-        if (!isLoaded)
-        {
-            isLoaded = true;
-            TransitionManager.Instance.UnloadSection(previousSectionName);
-        }
     }
 }

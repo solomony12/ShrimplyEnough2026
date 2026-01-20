@@ -49,6 +49,7 @@ public class TransitionManager : MonoBehaviour
 
     public IEnumerator UnloadSection(string sectionName)
     {
+        Debug.Log("Unloading scene: " + sectionName);
         yield return SceneManager.UnloadSceneAsync(sectionName);
     }
 
@@ -87,6 +88,8 @@ public class TransitionManager : MonoBehaviour
         // ----- ROTATION -----
         Quaternion deltaRotation = Quaternion.FromToRotation(anchor.forward, anchorToMatch.forward);
         container.transform.rotation = deltaRotation * container.transform.rotation;
+
+        Physics.SyncTransforms();
     }
 
 }
