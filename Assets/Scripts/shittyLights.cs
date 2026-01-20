@@ -6,12 +6,12 @@ using UnityEngine.Audio;
 public class shittyLights : MonoBehaviour
 {
     private Light light2;
-    [SerializeField, Range(0f, 3f)] private float minIntensity = 0.1f;
-    [SerializeField, Range(0f, 3f)] private float maxIntensity = 1.2f;
-    [SerializeField, Range(0f, 3f)] float minTime;
-    [SerializeField, Range(0f, 3f)] float maxTime;
-    [SerializeField, Range(0f, 3f)] float minLightOut;
-    [SerializeField, Range(0f, 3f)] float maxLightOut;
+    [Range(0f, 3f)] public float minIntensity = 0.1f;
+    [Range(0f, 3f)] public float maxIntensity = 1.2f;
+    [Range(0f, 3f)] public float minTime;
+    [Range(0f, 3f)] public float maxTime;
+    [Range(0f, 3f)] public float minLightOut;
+    [Range(0f, 3f)] public float maxLightOut;
     [SerializeField] public AudioSource audioSource;
     [SerializeField] AudioClip[] creepySounds;
     private bool lightOn=true;

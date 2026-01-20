@@ -13,6 +13,8 @@ TagManager:
   - Scanner
   - GameCanvas
   - Door
+  - Chair
+  - LevelDoor
   layers:
   - Default
   - TransparentFX
