@@ -7,6 +7,12 @@
       "possibleItems": ["Water", "Sugar Water", "Blood"],
       "correctAnswer": 1
     },
+    {
+      "evidenceName": "TubDisplay_01",
+      "scannedCompounds": ["Polyethylene Resin: 60%", "Acrylic Polymer Blend: 20%", "ABS Plastic Compound: 15%", "Unidentified Synthetic Additive: 5%"],
+      "possibleItems": ["Fake Display", "Rubber Duck", "Toy Brick"],
+      "correctAnswer": 0
+    },
 
 
 
