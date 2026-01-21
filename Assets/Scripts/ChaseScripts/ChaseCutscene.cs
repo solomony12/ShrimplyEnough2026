@@ -40,6 +40,8 @@ public class ChaseCutscene : MonoBehaviour
     {
         isChasePlaying = true;
 
+        Captions.Instance.TimedShowCaptions("What's that sound?", 3f);
+
         // Disable current player movements
         PlayerController.DisablePlayerControl();
 
@@ -90,6 +92,9 @@ public class ChaseCutscene : MonoBehaviour
 
         // Hide scanner
         scanner.SetActive(false);
+        Destroy(cameraAnimator);
+
+        Captions.Instance.TimedShowCaptions("Run", 3f);
 
         PlayerController.EnablePlayerControl();
         PlayerController.RunningConstantly();
