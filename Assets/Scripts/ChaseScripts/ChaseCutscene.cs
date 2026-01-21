@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ChaseCutscene : MonoBehaviour
 {
+    public static bool isChasePlaying = false;
 
     private bool triggered = false;
 
@@ -37,6 +38,8 @@ public class ChaseCutscene : MonoBehaviour
 
     private void StartCutscene()
     {
+        isChasePlaying = true;
+
         // Disable current player movements
         PlayerController.DisablePlayerControl();
 
@@ -89,6 +92,7 @@ public class ChaseCutscene : MonoBehaviour
         scanner.SetActive(false);
 
         PlayerController.EnablePlayerControl();
+        PlayerController.RunningConstantly();
         //NewMovementSystem();
     }
 

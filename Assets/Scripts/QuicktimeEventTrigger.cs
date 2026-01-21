@@ -64,6 +64,7 @@ public class QuicktimeEventTrigger : MonoBehaviour
 
     public Action quickTimeEvent;
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         ResetQuickTimeBools();
@@ -115,6 +116,7 @@ public class QuicktimeEventTrigger : MonoBehaviour
         }
     }
 
+    
     private void Update()
     {
         if (!quickTimeActive)
@@ -173,6 +175,7 @@ public class QuicktimeEventTrigger : MonoBehaviour
             }
         }
     }
+    */
 
     private void QuickTimeSuccess()
     {
