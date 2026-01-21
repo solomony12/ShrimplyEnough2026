@@ -83,16 +83,18 @@ public class ChaseCutscene : MonoBehaviour
         slammedDoorAnimator.SetTrigger("SlamDoorOpen");
 
         // Wait til it's done
-        yield return new WaitForSeconds(6f - turnAroundFirstHalfTime);
+        yield return new WaitForSeconds(7f - turnAroundFirstHalfTime);
 
         // Hide scanner
         scanner.SetActive(false);
 
-        NewMovementSystem();
+        PlayerController.EnablePlayerControl();
+        //NewMovementSystem();
     }
 
     private void NewMovementSystem()
     {
-        Quaternion startRunningCameraAngle = Quaternion.Euler(19f, 0f, 0f);
+        mainCamera.transform.SetParent(null);
+        mainCamera.gameObject.AddComponent<ChaseMovementSystem>(); 
     }
 }
