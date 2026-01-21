@@ -884,6 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baef3d979a1ab9142afb4afee0b39175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChaseCutscene
+  scanner: {fileID: 1221599614}
   enemy: {fileID: 92547400}
   cameraAnimator: {fileID: 30439270}
   slammedDoorAnimator: {fileID: 1849404338}

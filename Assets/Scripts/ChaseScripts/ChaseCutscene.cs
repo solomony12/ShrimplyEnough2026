@@ -8,19 +8,20 @@ public class ChaseCutscene : MonoBehaviour
 
     private Camera mainCamera;
     private GameObject player;
+    public GameObject scanner;
 
     public GameObject enemy;
 
     [Header("Animators")]
     public Animator cameraAnimator;
     public Animator slammedDoorAnimator;
-    public Animator scannerAnimator;
 
     private void Awake()
     {
         mainCamera = Camera.main;
         player = GameObject.FindWithTag("Player");
 
+        scanner.SetActive(true);
         enemy.SetActive(false);
     }
 
@@ -78,11 +79,14 @@ public class ChaseCutscene : MonoBehaviour
         float turnAroundFirstHalfTime = 4f;
         yield return new WaitForSeconds(turnAroundFirstHalfTime);
 
-        // Cult mmber appears
+        // Cult member appears
         slammedDoorAnimator.SetTrigger("SlamDoorOpen");
 
         // Wait til it's done
         yield return new WaitForSeconds(6f - turnAroundFirstHalfTime);
+
+        // Hide scanner
+        scanner.SetActive(false);
 
         NewMovementSystem();
     }
