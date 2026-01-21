@@ -42,6 +42,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 gameStartPlayerPos = new Vector3(13.2f, 1.08f, 1.4f);
     private Vector3 gameStartCameraRot = new Vector3(351.826538f, 0f, 0f);
 
+    [Header("Slippery Settings")]
+    [SerializeField] private float slipperyFriction = 0.0001f;
+    private bool isOnSlipperySurface = false;
+    private Vector3 slideVelocity = Vector3.zero;
+
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerInputHandler inputHandler;
@@ -132,8 +137,22 @@ public class PlayerController : MonoBehaviour
         Vector3 worldDirection = transform.TransformDirection(inputDirections);
         worldDirection.Normalize();
 
-        currentMovement.x = worldDirection.x * speed;
-        currentMovement.z = worldDirection.z * speed;
+        Vector3 desiredMove = worldDirection * speed;
+
+        if (isOnSlipperySurface)
+        {
+            // Slide while still allowing small control
+            slideVelocity = Vector3.Lerp(slideVelocity, desiredMove, slipperyFriction);
+            currentMovement.x = slideVelocity.x;
+            currentMovement.z = slideVelocity.z;
+        }
+        else
+        {
+            slideVelocity = desiredMove;
+            currentMovement.x = desiredMove.x;
+            currentMovement.z = desiredMove.z;
+        }
+
 
         HandleJumping();
         HandleCrawling();
@@ -256,6 +275,17 @@ public class PlayerController : MonoBehaviour
         // Ensure exact final values
         player.transform.position = targetPos;
         mainCamera.transform.localRotation = targetRot;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.CompareTag("Slippery"))
+        {
+            Debug.Log("slippery");
+            isOnSlipperySurface = true;
+        }
+        else
+            isOnSlipperySurface = false;
     }
 
 }
