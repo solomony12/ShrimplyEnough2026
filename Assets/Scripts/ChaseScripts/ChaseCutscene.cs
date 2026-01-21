@@ -11,7 +11,7 @@ public class ChaseCutscene : MonoBehaviour
     private GameObject player;
     public GameObject scanner;
 
-    public GameObject enemy;
+    public GameObject enemyParent;
 
     [Header("Animators")]
     public Animator cameraAnimator;
@@ -23,7 +23,7 @@ public class ChaseCutscene : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         scanner.SetActive(true);
-        enemy.SetActive(false);
+        enemyParent.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -76,7 +76,8 @@ public class ChaseCutscene : MonoBehaviour
     private IEnumerator TurnAround()
     {
         // Show enemy
-        enemy.SetActive(true);
+        enemyParent.SetActive(true);
+        enemyParent.GetComponent<EnemyChase>().enabled = false;
 
         // Play turn around animation
         cameraAnimator.SetTrigger("TurnAround");
@@ -99,6 +100,8 @@ public class ChaseCutscene : MonoBehaviour
         PlayerController.EnablePlayerControl();
         PlayerController.RunningConstantly();
         //NewMovementSystem();
+
+        enemyParent.GetComponent<EnemyChase>().enabled = true;
     }
 
     private void NewMovementSystem()
