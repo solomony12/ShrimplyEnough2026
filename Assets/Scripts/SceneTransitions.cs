@@ -122,7 +122,7 @@ public class SceneTransition : MonoBehaviour
         canvasGroup.blocksRaycasts = false;
 
         float zoomLength = 10f;
-        float lengthOfVideoMinusZoom = 34f - zoomLength;
+        float lengthOfVideoMinusZoom = 34f - zoomLength; // TODO: 34f
         yield return new WaitForSeconds(lengthOfVideoMinusZoom);
 
         // As the video nears the end, we start zooming out
