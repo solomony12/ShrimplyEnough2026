@@ -9200,7 +9200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7266504604705274174, guid: 2154bd869e4ef694f85a68654ce4c808, type: 3}
       propertyPath: levelIndex
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9843,7 +9843,6 @@ SceneRoots:
   - {fileID: 1994028585288262999}
   - {fileID: 1364820783}
   - {fileID: 165812329}
-  - {fileID: 2840507392483513095}
   - {fileID: 6952691357751827589}
   - {fileID: 507938273}
   - {fileID: 652905124}
@@ -9851,3 +9850,4 @@ SceneRoots:
   - {fileID: 1578894892}
   - {fileID: 2054523634}
   - {fileID: 4303071058770644261}
+  - {fileID: 2840507392483513095}

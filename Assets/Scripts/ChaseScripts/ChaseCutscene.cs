@@ -87,6 +87,8 @@ public class ChaseCutscene : MonoBehaviour
 
         // Cult member appears
         slammedDoorAnimator.SetTrigger("SlamDoorOpen");
+        AudioClip doorSlam = Resources.Load<AudioClip>("Sounds/door-slam-172171");
+        AudioManager.Instance.PlaySFX(doorSlam, 2f);
 
         // Wait til it's done
         yield return new WaitForSeconds(7f - turnAroundFirstHalfTime);

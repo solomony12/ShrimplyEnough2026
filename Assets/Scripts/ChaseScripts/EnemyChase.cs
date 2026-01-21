@@ -6,8 +6,8 @@ public class EnemyChase : MonoBehaviour
     public enum TurnDirection { Left, Right }
 
     [Header("Movement Settings")]
-    public float moveSpeed = 5.84f;
-    public float rayDistance = 3f;
+    private float moveSpeed = 5.45f;
+    private float rayDistance = 2.35f;
 
     [Header("Turn Pattern")]
     public TurnDirection[] turnPattern;
