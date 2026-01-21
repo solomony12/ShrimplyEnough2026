@@ -6612,14 +6612,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794806428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07126646, y: -0, z: -0, w: -0.9974573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 558590863}
   m_Father: {fileID: 1945529998}
-  m_LocalEulerAnglesHint: {x: 351.82654, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &794806431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13369,6 +13369,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7266504604705274174, guid: 2154bd869e4ef694f85a68654ce4c808, type: 3}
+      propertyPath: levelIndex
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17220,7 +17224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debf933a4bac38240b9b3bf9bca4c98d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  walkSpeed: 3
   sprintMultiplier: 2
   crawlMultiplier: 0.75
   upDownRange: 80
@@ -17268,14 +17271,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945529993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09246632, y: -0.90658194, z: 0.31216106, w: 0.2685418}
+  m_LocalRotation: {x: 0, y: -0.95881975, z: 0, w: 0.28401536}
   m_LocalPosition: {x: 12.93, y: 7.9208384, z: -16.618584}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 794806429}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 38, y: -147, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -147, z: 0}
 --- !u!1001 &1951994092
 PrefabInstance:
   m_ObjectHideFlags: 0
