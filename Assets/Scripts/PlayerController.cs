@@ -182,6 +182,12 @@ public class PlayerController : MonoBehaviour
         {
             bool crawling = inputHandler.CrawlTriggered;
 
+            // IF on slippery surface and already crouched, force crawl
+            if (isOnSlipperySurface && characterController.height < standingHeight)
+            {
+                crawling = true;
+            }
+
             // If player wants to stand but something is blocking, force crouch
             if (!crawling && !CanStandUp())
             {
