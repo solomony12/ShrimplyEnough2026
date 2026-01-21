@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
         inputHandler = PlayerInputHandler.Instance;
         cameraPivot = mainCamera.transform;
         canControlCharacter = true;
+        ResetRunningConstantly();
     }
 
     public static void EnablePlayerControl()
@@ -86,8 +87,14 @@ public class PlayerController : MonoBehaviour
 
     public static void RunningConstantly()
     {
-        walkSpeed = 6f;
+        walkSpeed = 8f;
         isConstantlyRunning = true;
+    }
+
+    public static void ResetRunningConstantly()
+    {
+        walkSpeed = 3.0f;
+        isConstantlyRunning = false;
     }
 
     public bool CanPlayerControl() { return canControlCharacter; }

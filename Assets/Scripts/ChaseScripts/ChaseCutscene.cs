@@ -24,6 +24,8 @@ public class ChaseCutscene : MonoBehaviour
 
         scanner.SetActive(true);
         enemyParent.SetActive(false);
+        isChasePlaying = false;
+        cameraAnimator.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,6 +55,7 @@ public class ChaseCutscene : MonoBehaviour
         // Camera pos
         Vector3 startingCamPos = mainCamera.transform.localPosition;
         Vector3 targetCamPos = new Vector3(0f, 0.76f, 0f);
+        cameraAnimator.enabled = true;
         cameraAnimator.transform.localPosition = Vector3.Lerp(startingCamPos, targetCamPos, 1f);
 
         // Player
