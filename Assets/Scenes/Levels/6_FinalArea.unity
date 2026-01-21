@@ -946,6 +946,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vent_Straight (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1011,8 +1015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097863c1d652edb498d7c515bb91dfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
-  moveSpeed: 5.64
-  rayDistance: 2
   turnPattern: 0100000000000000000000000100000000000000
   wallLayer:
     serializedVersion: 2
@@ -1052,8 +1054,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.0011153, y: 6.240786, z: 5.0983114}
-  m_Center: {x: -0.026271343, y: 2.6203926, z: -1.6263098}
+  m_Size: {x: 7.7328568, y: 6.240786, z: 26.539322}
+  m_Center: {x: 0.14445114, y: 2.6203926, z: -12.346816}
 --- !u!1001 &84063938
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1773,6 +1775,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
       propertyPath: m_Name
       value: Vent_Straight (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5121,6 +5127,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
       propertyPath: m_Name
       value: Vent_Straight (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9644,6 +9654,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
       propertyPath: m_Name
       value: Vent_Straight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17211,6 +17225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vent_Straight (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17942,6 +17960,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vent_Straight (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18354,6 +18376,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
       propertyPath: m_Name
       value: Vent_Straight (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a63c96e2a6b1e2e49ba44f3933d39f42, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
