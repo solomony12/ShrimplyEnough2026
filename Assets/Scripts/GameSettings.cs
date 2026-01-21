@@ -43,7 +43,7 @@ public class GameSettings : MonoBehaviour
             if (inputHandler == null)
                 inputHandler = PlayerInputHandler.Instance;
 
-            if (inputHandler.EscapeTriggered && !SceneTransition.IsTransitioning)
+            if (inputHandler.EscapeTriggered && !SceneTransition.IsTransitioning && !ChaseCutscene.isChasePlaying)
             {
                 PauseResume();
                 inputTimer = inputDelay;
