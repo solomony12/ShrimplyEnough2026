@@ -4019,6 +4019,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -11.298
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c6a0fa2751f9c43638bb5ad27dc736d6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d9578d7f562f5cb4e9ae6a42295a5d02, type: 2}
+    - target: {fileID: -7511558181221131132, guid: c6a0fa2751f9c43638bb5ad27dc736d6, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bfa50fb6a9e074f4d92cddf0a8f5e093, type: 2}
     - target: {fileID: 919132149155446097, guid: c6a0fa2751f9c43638bb5ad27dc736d6, type: 3}
       propertyPath: m_Name
       value: Scanner
