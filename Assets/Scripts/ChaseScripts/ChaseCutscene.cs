@@ -1,0 +1,94 @@
+using System.Collections;
+using UnityEngine;
+
+public class ChaseCutscene : MonoBehaviour
+{
+
+    private bool triggered = false;
+
+    private Camera mainCamera;
+    private GameObject player;
+
+    public GameObject enemy;
+
+    [Header("Animators")]
+    public Animator cameraAnimator;
+    public Animator slammedDoorAnimator;
+    public Animator scannerAnimator;
+
+    private void Awake()
+    {
+        mainCamera = Camera.main;
+        player = GameObject.FindWithTag("Player");
+
+        enemy.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && !triggered)
+        {
+            Debug.Log("Start chase");
+            triggered = true;
+            StartCutscene();
+        }
+    }
+
+    private void StartCutscene()
+    {
+        // Disable current player movements
+        PlayerController.DisablePlayerControl();
+
+        // Camera rot
+        Quaternion wherePlayerWasLooking = mainCamera.transform.localRotation;
+        Quaternion targetRot = Quaternion.Euler(0f, 0.0f, 0f);
+        mainCamera.transform.localRotation = Quaternion.Lerp(wherePlayerWasLooking, targetRot, 1f);
+
+        // Camera pos
+        Vector3 startingCamPos = mainCamera.transform.localPosition;
+        Vector3 targetCamPos = new Vector3(0f, 0.76f, 0f);
+        cameraAnimator.transform.localPosition = Vector3.Lerp(startingCamPos, targetCamPos, 1f);
+
+        // Player
+        Vector3 targetPos = new Vector3(-4.76927042f, 1.08f, -1.95f);
+        player.transform.position = Vector3.Lerp(player.transform.position, targetPos, 1f);
+
+        // Reset animations
+        ResetAnimations();
+
+        // Play animation
+        StartCoroutine(TurnAround());
+        
+    }
+
+    private void ResetAnimations()
+    {
+        cameraAnimator.ResetTrigger("TurnAround");
+        slammedDoorAnimator.ResetTrigger("SlamDoorOpen");
+    }
+
+    private IEnumerator TurnAround()
+    {
+        // Show enemy
+        enemy.SetActive(true);
+
+        // Play turn around animation
+        cameraAnimator.SetTrigger("TurnAround");
+
+        float turnAroundFirstHalfTime = 4f;
+        yield return new WaitForSeconds(turnAroundFirstHalfTime);
+
+        // Cult mmber appears
+        slammedDoorAnimator.SetTrigger("SlamDoorOpen");
+
+        // Wait til it's done
+        yield return new WaitForSeconds(6f - turnAroundFirstHalfTime);
+
+        NewMovementSystem();
+    }
+
+    private void NewMovementSystem()
+    {
+        Quaternion startRunningCameraAngle = Quaternion.Euler(19f, 0f, 0f);
+    }
+}
