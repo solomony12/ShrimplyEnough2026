@@ -62,7 +62,11 @@ public class ChaseCutscene : MonoBehaviour
         // Create rig
         cameraRig = new GameObject("CameraRig").transform;
         cameraRig.position = camOriginalPosition;
-        cameraRig.rotation = camOriginalRotation;
+
+        // Calculate the rotation offset so the camera faces world Y = -90
+        Quaternion targetWorldRotation = Quaternion.Euler(0f, -90f, 0f);
+        Quaternion offset = Quaternion.Inverse(camOriginalRotation) * targetWorldRotation;
+        cameraRig.rotation = camOriginalRotation * offset;
 
         // Parent camera to rig
         mainCamera.transform.SetParent(cameraRig);
@@ -76,6 +80,7 @@ public class ChaseCutscene : MonoBehaviour
         // Play animation
         StartCoroutine(TurnAround());
     }
+
 
 
     private void ResetAnimations()
@@ -116,7 +121,7 @@ public class ChaseCutscene : MonoBehaviour
         // Restore camera to player
         mainCamera.transform.SetParent(camOriginalParent);
         mainCamera.transform.position = camOriginalPosition;
-        mainCamera.transform.rotation = camOriginalRotation;
+        //mainCamera.transform.rotation = camOriginalRotation;
 
         // Re-align camera height
         Vector3 camPos = mainCamera.transform.localPosition;

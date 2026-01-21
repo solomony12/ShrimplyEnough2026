@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -57,6 +58,10 @@ public class PlayerController : MonoBehaviour
 
     private static bool isConstantlyRunning = false;
 
+    private Rigidbody rb;
+    private bool usingRigidbody = false;
+    private CapsuleCollider capsuleCollider;
+
 
     public static PlayerController Instance { get; private set; }
 
@@ -111,10 +116,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (canControlCharacter)
+        try
         {
-            HandleMovement();
-            HandleRotation();
+            if (canControlCharacter)
+            {
+                HandleMovement();
+                HandleRotation();
+            }
+        }
+        catch (Exception e)
+        {
         }
     }
 
@@ -153,10 +164,16 @@ public class PlayerController : MonoBehaviour
             currentMovement.z = desiredMove.z;
         }
 
+        try
+        {
+            HandleJumping();
+            HandleCrawling();
+            characterController.Move(currentMovement * Time.deltaTime);
+        }
+        catch (Exception e)
+        {
 
-        HandleJumping();
-        HandleCrawling();
-        characterController.Move(currentMovement * Time.deltaTime);
+        }
     }
 
     void HandleJumping()
@@ -283,6 +300,8 @@ public class PlayerController : MonoBehaviour
         mainCamera.transform.localRotation = targetRot;
     }
 
+    /// SLIPPERY STUFF
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.CompareTag("Slippery"))
@@ -291,7 +310,8 @@ public class PlayerController : MonoBehaviour
             isOnSlipperySurface = true;
         }
         else
+        {
             isOnSlipperySurface = false;
+        }
     }
-
 }
