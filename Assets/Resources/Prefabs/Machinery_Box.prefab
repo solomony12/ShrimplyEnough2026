@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: a3e7da8e1d0da5f4694f2cdfc0c74c0b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 54acf828d292cd049b63c2746f630f8b, type: 2}
+      objectReference: {fileID: 2100000, guid: cc321ffabff7d0e43878430b4fbf0b00, type: 2}
     - target: {fileID: 919132149155446097, guid: a3e7da8e1d0da5f4694f2cdfc0c74c0b, type: 3}
       propertyPath: m_Name
       value: Machinery_Box

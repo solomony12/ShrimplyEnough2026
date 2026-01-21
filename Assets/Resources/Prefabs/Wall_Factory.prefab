@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 096794ba3d21e49188826334d18a1aad, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 0159969b2b1fb0d468263b6bf2746be7, type: 2}
+      objectReference: {fileID: 2100000, guid: c825614e772284c49a71be086dcd8649, type: 2}
     - target: {fileID: 919132149155446097, guid: 096794ba3d21e49188826334d18a1aad, type: 3}
       propertyPath: m_Name
       value: Wall_Factory
