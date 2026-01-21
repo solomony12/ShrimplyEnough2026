@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyChase : MonoBehaviour
 {
@@ -61,7 +62,20 @@ public class EnemyChase : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isStopped = true;
+            TriggerJumpscare();
         }
+    }
+
+    private void TriggerJumpscare()
+    {
+        PlayerController.DisablePlayerControl();
+
+        // Lerp to animation
+
+        // Play jumpscare animation
+
+        // Load game over scene
+        SceneManager.LoadScene("TimedGameOverScene");
     }
 
     private void OnDrawGizmos()
