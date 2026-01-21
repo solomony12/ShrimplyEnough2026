@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IdentificationSystemDisplay.unity
     guid: 8dfe429dbb88eba48969d0ff939cb5f0
+  - enabled: 1
+    path: Assets/Scenes/TimedGameOverScene.unity
+    guid: 26563228db8b56a47b84e3b9587bad8b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e6d7df030b9f8e64a8cd9f06aa11b8fd, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
