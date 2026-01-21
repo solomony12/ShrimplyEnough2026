@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Speeds")]
-    [SerializeField] private float walkSpeed = 3.0f;
+    [SerializeField] private static float walkSpeed = 3.0f;
     [SerializeField] private float sprintMultiplier = 2.0f;
     [SerializeField] private float crawlMultiplier = 0.75f;
 
@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     private float verticalRotation;
     private static bool canControlCharacter;
 
+    private static bool isConstantlyRunning = false;
+
 
     public static PlayerController Instance { get; private set; }
 
@@ -82,6 +84,12 @@ public class PlayerController : MonoBehaviour
         canControlCharacter = false;
     }
 
+    public static void RunningConstantly()
+    {
+        walkSpeed = 6f;
+        isConstantlyRunning = true;
+    }
+
     public bool CanPlayerControl() { return canControlCharacter; }
 
     private void Update()
@@ -95,8 +103,16 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        float multiplier = inputHandler.CrawlTriggered ? crawlMultiplier :
-                   inputHandler.SprintValue > 0 ? sprintMultiplier : 1f;
+        float multiplier = 1f;
+
+        if (inputHandler.CrawlTriggered)
+        {
+            multiplier = crawlMultiplier;
+        }
+        else if (!isConstantlyRunning && inputHandler.SprintValue > 0)
+        {
+            multiplier = sprintMultiplier;
+        }
 
         float speed = walkSpeed * multiplier;
 
