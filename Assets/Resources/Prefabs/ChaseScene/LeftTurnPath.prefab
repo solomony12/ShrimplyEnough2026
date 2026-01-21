@@ -4793,8 +4793,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
   hinge: {fileID: 0}
-  openAngle: 90
-  openSpeed: 4
+  openAngle: -90
+  openSpeed: 5
   oneWay: 0
 --- !u!65 &5812972234352130817
 BoxCollider:
