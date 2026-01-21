@@ -97,6 +97,11 @@ public class PlayerController : MonoBehaviour
         isConstantlyRunning = false;
     }
 
+    public float GetCameraStandingHeight()
+    {
+        return cameraStandingHeight;
+    }
+
     public bool CanPlayerControl() { return canControlCharacter; }
 
     private void Update()
