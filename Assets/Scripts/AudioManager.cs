@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -151,6 +152,25 @@ public class AudioManager : MonoBehaviour
         if (clip == null) return;
         sfxSource.PlayOneShot(clip, volumeMultiplier);
     }
+
+    public void PlaySFX(AudioClip clip, float volumeMultiplier = 1, float cutout = -1f)
+    {
+        if (clip == null) return;
+
+        sfxSource.clip = clip;
+        sfxSource.volume = sfxSource.volume * volumeMultiplier;
+        sfxSource.Play();
+
+        if (cutout > 0f)
+            StartCoroutine(StopAfterSeconds(cutout));
+    }
+
+    private IEnumerator StopAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        sfxSource.Stop();
+    }
+
 
     // Voice
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,13 @@ public class EnemyChase : MonoBehaviour
 
     private int currentTurnIndex = 0;
     private bool isStopped = false;
+
+    public GameObject enemyModel;
+
+    private void Awake()
+    {
+        enemyModel.SetActive(true);
+    }
 
     void Update()
     {
@@ -69,10 +77,24 @@ public class EnemyChase : MonoBehaviour
     private void TriggerJumpscare()
     {
         PlayerController.DisablePlayerControl();
+        enemyModel.SetActive(false);
 
         // Lerp to animation
 
         // Play jumpscare animation
+        JumpscareEnemyAnimation.TriggerJumpscare();
+
+        float jumpscareTime = 1.3f;
+
+        AudioClip jumpscareSound = Resources.Load<AudioClip>("Sounds/fuzzy-jumpscare_ENEMY-80560");
+        AudioManager.Instance.PlaySFX(jumpscareSound, 1f, jumpscareTime);
+
+        StartCoroutine(WaitThenLoad(jumpscareTime));
+    }
+
+    private IEnumerator WaitThenLoad(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
 
         // Load game over scene
         SceneManager.LoadScene("TimedGameOverScene");
