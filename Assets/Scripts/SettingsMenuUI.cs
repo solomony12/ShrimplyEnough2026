@@ -94,6 +94,8 @@ public class SettingsMenuUI : MonoBehaviour
 
         if (SceneManager.GetSceneByName(mainMenuSceneString).isLoaded)
         {
+            //AudioClip mainMusic = Resources.Load<AudioClip>("Music/main");
+            //AudioManager.Instance.PlayMusic(mainMusic, true);
             SceneManager.UnloadSceneAsync(settingsSceneString);
         }
         else
