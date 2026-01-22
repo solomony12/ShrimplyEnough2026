@@ -57,6 +57,7 @@ public class Door : MonoBehaviour
 
     public void CloseAndLock()
     {
+        AudioManager.Instance.PlaySFX(closeDoor);
         isOpen = false;
         locked = true;
     }

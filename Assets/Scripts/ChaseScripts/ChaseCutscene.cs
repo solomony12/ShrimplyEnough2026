@@ -41,6 +41,9 @@ public class ChaseCutscene : MonoBehaviour
         {
             Debug.Log("Start chase");
             triggered = true;
+
+            AudioClip banging = Resources.Load<AudioClip>("Sounds/trying-to-open-a-locked-door-104302");
+            AudioManager.Instance.PlaySFX(banging);
             StartCutscene();
         }
     }
