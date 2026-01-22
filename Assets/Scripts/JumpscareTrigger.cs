@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JumpscareTrigger : MonoBehaviour
 {
@@ -17,6 +18,12 @@ public class JumpscareTrigger : MonoBehaviour
             {
                 case 4:
                     OfficeLightsOff();
+                    break;
+
+                // Vent to final area
+                case 7:
+                    Debug.Log("Going to final area");
+                    SceneManager.LoadScene("7_EndingLevel");
                     break;
 
                 default:

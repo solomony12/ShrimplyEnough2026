@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class ChaseCutscene : MonoBehaviour
@@ -17,6 +18,12 @@ public class ChaseCutscene : MonoBehaviour
     public Animator cameraAnimator;
     public Animator slammedDoorAnimator;
 
+    [Header("Fix Crouch Glitch")]
+    private Transform camOriginalParent;
+    private Vector3 camOriginalPosition;
+    private Quaternion camOriginalRotation;
+    private Transform cameraRig;
+
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -24,6 +31,8 @@ public class ChaseCutscene : MonoBehaviour
 
         scanner.SetActive(true);
         enemyParent.SetActive(false);
+        isChasePlaying = false;
+        cameraAnimator.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,27 +54,34 @@ public class ChaseCutscene : MonoBehaviour
         // Disable current player movements
         PlayerController.DisablePlayerControl();
 
-        // Camera rot
-        Quaternion wherePlayerWasLooking = mainCamera.transform.localRotation;
-        Quaternion targetRot = Quaternion.Euler(0f, 0.0f, 0f);
-        mainCamera.transform.localRotation = Quaternion.Lerp(wherePlayerWasLooking, targetRot, 1f);
+        // Store original camera transform BEFORE reparenting
+        camOriginalParent = mainCamera.transform.parent;
+        camOriginalPosition = mainCamera.transform.position;
+        camOriginalRotation = mainCamera.transform.rotation;
 
-        // Camera pos
-        Vector3 startingCamPos = mainCamera.transform.localPosition;
-        Vector3 targetCamPos = new Vector3(0f, 0.76f, 0f);
-        cameraAnimator.transform.localPosition = Vector3.Lerp(startingCamPos, targetCamPos, 1f);
+        // Create rig
+        cameraRig = new GameObject("CameraRig").transform;
+        cameraRig.position = camOriginalPosition;
 
-        // Player
-        Vector3 targetPos = new Vector3(-4.76927042f, 1.08f, -1.95f);
-        player.transform.position = Vector3.Lerp(player.transform.position, targetPos, 1f);
+        // Calculate the rotation offset so the camera faces world Y = -90
+        Quaternion targetWorldRotation = Quaternion.Euler(0f, -90f, 0f);
+        Quaternion offset = Quaternion.Inverse(camOriginalRotation) * targetWorldRotation;
+        cameraRig.rotation = camOriginalRotation * offset;
+
+        // Parent camera to rig
+        mainCamera.transform.SetParent(cameraRig);
+
+        // Enable animator on camera (same as before)
+        cameraAnimator.enabled = true;
 
         // Reset animations
         ResetAnimations();
 
         // Play animation
         StartCoroutine(TurnAround());
-        
     }
+
+
 
     private void ResetAnimations()
     {
@@ -101,6 +117,17 @@ public class ChaseCutscene : MonoBehaviour
 
         PlayerController.EnablePlayerControl();
         PlayerController.RunningConstantly();
+
+        // Restore camera to player
+        mainCamera.transform.SetParent(camOriginalParent);
+        mainCamera.transform.position = camOriginalPosition;
+        //mainCamera.transform.rotation = camOriginalRotation;
+
+        // Re-align camera height
+        Vector3 camPos = mainCamera.transform.localPosition;
+        camPos.y = PlayerController.Instance.GetCameraStandingHeight();
+        mainCamera.transform.localPosition = camPos;
+
         //NewMovementSystem();
 
         enemyParent.GetComponent<EnemyChase>().enabled = true;

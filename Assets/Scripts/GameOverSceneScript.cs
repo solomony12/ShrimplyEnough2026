@@ -45,6 +45,10 @@ public class GameOverSceneScript : MonoBehaviour
             return;
         }
 
+        // Reset chase scene things
+        ChaseCutscene.isChasePlaying = false;
+        PlayerController.ResetRunningConstantly();
+
         // For now, just reload lvl6
         sceneToLoad = "6_FinalArea";
 

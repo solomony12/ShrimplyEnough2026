@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -42,6 +43,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 gameStartPlayerPos = new Vector3(13.2f, 1.08f, 1.4f);
     private Vector3 gameStartCameraRot = new Vector3(351.826538f, 0f, 0f);
 
+    [Header("Slippery Settings")]
+    [SerializeField] private float slipperyFriction = 0.0001f;
+    private bool isOnSlipperySurface = false;
+    private Vector3 slideVelocity = Vector3.zero;
+
     private CharacterController characterController;
     private Camera mainCamera;
     private PlayerInputHandler inputHandler;
@@ -51,6 +57,10 @@ public class PlayerController : MonoBehaviour
     private static bool canControlCharacter;
 
     private static bool isConstantlyRunning = false;
+
+    private Rigidbody rb;
+    private bool usingRigidbody = false;
+    private CapsuleCollider capsuleCollider;
 
 
     public static PlayerController Instance { get; private set; }
@@ -72,6 +82,7 @@ public class PlayerController : MonoBehaviour
         inputHandler = PlayerInputHandler.Instance;
         cameraPivot = mainCamera.transform;
         canControlCharacter = true;
+        ResetRunningConstantly();
     }
 
     public static void EnablePlayerControl()
@@ -86,18 +97,35 @@ public class PlayerController : MonoBehaviour
 
     public static void RunningConstantly()
     {
-        walkSpeed = 6f;
+        walkSpeed = 8f;
         isConstantlyRunning = true;
+    }
+
+    public static void ResetRunningConstantly()
+    {
+        walkSpeed = 3.0f;
+        isConstantlyRunning = false;
+    }
+
+    public float GetCameraStandingHeight()
+    {
+        return cameraStandingHeight;
     }
 
     public bool CanPlayerControl() { return canControlCharacter; }
 
     private void Update()
     {
-        if (canControlCharacter)
+        try
         {
-            HandleMovement();
-            HandleRotation();
+            if (canControlCharacter)
+            {
+                HandleMovement();
+                HandleRotation();
+            }
+        }
+        catch (Exception e)
+        {
         }
     }
 
@@ -120,12 +148,32 @@ public class PlayerController : MonoBehaviour
         Vector3 worldDirection = transform.TransformDirection(inputDirections);
         worldDirection.Normalize();
 
-        currentMovement.x = worldDirection.x * speed;
-        currentMovement.z = worldDirection.z * speed;
+        Vector3 desiredMove = worldDirection * speed;
 
-        HandleJumping();
-        HandleCrawling();
-        characterController.Move(currentMovement * Time.deltaTime);
+        if (isOnSlipperySurface)
+        {
+            // Slide while still allowing small control
+            slideVelocity = Vector3.Lerp(slideVelocity, desiredMove, slipperyFriction);
+            currentMovement.x = slideVelocity.x;
+            currentMovement.z = slideVelocity.z;
+        }
+        else
+        {
+            slideVelocity = desiredMove;
+            currentMovement.x = desiredMove.x;
+            currentMovement.z = desiredMove.z;
+        }
+
+        try
+        {
+            HandleJumping();
+            HandleCrawling();
+            characterController.Move(currentMovement * Time.deltaTime);
+        }
+        catch (Exception e)
+        {
+
+        }
     }
 
     void HandleJumping()
@@ -150,6 +198,12 @@ public class PlayerController : MonoBehaviour
         if (characterController.isGrounded)
         {
             bool crawling = inputHandler.CrawlTriggered;
+
+            // IF on slippery surface and already crouched, force crawl
+            if (isOnSlipperySurface && characterController.height < standingHeight)
+            {
+                crawling = true;
+            }
 
             // If player wants to stand but something is blocking, force crouch
             if (!crawling && !CanStandUp())
@@ -246,4 +300,18 @@ public class PlayerController : MonoBehaviour
         mainCamera.transform.localRotation = targetRot;
     }
 
+    /// SLIPPERY STUFF
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.CompareTag("Slippery"))
+        {
+            Debug.Log("slippery");
+            isOnSlipperySurface = true;
+        }
+        else
+        {
+            isOnSlipperySurface = false;
+        }
+    }
 }
