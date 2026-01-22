@@ -288,6 +288,8 @@ public class AudioManager : MonoBehaviour
             case "4_Office":
                 Debug.Log("Office Loaded");
                 // Do Office stuff here
+                AudioClip officeHum = Resources.Load<AudioClip>("Sounds/low-engine-hum-72529_LV4");
+                PlayBackgroundHum(officeHum);
                 break;
 
             case "6_FinalArea":
