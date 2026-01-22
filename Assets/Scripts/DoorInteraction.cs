@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class DoorInteraction : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class DoorInteraction : MonoBehaviour
                 isHovering = true;
                 hoverCaptions.ShowCaptions("Press [E] to proceed");
                 // Interact
-                if (Keyboard.current[interactKey].wasPressedThisFrame)
+                if (Keyboard.current[interactKey].wasPressedThisFrame && !WarningSceneScript.isWarningScreenUp)
                 {
                     TryInteract();
                 }
@@ -96,7 +97,11 @@ public class DoorInteraction : MonoBehaviour
                 {
                     if (KeycardWarningSystem.CanUnlockDoor())
                     {
-                        door.MoveToNextLevel();
+                        WarningSceneScript.isWarningScreenUp = true;
+                        Cursor.lockState = CursorLockMode.None;
+                        PlayerController.DisablePlayerControl();
+                        WarningSceneScript.previousSceneName = SceneManager.GetActiveScene().name;
+                        SceneManager.LoadScene("WarningScene", LoadSceneMode.Additive);
                     }
                     else
                     {

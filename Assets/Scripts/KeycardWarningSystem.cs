@@ -26,4 +26,9 @@ public class KeycardWarningSystem : MonoBehaviour
     {
         return pickedUpKeycard;
     }
+
+    public int GetLevelToLoadIndex()
+    {
+        return changeLevelDoor.GetComponent<ChangeLevel>().levelIndex;
+    }
 }
