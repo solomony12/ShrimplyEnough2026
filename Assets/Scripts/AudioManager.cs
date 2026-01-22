@@ -274,7 +274,6 @@ public class AudioManager : MonoBehaviour
         {
             case "1_IntroScene":
                 Debug.Log("Intro Scene Loaded");
-                // Do Intro stuff here
                 StartCoroutine(WaitForIntro());
                 break;
 
@@ -282,12 +281,10 @@ public class AudioManager : MonoBehaviour
                 Debug.Log("Warehouse Loaded");
                 AudioClip hum = Resources.Load<AudioClip>("Sounds/loud-machinery-449526");
                 PlayBackgroundHum(hum);
-                // Do Warehouse stuff here
                 break;
 
             case "4_Office":
                 Debug.Log("Office Loaded");
-                // Do Office stuff here
                 AudioClip officeHum = Resources.Load<AudioClip>("Sounds/low-engine-hum-72529_LV4");
                 PlayBackgroundHum(officeHum);
                 break;
@@ -299,9 +296,13 @@ public class AudioManager : MonoBehaviour
 
             case "7_EndingLevel":
                 Debug.Log("Ending Level Loaded");
-                // Do Ending Level stuff here
                 AudioClip heartbeat = Resources.Load<AudioClip>("Sounds/heartbeat-sound-372448_LV7");
                 PlayBackgroundHum(heartbeat);
+                break;
+
+            case "TimedGameOverScene":
+                AudioClip staticHum = Resources.Load<AudioClip>("Sounds/tv-static-323620");
+                PlayBackgroundHum(staticHum);
                 break;
 
             default:
