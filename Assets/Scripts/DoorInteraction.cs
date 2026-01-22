@@ -45,7 +45,7 @@ public class DoorInteraction : MonoBehaviour
                 isHovering = true;
                 hoverCaptions.ShowCaptions("Press [E] to proceed");
                 // Interact
-                if (Keyboard.current[interactKey].wasPressedThisFrame)
+                if (Keyboard.current[interactKey].wasPressedThisFrame && !WarningSceneScript.isWarningScreenUp)
                 {
                     TryInteract();
                 }
