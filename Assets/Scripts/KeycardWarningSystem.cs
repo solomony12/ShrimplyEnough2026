@@ -6,7 +6,9 @@ public class KeycardWarningSystem : MonoBehaviour
     public GameObject keycard;
     public GameObject changeLevelDoor;
 
-    private bool pickedUpKeycard;
+    private static bool pickedUpKeycard;
+
+    public static KeycardWarningSystem Instance;
 
     void Awake()
     {
@@ -14,9 +16,14 @@ public class KeycardWarningSystem : MonoBehaviour
         keycard.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PickUpKeycard()
     {
-        
+        pickedUpKeycard = true;
+        keycard.SetActive(false);
+    }
+
+    public static bool CanUnlockDoor()
+    {
+        return pickedUpKeycard;
     }
 }
