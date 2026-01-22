@@ -54,6 +54,12 @@ public class DoorInteraction : MonoBehaviour
             {
                 isHovering = true;
                 hoverCaptions.ShowCaptions("Press [E] to pick up");
+                // Interact
+                if (Keyboard.current[interactKey].wasPressedThisFrame)
+                {
+                    KeycardWarningSystem keycardSystem = hit.collider.GetComponentInParent<KeycardWarningSystem>();
+                    keycardSystem.PickUpKeycard();
+                }
             }
         }
 
@@ -88,7 +94,14 @@ public class DoorInteraction : MonoBehaviour
 
                 if (door != null)
                 {
-                    door.MoveToNextLevel();
+                    if (KeycardWarningSystem.CanUnlockDoor())
+                    {
+                        door.MoveToNextLevel();
+                    }
+                    else
+                    {
+                        Captions.Instance.TimedShowCaptions("I need to find the keycard", 3f);
+                    }
                 }
             }
         }

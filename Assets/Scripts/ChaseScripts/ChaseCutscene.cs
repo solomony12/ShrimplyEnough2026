@@ -113,7 +113,7 @@ public class ChaseCutscene : MonoBehaviour
         scanner.SetActive(false);
         Destroy(cameraAnimator);
 
-        Captions.Instance.TimedShowCaptions("Run", 3f);
+        Captions.Instance.TimedShowCaptions("Run ([W/A/S/D, SPACE, Left Ctrl) Away", 3f);
 
         PlayerController.EnablePlayerControl();
         PlayerController.RunningConstantly();

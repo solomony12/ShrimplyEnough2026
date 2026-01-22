@@ -17,6 +17,7 @@ TagManager:
   - LevelDoor
   - Ground
   - Slippery
+  - Keycard
   layers:
   - Default
   - TransparentFX
