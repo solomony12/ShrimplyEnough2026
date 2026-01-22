@@ -23,6 +23,7 @@ public class JumpscareTrigger : MonoBehaviour
                 // Vent to final area
                 case 7:
                     Debug.Log("Going to final area");
+                    ChaseCutscene.isChasePlaying = false;
                     SceneManager.LoadScene("7_EndingLevel");
                     break;
 
