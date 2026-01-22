@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource voiceSource;
+    [SerializeField] private AudioSource backgroundHum;
 
     [Header("Music Transition")]
     [SerializeField] private float musicFadeDuration = 1.0f;
@@ -37,6 +39,7 @@ public class AudioManager : MonoBehaviour
         musicSource.volume = GameSettings.Instance.musicVolume;
         sfxSource.volume = GameSettings.Instance.sfxVolume;
         voiceSource.volume = GameSettings.Instance.voiceVolume;
+        backgroundHum.volume = GameSettings.Instance.sfxVolume - 0.5f;
     }
 
     private void InitializeSources()
@@ -63,6 +66,14 @@ public class AudioManager : MonoBehaviour
             voiceSource = gameObject.AddComponent<AudioSource>();
             voiceSource.loop = false;
             voiceSource.playOnAwake = false;
+        }
+
+        // Hum source
+        if (backgroundHum == null)
+        {
+            backgroundHum = gameObject.AddComponent<AudioSource>();
+            backgroundHum.loop = true;
+            backgroundHum.playOnAwake = true;
         }
 
     }
@@ -202,5 +213,72 @@ public class AudioManager : MonoBehaviour
     public bool IsVoicePlaying()
     {
         return voiceSource.isPlaying;
+    }
+
+    // Background Hum
+    public void PlayBackgroundHum(AudioClip clip)
+    {
+        if (clip == null) return;
+
+        if (musicSource.clip == clip && musicSource.isPlaying)
+            return;
+
+        backgroundHum.clip = clip;
+        backgroundHum.Play();
+    }
+
+    public void StopBackgroundHum()
+    {
+        backgroundHum.Stop();
+        backgroundHum.clip = null;
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene Loaded: " + scene.name);
+
+        switch (scene.name)
+        {
+            case "1_IntroScene":
+                Debug.Log("Intro Scene Loaded");
+                // Do Intro stuff here
+                break;
+
+            case "2_Warehouse_Scene":
+                Debug.Log("Warehouse Loaded");
+                AudioClip hum = Resources.Load<AudioClip>("Sounds/loud-machinery-449526");
+                PlayBackgroundHum(hum);
+                // Do Warehouse stuff here
+                break;
+
+            case "4_Office":
+                Debug.Log("Office Loaded");
+                // Do Office stuff here
+                break;
+
+            case "6_FinalArea":
+                Debug.Log("Final Area Loaded");
+                // Do Final Area stuff here
+                break;
+
+            case "7_EndingLevel":
+                Debug.Log("Ending Level Loaded");
+                // Do Ending Level stuff here
+                break;
+
+            default:
+                Debug.Log("Scene not in list");
+                break;
+        }
     }
 }
