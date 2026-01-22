@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.6744075
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,19 +30,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.875332
+      value: -20.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071078
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.70710576
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_LocalRotation.z
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 0159969b2b1fb0d468263b6bf2746be7, type: 2}
+      objectReference: {fileID: 2100000, guid: ef64271420e454d09b9136990b9a9d32, type: 2}
     - target: {fileID: 919132149155446097, guid: 5198cd8d40c2242b6948ff7ff9023aa4, type: 3}
       propertyPath: m_Name
       value: Wall_RollupDoor
