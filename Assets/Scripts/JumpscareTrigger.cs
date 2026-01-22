@@ -153,6 +153,7 @@ public class JumpscareTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         isCutscenePlaying = false;
+        Cursor.lockState = CursorLockMode.None;
         SceneTransition.Instance.StartTransition("MainMenu");
     }
 }
