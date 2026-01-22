@@ -9901,6 +9901,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3738444207398379445, guid: 2d2a687e5c772ae469771e5db333706c, type: 3}
+      propertyPath: levelIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6580850700839621507, guid: 2d2a687e5c772ae469771e5db333706c, type: 3}
       propertyPath: m_Name
       value: KeycardChangeDoorParent
