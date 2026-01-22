@@ -247,6 +247,8 @@ public class AudioManager : MonoBehaviour
     {
         Debug.Log("Scene Loaded: " + scene.name);
 
+        StopBackgroundHum();
+
         switch (scene.name)
         {
             case "1_IntroScene":
