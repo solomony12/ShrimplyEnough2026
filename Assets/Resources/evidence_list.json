@@ -9,7 +9,7 @@
     },
     {
       "evidenceName": "TubDisplay_01",
-      "scannedCompounds": ["Polyethylene Resin: 60%", "Acrylic Polymer Blend: 20%", "ABS Plastic Compound: 15%", "Unidentified Synthetic Additive: 5%"],
+      "scannedCompounds": ["PolyResin: 60%", "AcrylicBlend: 20%", "ABSCompound: 15%", "Unidentified: 5%"],
       "possibleItems": ["Fake Display", "Rubber Duck", "Toy Brick"],
       "correctAnswer": 0
     },

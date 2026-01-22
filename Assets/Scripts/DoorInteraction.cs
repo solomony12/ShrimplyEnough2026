@@ -9,18 +9,67 @@ public class DoorInteraction : MonoBehaviour
 
     private Camera mainCamera;
 
+    private HoverCaptions hoverCaptions;
+
     private void Awake()
     {
         mainCamera = Camera.main;
+        hoverCaptions = HoverCaptions.Instance;
     }
 
-    private void Update()
+    void Update()
     {
-        if (Keyboard.current[interactKey].wasPressedThisFrame)
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        RaycastHit hit;
+
+        bool isHovering = false;
+
+        // HOVERING
+        if (Physics.Raycast(ray, out hit, interactDistance))
         {
-            TryInteract();
+            // Door
+            if (hit.collider.CompareTag("Door"))
+            {
+                isHovering = true;
+                hoverCaptions.ShowCaptions("Press [E] to interact");
+                // Interact
+                if (Keyboard.current[interactKey].wasPressedThisFrame)
+                {
+                    TryInteract();
+                }
+            }
+            // Level Door
+            else if (hit.collider.CompareTag("LevelDoor"))
+            {
+                isHovering = true;
+                hoverCaptions.ShowCaptions("Press [E] to proceed");
+                // Interact
+                if (Keyboard.current[interactKey].wasPressedThisFrame)
+                {
+                    TryInteract();
+                }
+            }
+            // Keycard
+            else if (hit.collider.CompareTag("Keycard"))
+            {
+                isHovering = true;
+                hoverCaptions.ShowCaptions("Press [E] to pick up");
+                // Interact
+                if (Keyboard.current[interactKey].wasPressedThisFrame)
+                {
+                    KeycardWarningSystem keycardSystem = hit.collider.GetComponentInParent<KeycardWarningSystem>();
+                    keycardSystem.PickUpKeycard();
+                }
+            }
         }
+
+        if (!isHovering)
+        {
+            hoverCaptions.HideCaptions();
+        }
+
     }
+
 
     private void TryInteract()
     {
@@ -45,7 +94,14 @@ public class DoorInteraction : MonoBehaviour
 
                 if (door != null)
                 {
-                    door.MoveToNextLevel();
+                    if (KeycardWarningSystem.CanUnlockDoor())
+                    {
+                        door.MoveToNextLevel();
+                    }
+                    else
+                    {
+                        Captions.Instance.TimedShowCaptions("I need to find the keycard", 3f);
+                    }
                 }
             }
         }

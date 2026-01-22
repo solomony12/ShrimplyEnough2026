@@ -16,6 +16,8 @@ TagManager:
   - Chair
   - LevelDoor
   - Ground
+  - Slippery
+  - Keycard
   layers:
   - Default
   - TransparentFX
