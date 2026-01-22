@@ -298,6 +298,8 @@ public class AudioManager : MonoBehaviour
             case "7_EndingLevel":
                 Debug.Log("Ending Level Loaded");
                 // Do Ending Level stuff here
+                AudioClip heartbeat = Resources.Load<AudioClip>("Sounds/heartbeat-sound-372448_LV7");
+                PlayBackgroundHum(heartbeat);
                 break;
 
             default:
