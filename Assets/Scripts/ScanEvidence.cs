@@ -102,7 +102,7 @@ public class ScanEvidence : MonoBehaviour
             currentEvidence = null;
             holdTimer = 0f;
             isScanning = false;
-            evidenceCaptions.HideCaptions();
+            //evidenceCaptions.HideCaptions();
             return;
         }
 
