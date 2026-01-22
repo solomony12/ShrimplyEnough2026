@@ -18,6 +18,9 @@ public class Door : MonoBehaviour
     private Quaternion closedRot;
     private Quaternion openRot;
 
+    AudioClip openDoor;
+    AudioClip closeDoor;
+
     private void Awake()
     {
         if (hinge == null)
@@ -25,6 +28,9 @@ public class Door : MonoBehaviour
 
         closedRot = hinge.localRotation;
         openRot = closedRot * Quaternion.Euler(0, openAngle, 0);
+
+        openDoor = Resources.Load<AudioClip>("Sounds/opening-door-450444");
+        closeDoor = Resources.Load<AudioClip>("Sounds/close-door-382723");
     }
 
     private void Update()
@@ -38,6 +44,15 @@ public class Door : MonoBehaviour
         if (locked) return;   // locked doors can't open
 
         isOpen = !isOpen;
+
+        if (isOpen)
+        {
+            AudioManager.Instance.PlaySFX(openDoor);
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX(closeDoor);
+        }
     }
 
     public void CloseAndLock()
