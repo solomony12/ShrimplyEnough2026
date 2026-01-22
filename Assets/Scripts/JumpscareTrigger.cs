@@ -12,7 +12,7 @@ public class JumpscareTrigger : MonoBehaviour
     public PlayableDirector director;
     private Vector3 startPointPos = new Vector3(52f, -3.6f, 94f);
     private Quaternion startPointRot = Quaternion.Euler(0f, 325f, 0f);
-    public float moveDuration = 1.0f;
+    public float moveDuration = 3.0f;
     public static bool isCutscenePlaying = false;
 
     private void Awake()
@@ -44,6 +44,7 @@ public class JumpscareTrigger : MonoBehaviour
                 // Ending Cutscene
                 case 100:
                     Debug.Log("Playing end cutscene");
+                    AudioManager.Instance.StopBackgroundHum();
                     isCutscenePlaying = true;
                     StartCoroutine(MovePlayerToStart(other.transform));
                     break;
@@ -89,6 +90,8 @@ public class JumpscareTrigger : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // ENDING CUTSCENE STUFF
+
     IEnumerator MovePlayerToStart(Transform player)
     {
         // Disable gameplay control
@@ -126,5 +129,30 @@ public class JumpscareTrigger : MonoBehaviour
         // NOW play timeline
         director.time = 0;
         director.Play();
+    }
+
+    private void OnEnable()
+    {
+        director.stopped += OnTimelineStopped;
+    }
+
+    private void OnDisable()
+    {
+        director.stopped -= OnTimelineStopped;
+    }
+
+    private void OnTimelineStopped(PlayableDirector d)
+    {
+        if (d == director)
+        {
+            StartCoroutine(GoToMain());
+        }
+    }
+
+    private IEnumerator GoToMain()
+    {
+        yield return new WaitForSeconds(3f);
+        isCutscenePlaying = false;
+        SceneTransition.Instance.StartTransition("MainMenu");
     }
 }
