@@ -522,7 +522,6 @@
             "scannedCompounds": [ "Water: 77%", "Shrimp DNA:78%", "Unkown:22%" ],
             "possibleItems": [ "Shrimp", "Crab", "Guys help if your reading the developers locked me in their basement" ],
             "correctAnswer": 0
-        },
-        
+        }
     ]
 }
