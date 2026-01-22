@@ -14,11 +14,18 @@ public class VideoEndDetector : MonoBehaviour
 
     void OnVideoFinished(VideoPlayer vp)
     {
-        SceneManager.UnloadSceneAsync(videoScene);
+        EndVideo();
     }
 
     public void SkipVideo()
     {
+        EndVideo();
+    }
+
+    private void EndVideo()
+    {
+        AudioClip mainMusic = Resources.Load<AudioClip>("Music/main");
+        AudioManager.Instance.PlayMusic(mainMusic, true);
         SceneManager.UnloadSceneAsync(videoScene);
     }
 }

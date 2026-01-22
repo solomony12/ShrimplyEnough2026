@@ -22,6 +22,8 @@ public class SceneTransition : MonoBehaviour
 
     private Animator cameraAnimator;
 
+    public static float videoLength = 11f; // TODO: 34f
+
     private void Awake()
     {
         if (Instance == null)
@@ -122,7 +124,7 @@ public class SceneTransition : MonoBehaviour
         canvasGroup.blocksRaycasts = false;
 
         float zoomLength = 10f;
-        float lengthOfVideoMinusZoom = 11f - zoomLength; // TODO: 34f
+        float lengthOfVideoMinusZoom = videoLength - zoomLength;
         yield return new WaitForSeconds(lengthOfVideoMinusZoom);
 
         // As the video nears the end, we start zooming out
