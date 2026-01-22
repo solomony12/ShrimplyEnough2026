@@ -27,6 +27,9 @@ public class ChangeLevel : MonoBehaviour
             case 6:
                 sceneName = "6_FinalArea";
                 break;
+            case 7:
+                sceneName = "7_EndingLevel";
+                break;
             default:
                 Debug.Log("BROKEN IN ChangeLevel.cs");
                 break;
