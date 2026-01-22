@@ -10,14 +10,19 @@ public class KeycardWarningSystem : MonoBehaviour
 
     public static KeycardWarningSystem Instance;
 
+    private AudioClip keycardPickedUpClip;
+
     void Awake()
     {
         pickedUpKeycard = false;
         keycard.SetActive(true);
+
+        keycardPickedUpClip = Resources.Load<AudioClip>("Sounds/correct-156911");
     }
 
     public void PickUpKeycard()
     {
+        AudioManager.Instance.PlaySFX(keycardPickedUpClip);
         pickedUpKeycard = true;
         keycard.SetActive(false);
     }

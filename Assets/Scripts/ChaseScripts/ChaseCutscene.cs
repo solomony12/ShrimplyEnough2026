@@ -41,6 +41,9 @@ public class ChaseCutscene : MonoBehaviour
         {
             Debug.Log("Start chase");
             triggered = true;
+
+            AudioClip banging = Resources.Load<AudioClip>("Sounds/trying-to-open-a-locked-door-104302");
+            AudioManager.Instance.PlaySFX(banging);
             StartCutscene();
         }
     }
@@ -113,7 +116,7 @@ public class ChaseCutscene : MonoBehaviour
         scanner.SetActive(false);
         Destroy(cameraAnimator);
 
-        Captions.Instance.TimedShowCaptions("Run ([W/A/S/D], SPACE, Left Ctrl) Away", 3f);
+        Captions.Instance.TimedShowCaptions("Run ([W/A/S/D], SPACE, Left Ctrl)", 3f);
 
         PlayerController.EnablePlayerControl();
         PlayerController.RunningConstantly();
@@ -131,6 +134,12 @@ public class ChaseCutscene : MonoBehaviour
         //NewMovementSystem();
 
         enemyParent.GetComponent<EnemyChase>().enabled = true;
+
+        // Music, SFX
+        AudioClip music = Resources.Load<AudioClip>("Music/happy-halloween-169509");
+        AudioManager.Instance.PlayMusic(music, true);
+        AudioClip heartbeat = Resources.Load<AudioClip>("Sounds/tachycardic-heart-beat-417364_BG");
+        AudioManager.Instance.PlayBackgroundHum(heartbeat);
     }
 
     private void NewMovementSystem()
