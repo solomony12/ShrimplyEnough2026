@@ -23,8 +23,8 @@ public class ScanEvidence : MonoBehaviour
     private IdentificationSystem identificationSystem;
 
     [Header("Distance to Scan")]
-    private float maxPlayerObjectDistance = 7f;
-    private float maxCameraObjectDistance = 5f;
+    private float maxPlayerObjectDistance = 5f;
+    private float maxCameraObjectDistance = 3f;
 
     [Header("Scanner Variables")]
     [SerializeField] private float holdTimeToScan = 2f;
