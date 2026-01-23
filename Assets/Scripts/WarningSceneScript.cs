@@ -10,7 +10,7 @@ public class WarningSceneScript : MonoBehaviour
     {
         "1_IntroScene",
         "2_Warehouse_Scene",
-        //"3_FactoryFloor",
+        "3_FactoryFloor",
         "4_Office",
         //"5_ShrimpTesting",
         "6_FinalArea",

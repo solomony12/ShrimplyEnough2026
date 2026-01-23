@@ -7539,7 +7539,6 @@ GameObject:
   - component: {fileID: 680589418}
   - component: {fileID: 680589417}
   - component: {fileID: 680589416}
-  - component: {fileID: 680589415}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7563,28 +7562,6 @@ Transform:
   - {fileID: 405740513}
   m_Father: {fileID: 708397629}
   m_LocalEulerAnglesHint: {x: 351.82654, y: 0, z: 0}
---- !u!95 &680589415
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680589413}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 030e4900b7c9220449204f7bd9b01fbe, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &680589416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8556,7 +8533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &768380813
 AudioListener:
   m_ObjectHideFlags: 0

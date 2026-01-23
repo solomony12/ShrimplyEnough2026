@@ -48,7 +48,7 @@ public class AudioManager : MonoBehaviour
         float sfx = GameSettings.Instance.sfxVolume;
         backgroundHum.volume = sfx == 0f
             ? 0f
-            : Mathf.Max(0.1f, sfx - 0.5f);
+            : Mathf.Max(0.1f, sfx - 0.3f);
     }
 
     private void InitializeSources()
