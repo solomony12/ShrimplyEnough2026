@@ -217,6 +217,31 @@
             "scannedCompounds": [ "AquaGel: 55%", "ClearGel: 25%", "SurfaceFilm: 10%", "SaltSolution: 5%", "Unknown: 5%" ],
             "possibleItems": [ "Eye", "See", "You"],
             "correctAnswer": 0
+        },
+
+        {
+            "evidenceName": "T7_VideoBlob01_Evidence",
+            "scannedCompounds": [ "Polymers: 42%", "Silicon: 28%", "Glass: 18%", "Data Flux: 12%" ],
+            "possibleItems": [ "LCD", "Screen", "AI Brain"],
+            "correctAnswer": 0
+        },
+        {
+            "evidenceName": "T7_ShrimpPureeMess01_Evidence",
+            "scannedCompounds": [ "Protein: 46%", "Lipids: 22%", "Brine: 18%", "Xenoenz: 14%" ],
+            "possibleItems": [ "Ocean", "Shrimp Shake", "Xenomorph"],
+            "correctAnswer": 1
+        },
+        {
+            "evidenceName": "T7_ShrimpPureeMess02_Evidence",
+            "scannedCompounds": [ "Shrimp Prot: 38%", "Unknown Fat: 24%", "Collagen: 21%", "Water: 17%" ],
+            "possibleItems": [ "Shrimp Lard", "Shrimp Shake", "Long Pork Mix"],
+            "correctAnswer": 2
+        },
+        {
+            "evidenceName": "T7_OpenTub01_Evidence",
+            "scannedCompounds": [ "Plastic: 48%", "Shrimp Meat: 32%", "Brine: 12%", "Label Ink: 8%" ],
+            "possibleItems": [ "Not Shrimp", "John's Pinky", "Bendy"],
+            "correctAnswer": 0
         }
     ]
 }

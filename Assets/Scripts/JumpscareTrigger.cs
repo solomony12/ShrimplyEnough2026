@@ -86,6 +86,9 @@ public class JumpscareTrigger : MonoBehaviour
         Destroy(flicker);
 
         directionalLight.enabled = false;
+        AudioClip blackout = Resources.Load<AudioClip>("Sounds/hit-sub-blackout-270731");
+        AudioManager.Instance.PlaySFX(blackout, 1.5f);
+        AudioManager.Instance.StopMusic();
 
         Destroy(gameObject);
     }

@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
     public static void RunningConstantly()
     {
-        walkSpeed = 8f;
+        walkSpeed = 8.5f;
         isConstantlyRunning = true;
     }
 
