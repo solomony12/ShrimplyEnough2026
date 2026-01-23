@@ -1485,7 +1485,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3118233694252092432, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Name
-      value: FlickeringSpotlight (10)
+      value: endinglights
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Range
@@ -3293,7 +3293,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3118233694252092432, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Name
-      value: FlickeringSpotlight (5)
+      value: spotlight(10
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Color.b
@@ -3306,6 +3306,10 @@ PrefabInstance:
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Color.r
       value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
+      propertyPath: m_Intensity
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_ColorTemperature
@@ -5728,6 +5732,10 @@ PrefabInstance:
       value: 0.41568628
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
+      propertyPath: m_Intensity
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_ColorTemperature
       value: 9519
       objectReference: {fileID: 0}
@@ -5803,6 +5811,10 @@ PrefabInstance:
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Color.r
       value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
+      propertyPath: m_Intensity
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_ColorTemperature
@@ -5882,12 +5894,16 @@ PrefabInstance:
       value: 0.41568628
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
+      propertyPath: m_Intensity
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_ColorTemperature
       value: 9519
       objectReference: {fileID: 0}
     - target: {fileID: 7732054051736240097, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.36
+      value: 10.25
       objectReference: {fileID: 0}
     - target: {fileID: 7732054051736240097, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5895,7 +5911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7732054051736240097, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 52.88
+      value: 50.63
       objectReference: {fileID: 0}
     - target: {fileID: 7732054051736240097, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9926,7 +9942,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3118233694252092432, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Name
-      value: FlickeringSpotlight (6)
+      value: Spotlight
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Color.b
@@ -10080,6 +10096,10 @@ PrefabInstance:
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Color.r
       value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
+      propertyPath: m_Intensity
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_ColorTemperature
@@ -12624,6 +12644,10 @@ PrefabInstance:
       value: 0.41568628
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
+      propertyPath: m_Intensity
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_ColorTemperature
       value: 9519
       objectReference: {fileID: 0}
@@ -13032,7 +13056,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3118233694252092432, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Name
-      value: FlickeringSpotlight (8)
+      value: wideholelight
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Range
@@ -13049,6 +13073,10 @@ PrefabInstance:
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Color.r
       value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
+      propertyPath: m_Intensity
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_SpotAngle
@@ -17643,7 +17671,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3118233694252092432, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Name
-      value: FlickeringSpotlight (11)
+      value: endinglights
       objectReference: {fileID: 0}
     - target: {fileID: 3118233694252092432, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_IsActive
@@ -18531,6 +18559,10 @@ PrefabInstance:
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Color.r
       value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
+      propertyPath: m_Intensity
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_ColorTemperature
@@ -23034,7 +23066,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3118233694252092432, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Name
-      value: FlickeringSpotlight (9)
+      value: endinglights
       objectReference: {fileID: 0}
     - target: {fileID: 4291759871417500656, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_Color.b
@@ -23054,7 +23086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7732054051736240097, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.16
+      value: 35.27
       objectReference: {fileID: 0}
     - target: {fileID: 7732054051736240097, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23062,7 +23094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7732054051736240097, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 102.9
+      value: 101.43
       objectReference: {fileID: 0}
     - target: {fileID: 7732054051736240097, guid: 02af162ad40395548abfd8969baa52d8, type: 3}
       propertyPath: m_LocalRotation.w
