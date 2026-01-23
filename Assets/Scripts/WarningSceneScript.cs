@@ -17,6 +17,16 @@ public class WarningSceneScript : MonoBehaviour
         "7_EndingLevel"
     };
 
+    private void OnEnable()
+    {
+        isWarningScreenUp = true;
+    }
+
+    private void OnDisable()
+    {
+        isWarningScreenUp = false;
+    }
+
     private void Awake()
     {
         if (string.IsNullOrEmpty(previousSceneName))

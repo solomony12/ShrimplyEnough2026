@@ -72,6 +72,17 @@ public class SettingsMenuUI : MonoBehaviour
         GameSettings.Instance.SaveSettings();
     }
 
+    public void OnDisable()
+    {
+        GameSettings.Instance.SaveSettings();
+        SettingsIsOpen = false;
+    }
+
+    private void OnEnable()
+    {
+        SettingsIsOpen = true;
+    }
+
     public void ResumeGame()
     {
         SettingsIsOpen = false;

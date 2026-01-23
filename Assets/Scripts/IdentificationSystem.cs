@@ -41,6 +41,8 @@ public class IdentificationSystem : MonoBehaviour
 
     [SerializeField] private AudioClip uiClip;
 
+    public static bool isOisSystemUp;
+
     private void Awake()
     {
         if (Instance == null)
@@ -93,6 +95,8 @@ public class IdentificationSystem : MonoBehaviour
     {
         PlayerController.DisablePlayerControl();
 
+        isOisSystemUp = true;
+
         yield return SceneManager.LoadSceneAsync(identificationSceneName, LoadSceneMode.Additive);
 
         RemoveDuplicateEventSystems();
@@ -119,6 +123,7 @@ public class IdentificationSystem : MonoBehaviour
 
         if (SceneManager.GetSceneByName(identificationSceneName).isLoaded)
         {
+            isOisSystemUp = false;
             SceneManager.UnloadSceneAsync(identificationSceneName);
         }
     }

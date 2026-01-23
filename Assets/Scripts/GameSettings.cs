@@ -18,6 +18,8 @@ public class GameSettings : MonoBehaviour
     private float inputDelay = 0.15f;
     private float inputTimer = 0f;
 
+    private bool noOtherScreensAreUp;
+
     private void Awake()
     {
         if (Instance == null)
@@ -43,7 +45,12 @@ public class GameSettings : MonoBehaviour
             if (inputHandler == null)
                 inputHandler = PlayerInputHandler.Instance;
 
-            if (inputHandler.EscapeTriggered && !SceneTransition.IsTransitioning && !ChaseCutscene.isChasePlaying && !WarningSceneScript.isWarningScreenUp && !JumpscareTrigger.isCutscenePlaying)
+            noOtherScreensAreUp = !SceneTransition.IsTransitioning &&
+                !ChaseCutscene.isChasePlaying &&
+                !WarningSceneScript.isWarningScreenUp &&
+                !JumpscareTrigger.isCutscenePlaying &&
+                !IdentificationSystem.isOisSystemUp;
+            if (inputHandler.EscapeTriggered && noOtherScreensAreUp)
             {
                 PauseResume();
                 inputTimer = inputDelay;
