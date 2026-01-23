@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     AudioClip mainMusic;
 
     [Header("Music Transition")]
-    [SerializeField] private float musicFadeDuration = 1.0f;
+    [SerializeField] private float musicFadeDuration = 0.5f;
 
     private Coroutine musicFadeRoutine;
 
@@ -51,7 +51,12 @@ public class AudioManager : MonoBehaviour
         musicSource.volume = GameSettings.Instance.musicVolume;
         sfxSource.volume = GameSettings.Instance.sfxVolume;
         voiceSource.volume = GameSettings.Instance.voiceVolume;
-        backgroundHum.volume = GameSettings.Instance.sfxVolume - 0.5f;
+
+        // Lowest is 0.1 unless SFX is 0, in which it's also 0
+        float sfx = GameSettings.Instance.sfxVolume;
+        backgroundHum.volume = sfx == 0f
+            ? 0f
+            : Mathf.Max(0.1f, sfx - 0.5f);
     }
 
     private void InitializeSources()
@@ -92,7 +97,7 @@ public class AudioManager : MonoBehaviour
 
     // Music
 
-    public void PlayMusic(AudioClip clip, bool loop = false, bool restartIfSame = false)
+    public void PlayMusic(AudioClip clip, bool loop = true, bool restartIfSame = false)
     {
         if (clip == null) return;
 
@@ -267,24 +272,34 @@ public class AudioManager : MonoBehaviour
         if (mode == LoadSceneMode.Additive)
             return;
 
-        StopMusic();
         StopBackgroundHum();
 
         switch (scene.name)
         {
             case "1_IntroScene":
                 Debug.Log("Intro Scene Loaded");
+                StopMusic();
                 StartCoroutine(WaitForIntro());
                 break;
 
             case "2_Warehouse_Scene":
                 Debug.Log("Warehouse Loaded");
+
+                AudioClip warehouseMusic = Resources.Load<AudioClip>("Music/warehouse");
+                //PlayMusic(warehouseMusic);
+                SwitchMusic(warehouseMusic);
+
                 AudioClip hum = Resources.Load<AudioClip>("Sounds/loud-machinery-449526");
                 PlayBackgroundHum(hum);
                 break;
 
             case "4_Office":
                 Debug.Log("Office Loaded");
+
+                AudioClip officeMusic = Resources.Load<AudioClip>("Music/office");
+                //PlayMusic(officeMusic);
+                SwitchMusic(officeMusic);
+
                 AudioClip officeHum = Resources.Load<AudioClip>("Sounds/low-engine-hum-72529_LV4");
                 PlayBackgroundHum(officeHum);
                 break;
@@ -292,10 +307,12 @@ public class AudioManager : MonoBehaviour
             case "6_FinalArea":
                 Debug.Log("Final Area Loaded");
                 // Do Final Area stuff here
+                StopMusic();
                 break;
 
             case "7_EndingLevel":
                 Debug.Log("Ending Level Loaded");
+                StopMusic();
                 AudioClip heartbeat = Resources.Load<AudioClip>("Sounds/heartbeat-sound-372448_LV7");
                 PlayBackgroundHum(heartbeat);
                 break;
@@ -313,8 +330,8 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator WaitForIntro()
     {
-        float waitTime = SceneTransition.videoLength;
+        float waitTime = SceneTransition.videoLength - 2;
         yield return new WaitForSeconds(waitTime);
-        PlayBackgroundHum(mainMusic);
+        PlayMusic(mainMusic);
     }
 }

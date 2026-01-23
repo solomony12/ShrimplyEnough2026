@@ -6,8 +6,8 @@ public class GameSettings : MonoBehaviour
     public static GameSettings Instance { get; private set; }
 
     [Header("Audio")]
-    public float musicVolume = 1f;
-    public float sfxVolume = 1f;
+    public float musicVolume = 0.3f;
+    public float sfxVolume = 0.8f;
     public float voiceVolume = 1f;
 
     [Header("Controls")]
