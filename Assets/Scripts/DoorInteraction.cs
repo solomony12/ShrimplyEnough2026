@@ -84,18 +84,18 @@ public class DoorInteraction : MonoBehaviour
                 }
             }
             // Flashlight
-            /*else if (hit.collider.CompareTag("Flashlight"))
+            else if (hit.collider.CompareTag("Flashlight"))
             {
                 isHovering = true;
                 hoverCaptions.ShowCaptions("Press [E] to pick up");
                 // Interact
                 if (Keyboard.current[interactKey].wasPressedThisFrame)
                 {
-                    GameObject flashlight = hit.collider.GetComponentInParent<GameObject>();
+                    GameObject flashlight = hit.collider.gameObject;
                     flashlight.SetActive(false);
                     Flashlight.Instance.canUseFlashlight = true;
                 }
-            }*/
+            }
         }
 
         if (!isHovering)
