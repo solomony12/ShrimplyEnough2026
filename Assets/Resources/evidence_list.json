@@ -127,6 +127,66 @@
             "scannedCompounds": [ "Plastic: 45%", "Cardboard: 20%", "Paint: 15%", "Glue: 10%", "Metal: 5%", "Unknown: 5%" ],
             "possibleItems": [ "Light", "Computer", "Betrayal"],
             "correctAnswer": 1
+        },
+        {
+            "evidenceName": "T4_CoffeeSpill01_Evidence",
+            "scannedCompounds": [ "Water: 82%", "Coffee Beans: 7%", "Sugar: 4%", "Milk: 3%", "Stimulants: 4%" ],
+            "possibleItems": [ "Coffee", "Steroids", "Drugs"],
+            "correctAnswer": 0
+        },
+        {
+            "evidenceName": "T4_PetriDish01_Evidence",
+            "scannedCompounds": [ "AlienTissue: 40%", "Saline: 25%", "ShrimpCells: 15%", "GrowthGel: 10%", "Unknown: 10%" ],
+            "possibleItems": [ "Alien", "Stem Cells", "Petri Dish"],
+            "correctAnswer": 1
+        },
+        {
+            "evidenceName": "T4_AluminumFoil01_Evidence",
+            "scannedCompounds": [ "Aluminum: 92%", "Carbon: 3%", "FoodResidue: 3%", "Grease: 2%" ],
+            "possibleItems": [ "Aluminum Foil", "Tin Hat", "Stove"],
+            "correctAnswer": 0
+        },
+        {
+            "evidenceName": "T4_StrangePainting01_Evidence",
+            "scannedCompounds": [ "Canvas: 35%", "OilPaint: 25%", "WoodFrame: 20%", "Varnish: 10%", "Dust: 5%", "Unknown: 5%" ],
+            "possibleItems": [ "Van Gogh", "Captured Soul", "Painting"],
+            "correctAnswer": 2
+        },
+        {
+            "evidenceName": "T4_FleshProduct01_Evidence",
+            "scannedCompounds": [ "Water: 60%", "ProteinGel: 15%", "ShrimpTissue: 10%", "FattyAcids: 8%", "Salt: 5%", "Unknown: 2%" ],
+            "possibleItems": [ "Rebel Shrimp", "Bad Product", "Human"],
+            "correctAnswer": 2
+        },
+        {
+            "evidenceName": "T4_ShrimpProduct01_Evidence",
+            "scannedCompounds": [ "Water: 65%", "ShrimpMeat: 18%", "Salt: 8%", "Preservative: 4%", "CitricAcid: 3%", "Unknown: 2%" ],
+            "possibleItems": [ "Shrimp", "Shrimp Soda", "Shrimp Puree"],
+            "correctAnswer": 2
+        },
+        {
+            "evidenceName": "T4_ShrimpProduct02_Evidence",
+            "scannedCompounds": [ "Water: 62%", "ShrimpMeat: 15%", "Salt: 7%", "MoldSpores: 6%", "Ammonia: 4%", "Unknown: 6%" ],
+            "possibleItems": [ "Mold Colony", "Bad Product", "Shrimp Soup"],
+            "correctAnswer": 1
+        },
+        {
+            "evidenceName": "T4_ShrimpProduct03_Evidence",
+            "scannedCompounds": [ "Water: 60%", "ShrimpMeat: 14%", "Salt: 8%", "Bacteria: 7%", "SulfurSmell: 6%", "Unknown: 5%" ],
+            "possibleItems": [ "Bad Product", "Shrimp Soup", "Mom's Cooking"],
+            "correctAnswer": 0
+        },
+        {
+            "evidenceName": "T4_Cutout01_Evidence",
+            "scannedCompounds": [ "Cardboard: 70%", "PaperCoating: 14%", "Ink: 8%", "Glue: 5%", "Dust: 2%", "SoulDust: 1%" ],
+            "possibleItems": [ "Diorama", "Special Cutout", "Souls"],
+            "correctAnswer": 1
+        },
+        {
+            "evidenceName": "T4_BubbleGumShrimp01_Evidence",
+            "scannedCompounds": [ "Sugar: 40%", "GumBase: 25%", "ShrimpBits: 15%", "Flavoring: 10%", "Colorant: 5%", "Salt: 5%" ],
+            "possibleItems": [ "Bubble Gum", "Shrimp", "BubbleTheShrimp"],
+            "correctAnswer": 2
         }
     ]
 }
