@@ -187,6 +187,36 @@
             "scannedCompounds": [ "Sugar: 40%", "GumBase: 25%", "ShrimpBits: 15%", "Flavoring: 10%", "Colorant: 5%", "Salt: 5%" ],
             "possibleItems": [ "Bubble Gum", "Shrimp", "BubbleTheShrimp"],
             "correctAnswer": 2
+        },
+        {
+            "evidenceName": "T4_ShrimpInACup01_Evidence",
+            "scannedCompounds": [ "CeramicMug: 45%", "Water: 35%", "ShrimpMeat: 12%", "Salt: 5%", "Spices: 3%" ],
+            "possibleItems": [ "Shrimp Mug", "Bath Time", "Elegant Soup"],
+            "correctAnswer": 0
+        },
+        {
+            "evidenceName": "T4_ShrimpTrophy_Evidence",
+            "scannedCompounds": [ "PlasticBase: 30%", "MetalPlaque: 20%", "ResinShrimp: 34%", "Paint: 0%", "Unknown: 16%" ],
+            "possibleItems": [ "Stuffed Alien", "Trophy", "Your Mom"],
+            "correctAnswer": 1
+        },
+        {
+            "evidenceName": "T4_MascotTub_Evidence",
+            "scannedCompounds": [ "PlasticTub: 45%", "ResinShrimp: 30%", "Paint: 10%", "Glue: 5%", "Water: 4%", "Unknown: 6%" ],
+            "possibleItems": [ "Plastic Food", "Ice Cream", "Puree Plastic"],
+            "correctAnswer": 2
+        },
+        {
+            "evidenceName": "T4_Finger01_Evidence",
+            "scannedCompounds": [ "Water: 70%", "Protein: 20%", "Fat: 7%", "Salt: 2%", "ConnectiveTissue: 1%" ],
+            "possibleItems": [ "Toe", "A5 Wagyu", "Shake"],
+            "correctAnswer": 0
+        },
+        {
+            "evidenceName": "T4_Eye01_Evidence",
+            "scannedCompounds": [ "AquaGel: 55%", "ClearGel: 25%", "SurfaceFilm: 10%", "SaltSolution: 5%", "Unknown: 5%" ],
+            "possibleItems": [ "Eye", "See", "You"],
+            "correctAnswer": 0
         }
     ]
 }
