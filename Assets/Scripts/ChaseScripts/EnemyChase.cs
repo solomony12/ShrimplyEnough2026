@@ -79,6 +79,8 @@ public class EnemyChase : MonoBehaviour
         PlayerController.DisablePlayerControl();
         enemyModel.SetActive(false);
 
+        AudioManager.Instance.StopMusic();
+
         // Lerp to animation
 
         // Play jumpscare animation

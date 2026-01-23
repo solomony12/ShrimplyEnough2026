@@ -136,7 +136,7 @@ public class ChaseCutscene : MonoBehaviour
         enemyParent.GetComponent<EnemyChase>().enabled = true;
 
         // Music, SFX
-        AudioClip music = Resources.Load<AudioClip>("Music/happy-halloween-169509");
+        AudioClip music = Resources.Load<AudioClip>("Music/chase");
         AudioManager.Instance.PlayMusic(music, true);
         AudioClip heartbeat = Resources.Load<AudioClip>("Sounds/tachycardic-heart-beat-417364_BG");
         AudioManager.Instance.PlayBackgroundHum(heartbeat);

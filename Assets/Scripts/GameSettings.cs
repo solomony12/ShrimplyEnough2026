@@ -6,8 +6,8 @@ public class GameSettings : MonoBehaviour
     public static GameSettings Instance { get; private set; }
 
     [Header("Audio")]
-    public float musicVolume = 1f;
-    public float sfxVolume = 1f;
+    public float musicVolume = 0.3f;
+    public float sfxVolume = 0.8f;
     public float voiceVolume = 1f;
 
     [Header("Controls")]
@@ -17,6 +17,8 @@ public class GameSettings : MonoBehaviour
 
     private float inputDelay = 0.15f;
     private float inputTimer = 0f;
+
+    private bool noOtherScreensAreUp;
 
     private void Awake()
     {
@@ -43,7 +45,12 @@ public class GameSettings : MonoBehaviour
             if (inputHandler == null)
                 inputHandler = PlayerInputHandler.Instance;
 
-            if (inputHandler.EscapeTriggered && !SceneTransition.IsTransitioning && !ChaseCutscene.isChasePlaying && !WarningSceneScript.isWarningScreenUp && !JumpscareTrigger.isCutscenePlaying)
+            noOtherScreensAreUp = !SceneTransition.IsTransitioning &&
+                !ChaseCutscene.isChasePlaying &&
+                !WarningSceneScript.isWarningScreenUp &&
+                !JumpscareTrigger.isCutscenePlaying &&
+                !IdentificationSystem.isOisSystemUp;
+            if (inputHandler.EscapeTriggered && noOtherScreensAreUp)
             {
                 PauseResume();
                 inputTimer = inputDelay;

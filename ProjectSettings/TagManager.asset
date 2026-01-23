@@ -19,6 +19,7 @@ TagManager:
   - Slippery
   - Keycard
   - Flashlight
+  - StartingCutout
   layers:
   - Default
   - TransparentFX
