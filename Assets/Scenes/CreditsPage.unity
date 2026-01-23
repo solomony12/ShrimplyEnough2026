@@ -856,18 +856,18 @@ MonoBehaviour:
     Thatcher: 3D Modeler, 2D Art, Level Design
 
     - Berkeley: Auxiliary Programmer,
-    Level Design, Animations
+    Level Design, Animations, Voice
 
     - Eric: Music Composer
 
 
-    Sound effects, stock
-    images in the OSHRIMP training video, and any additional music are licensed from
-    Pixabay.
+    Sound effects,
+    stock images in the OSHRIMP training video, and any additional music are licensed
+    from Pixabay.
 
 
-    - Shrimply Enough Commercial Music: "Happy Today" by Vlad Krotov
-    from Pixabay'
+    - Shrimply Enough Commercial Music: "Happy Today" by Vlad
+    Krotov from Pixabay'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d8256b1d26f9bd4795b6a13c75a2ab4, type: 2}
   m_sharedMaterial: {fileID: 6327633033948756504, guid: 8d8256b1d26f9bd4795b6a13c75a2ab4, type: 2}
@@ -894,8 +894,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 46
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
