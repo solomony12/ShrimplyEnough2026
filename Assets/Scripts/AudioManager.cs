@@ -35,14 +35,6 @@ public class AudioManager : MonoBehaviour
         mainMusic = Resources.Load<AudioClip>("Music/main");
     }
 
-    private void Start()
-    {
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            PlayMusic(mainMusic, true);
-        }
-    }
-
     private void Update()
     {
         // Continuously sync volumes from GameSettings
@@ -276,6 +268,10 @@ public class AudioManager : MonoBehaviour
 
         switch (scene.name)
         {
+            case "MainMenu":
+                Debug.Log("MainMenu");
+                SwitchMusic(mainMusic, 0.1f);
+                break;
             case "1_IntroScene":
                 Debug.Log("Intro Scene Loaded");
                 StopMusic();
