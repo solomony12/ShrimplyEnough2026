@@ -7,7 +7,7 @@ public class GameSettings : MonoBehaviour
 
     [Header("Audio")]
     public float musicVolume = 0.3f;
-    public float sfxVolume = 0.8f;
+    public float sfxVolume = 1f;
     public float voiceVolume = 1f;
 
     [Header("Controls")]
