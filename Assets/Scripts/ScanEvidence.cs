@@ -107,7 +107,7 @@ public class ScanEvidence : MonoBehaviour
         }
 
         // HOLD logic
-        if (inputHandler.ScanTriggered)
+        if (inputHandler.ScanTriggered && !SceneTransition.IsTransitioning)
         {
             isScanning = true;
             holdTimer += Time.deltaTime;
