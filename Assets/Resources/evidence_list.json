@@ -93,11 +93,40 @@
             "correctAnswer": 0
         },
         
+
+
         {
             "evidenceName": "Berk_Evidence_1",
             "scannedCompounds": [ "Water: 77%", "Shrimp DNA:78%", "Unkown:22%" ],
             "possibleItems": [ "Shrimp", "Crab", "Guys help if your reading the developers locked me in their basement" ],
             "correctAnswer": 0
+        },
+
+
+
+        {
+            "evidenceName": "T4_ShrimpTank01_Evidence",
+            "scannedCompounds": [ "Glass: 50%", "Steel: 20%", "CopperWires: 10%", "Water: 15%", "AlienTissue: 5%" ],
+            "possibleItems": [ "Statue", "UFO", "Alien Container" ],
+            "correctAnswer": 2
+        },
+        {
+            "evidenceName": "T4_MiniModel01_Evidence",
+            "scannedCompounds": [ "Plastic: 45%", "Cardboard: 20%", "Paint: 15%", "Glue: 10%", "Metal: 5%", "Unknown: 5%" ],
+            "possibleItems": [ "Dollhouse", "Model", "Photo Album" ],
+            "correctAnswer": 1
+        },
+        {
+            "evidenceName": "T4_DisplayBoard01_Evidence",
+            "scannedCompounds": [ "Plastic: 45%", "Cardboard: 20%", "Paint: 15%", "Glue: 10%", "Metal: 5%", "Unknown: 5%" ],
+            "possibleItems": [ "Display Board", "Crime Scene" ],
+            "correctAnswer": 0
+        },
+        {
+            "evidenceName": "T4_Computer01_Evidence",
+            "scannedCompounds": [ "Plastic: 45%", "Cardboard: 20%", "Paint: 15%", "Glue: 10%", "Metal: 5%", "Unknown: 5%" ],
+            "possibleItems": [ "Light", "Computer", "Betrayal"],
+            "correctAnswer": 1
         }
     ]
 }

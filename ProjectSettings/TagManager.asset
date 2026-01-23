@@ -18,6 +18,7 @@ TagManager:
   - Ground
   - Slippery
   - Keycard
+  - Flashlight
   layers:
   - Default
   - TransparentFX
