@@ -26356,7 +26356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f648e84b9d5464357bcc4f541e91790f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f648e84b9d5464357bcc4f541e91790f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -33690,7 +33690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1348003441
 Light:
   m_ObjectHideFlags: 0
@@ -51519,6 +51519,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6380766992985478516, guid: 1f77951fad491454fa9eb2262bbf1a14, type: 3}
   m_PrefabInstance: {fileID: 4901840550933524129}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6046488262798544622
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1031786441512057688, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_Name
+      value: CardboardCutoutJumpscare
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -31.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952265843998592252, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4289762691153481620, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eec2012d8579348498a9542ab1ea2856, type: 3}
 --- !u!1001 &7128218796962229641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51894,3 +51952,4 @@ SceneRoots:
   - {fileID: 1868114592}
   - {fileID: 874317171}
   - {fileID: 2091086377}
+  - {fileID: 6046488262798544622}
