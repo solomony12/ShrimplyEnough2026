@@ -10,6 +10,8 @@ public class Flashlight : MonoBehaviour
 
     private bool _canUseFlashlight;
 
+    private AudioClip click;
+
     [SerializeField] private Key interactKey = Key.C;
 
     private bool lightsOn;
@@ -26,6 +28,7 @@ public class Flashlight : MonoBehaviour
             Destroy(gameObject);
         }
 
+        click = Resources.Load<AudioClip>("Sounds/flashlight-102291");
         _canUseFlashlight = false;
         flashlightLight.enabled = true;
         flashlightObject.SetActive(false);
@@ -62,6 +65,7 @@ public class Flashlight : MonoBehaviour
             // Switch current state of light
             lightsOn = !lightsOn;
             flashlightLight.enabled = lightsOn;
+            AudioManager.Instance.PlayVoice(click);
         }
     }
 

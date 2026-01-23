@@ -102,7 +102,6 @@ public class DoorInteraction : MonoBehaviour
                     }
                     Flashlight.Instance.canUseFlashlight = true;
                     Captions.Instance.TimedShowCaptions("[C] to toggle the flashlight", 6f);
-                    //AudioManager.Instance.PlayVoice();
                 }
             }
         }
