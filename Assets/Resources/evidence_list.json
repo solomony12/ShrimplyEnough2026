@@ -102,6 +102,43 @@
             "correctAnswer": 0
         },
 
+        
+        {
+            "evidenceName": "T3_Blob_Evidence",
+            "scannedCompounds": [ "Water: 70%", "Tomato: 24%", "Sugar: 4%", "Vinegar: 1%", "Salt: 0.5%", "Spices: 0.5%" ],
+            "possibleItems": [ "Salad", "Ketchup", "Blood" ],
+            "correctAnswer": 2
+        },
+        {
+            "evidenceName": "T3_Shrimpipede_Evidence",
+            "scannedCompounds": [ "Water: 37%", "Biofuel: 51%", "Human DNA: 12%" ],
+            "possibleItems": [ "Sausage Link", "Accordion", "Shrimpipede" ],
+            "correctAnswer": 3
+        },
+        {
+            "evidenceName": "T3_FigurineEvidence",
+            "scannedCompounds": [ "Resin: 85%", "Filler: 10%", "Pigment: 3%", "Pig Blood: 2%" ],
+            "possibleItems": [ "ERR#131809", "Figurine", "Vessel of Sin" ],
+            "correctAnswer": 2
+        },
+        {
+            "evidenceName": "T3_ModelTrain_Evidence",
+            "scannedCompounds": [ "Quartz: 22%", "Radon Gas: 21%", "Plastic: 57%" ],
+            "possibleItems": [ "Model Train", "Table", "Thatcher" ],
+            "correctAnswer": 1
+        },
+        {
+            "evidenceName": "T3_WeirdSubstance_Evidence",
+            "scannedCompounds": [ "Water: 90%", "Proteins: 7%", "Ions: 2%", "Lipids: 1%" ],
+            "possibleItems": [ "Cat Whiskers", "Soda Water", "Human Sperm" ],
+            "correctAnswer": 3
+        },
+        {
+            "evidenceName": "T3_ShrimpMating_Evidence",
+            "scannedCompounds": [ "Water: 72%", "Protein: 20%", "Eggs: 6%", "Chitin: 2%" ],
+            "possibleItems": [ "Wrestling", "Miracle of Life", "Just Friends" ],
+            "correctAnswer": 3
+        },
 
 
         {
