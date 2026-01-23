@@ -289,7 +289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 343}
+  m_AnchoredPosition: {x: 0, y: 430}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &584290020
@@ -426,7 +426,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1800, y: 900}
+  m_SizeDelta: {x: 1800, y: 950}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896120375
 MonoBehaviour:
@@ -827,8 +827,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_AnchoredPosition: {x: 0, y: -83}
+  m_SizeDelta: {x: 1800, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890140896
 MonoBehaviour:
@@ -850,7 +850,29 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (copy paste at end)
+  m_text: '- Soli: Lead Programmer, Animations, Level Design, Sound Editor, Videos
+
+    -
+    Thatcher: 3D Modeler, 2D Art, Level Design
+
+    - Berkeley: Auxiliary Programmer,
+    Level Design, Animations
+
+    - Eric: Music Composer
+
+
+    Sound effects, stock
+    images in the OSHRIMP training video, and any additional music chimes are licensed
+    from Pixabay.
+
+
+    Shrimply Enough Commercial Music: "Happy Today" by Vlad Krotov
+    from Pixabay
+
+    ~~Chase Sequence Music: "Happy Halloween" by Jonah Lee from
+    Pixabay~~
+
+    Ending Cutscene: "Eerie Dark Ambience" by TrenoX8 from Pixabay'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d8256b1d26f9bd4795b6a13c75a2ab4, type: 2}
   m_sharedMaterial: {fileID: 6327633033948756504, guid: 8d8256b1d26f9bd4795b6a13c75a2ab4, type: 2}
