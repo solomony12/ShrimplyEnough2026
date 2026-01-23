@@ -91,9 +91,18 @@ public class DoorInteraction : MonoBehaviour
                 // Interact
                 if (Keyboard.current[interactKey].wasPressedThisFrame)
                 {
-                    GameObject flashlight = hit.collider.gameObject;
-                    flashlight.SetActive(false);
+                    Transform parent = hit.collider.transform.parent;
+
+                    if (parent != null)
+                    {
+                        foreach (Transform child in parent)
+                        {
+                            child.gameObject.SetActive(false);
+                        }
+                    }
                     Flashlight.Instance.canUseFlashlight = true;
+                    Captions.Instance.TimedShowCaptions("[C] to toggle the flashlight", 6f);
+                    //AudioManager.Instance.PlayVoice();
                 }
             }
         }
