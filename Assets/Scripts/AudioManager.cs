@@ -270,7 +270,8 @@ public class AudioManager : MonoBehaviour
         {
             case "MainMenu":
                 Debug.Log("MainMenu");
-                SwitchMusic(mainMusic, 0.1f);
+                AudioClip fasterMusic = Resources.Load<AudioClip>("Music/main2");
+                SwitchMusic(fasterMusic, 0.1f);
                 break;
             case "1_IntroScene":
                 Debug.Log("Intro Scene Loaded");
@@ -281,20 +282,30 @@ public class AudioManager : MonoBehaviour
             case "2_Warehouse_Scene":
                 Debug.Log("Warehouse Loaded");
 
-                AudioClip warehouseMusic = Resources.Load<AudioClip>("Music/warehouse");
-                //PlayMusic(warehouseMusic);
-                SwitchMusic(warehouseMusic);
+                // Office music for the warehouse
+                AudioClip officeMusic = Resources.Load<AudioClip>("Music/office");
+                SwitchMusic(officeMusic);
+                
 
                 AudioClip hum = Resources.Load<AudioClip>("Sounds/loud-machinery-449526");
+                PlayBackgroundHum(hum);
+                break;
+
+            case "3_FactoryFloor":
+                Debug.Log("Factory Loaded");
+
+                // Warehouse music for factory
+                AudioClip warehouseMusic = Resources.Load<AudioClip>("Music/warehouse");
+                SwitchMusic(warehouseMusic);
+
+                hum = Resources.Load<AudioClip>("Sounds/loud-machinery-449526");
                 PlayBackgroundHum(hum);
                 break;
 
             case "4_Office":
                 Debug.Log("Office Loaded");
 
-                AudioClip officeMusic = Resources.Load<AudioClip>("Music/office");
-                //PlayMusic(officeMusic);
-                SwitchMusic(officeMusic);
+                // Factory music carries over to Office before blackout ends it
 
                 AudioClip officeHum = Resources.Load<AudioClip>("Sounds/low-engine-hum-72529_LV4");
                 PlayBackgroundHum(officeHum);
