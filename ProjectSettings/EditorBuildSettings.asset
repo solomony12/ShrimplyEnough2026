@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WarningScene.unity
     guid: 3e1fa458154384349bfcd20420feda8b
+  - enabled: 1
+    path: Assets/Scenes/CreditsPage.unity
+    guid: dbbacf40c3fcb6740a1c936fd510ede5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e6d7df030b9f8e64a8cd9f06aa11b8fd, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

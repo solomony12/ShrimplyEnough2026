@@ -34,6 +34,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(settingsSceneName, LoadSceneMode.Additive);
     }
 
+    public void Credits()
+    {
+        SceneManager.LoadScene("CreditsPage", LoadSceneMode.Additive);
+    }
+
     public void Quit()
     {
         Debug.Log("Quit button pressed.");
