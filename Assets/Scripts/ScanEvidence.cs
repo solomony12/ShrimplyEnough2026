@@ -23,8 +23,8 @@ public class ScanEvidence : MonoBehaviour
     private IdentificationSystem identificationSystem;
 
     [Header("Distance to Scan")]
-    private float maxPlayerObjectDistance = 5f;
-    private float maxCameraObjectDistance = 3f;
+    private float maxPlayerObjectDistance = 7f;
+    private float maxCameraObjectDistance = 5f;
 
     [Header("Scanner Variables")]
     [SerializeField] private float holdTimeToScan = 2f;
@@ -107,7 +107,7 @@ public class ScanEvidence : MonoBehaviour
         }
 
         // HOLD logic
-        if (inputHandler.ScanTriggered)
+        if (inputHandler.ScanTriggered && !SceneTransition.IsTransitioning)
         {
             isScanning = true;
             holdTimer += Time.deltaTime;

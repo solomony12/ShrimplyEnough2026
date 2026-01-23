@@ -86,6 +86,12 @@
             "possibleItems": [ "Tropical Island", "Lemon Soda", "Killer Goose" ],
             "correctAnswer": 2
         },
+        {
+            "evidenceName": "T1_ConcreteColumn01_Evidence",
+            "scannedCompounds": [ "Cement: 15%", "Sand: 25%", "Gravel: 35%", "Water: 20%", "Rebar: 5%"],
+            "possibleItems": [ "Support Beam", "Stone Hedge", "Statue" ],
+            "correctAnswer": 0
+        },
         
         {
             "evidenceName": "Berk_Evidence_1",

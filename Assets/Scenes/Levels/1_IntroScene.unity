@@ -9003,7 +9003,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8661859008315189402, guid: d85d2cd3acd03e049abb123fb02ebddf, type: 3}
       propertyPath: m_Name
-      value: Column_Factory
+      value: T1_ConcreteColumn01_Evidence
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661859008315189402, guid: d85d2cd3acd03e049abb123fb02ebddf, type: 3}
+      propertyPath: m_TagString
+      value: Evidence
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
