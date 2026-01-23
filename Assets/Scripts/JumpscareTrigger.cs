@@ -123,8 +123,8 @@ public class JumpscareTrigger : MonoBehaviour
         // Snap cleanly
         player.position = startPointPos;
         player.rotation = startPointRot;
-        camera.transform.localPosition = camStartPos;
-        camera.transform.localRotation= camStartRot;
+        //camera.transform.localPosition = camStartPos;
+        //camera.transform.localRotation= camStartRot;
 
         // NOW play timeline
         director.time = 0;
@@ -153,6 +153,7 @@ public class JumpscareTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         isCutscenePlaying = false;
+        Cursor.lockState = CursorLockMode.None;
         SceneTransition.Instance.StartTransition("MainMenu");
     }
 }
