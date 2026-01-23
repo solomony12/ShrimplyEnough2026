@@ -14008,6 +14008,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShrimpCutout_5
       objectReference: {fileID: 0}
+    - target: {fileID: 8916192710957649370, guid: 7b6a35169700e7d4f8b1196397310743, type: 3}
+      propertyPath: m_TagString
+      value: StartingCutout
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

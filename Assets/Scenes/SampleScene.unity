@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IdentificationSystem
   currentIndex: 0
+  uiClip: {fileID: 0}
 --- !u!4 &332012908
 Transform:
   m_ObjectHideFlags: 0
@@ -582,6 +583,7 @@ MonoBehaviour:
   itemDown: ItemDown
   itemSelect: ItemSelect
   escape: Escape
+  scan: Scan
 --- !u!143 &563752021
 CharacterController:
   m_ObjectHideFlags: 0
@@ -838,6 +840,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200c09ed1b198754aa7f0ecf30ad6259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JumpscareTrigger
+  methodToTriggerIndex: 0
+  director: {fileID: 0}
+  moveDuration: 3
 --- !u!54 &1014716790
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1182,6 +1187,103 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151000111}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1245117363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245117367}
+  - component: {fileID: 1245117366}
+  - component: {fileID: 1245117365}
+  - component: {fileID: 1245117364}
+  m_Layer: 0
+  m_Name: VA_TriggerZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1245117364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245117363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1b32a7bd408d842a4da1123978644a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VoicelineTrigger
+  voiceline: {fileID: 0}
+  captions: 
+  time: 0
+--- !u!54 &1245117365
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245117363}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &1245117366
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245117363}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1245117367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245117363}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.57, y: 0.67, z: 5.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1295237318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debf933a4bac38240b9b3bf9bca4c98d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  walkSpeed: 3
   sprintMultiplier: 2
   crawlMultiplier: 0.75
   upDownRange: 80
@@ -1269,6 +1370,7 @@ MonoBehaviour:
   cameraPivot: {fileID: 0}
   cameraStandingHeight: 1.6
   cameraCrawlingHeight: 0.8
+  slipperyFriction: 0.0001
 --- !u!114 &1295237323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1281,7 +1383,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c36380c7270e143802b177382d9d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScanEvidence
+  scannerLerpSpeed: 8
   holdTimeToScan: 2
+  scannedClip: {fileID: 0}
+  scanningClip: {fileID: 0}
+  scanningPlayInterval: 0.5
 --- !u!1 &1311017537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,3 +1830,4 @@ SceneRoots:
   - {fileID: 1318830936}
   - {fileID: 332012908}
   - {fileID: 1014716792}
+  - {fileID: 1245117367}

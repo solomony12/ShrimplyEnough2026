@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -62,6 +63,39 @@ public class DoorInteraction : MonoBehaviour
                     keycardSystem.PickUpKeycard();
                 }
             }
+            // Starting Cutout
+            else if (hit.collider.CompareTag("StartingCutout"))
+            {
+                isHovering = true;
+                hoverCaptions.ShowCaptions("Press [E] to interact");
+                // Interact
+                if (Keyboard.current[interactKey].wasPressedThisFrame)
+                {
+                    try
+                    {
+                        Captions.Instance.TimedShowCaptions("Bubble... That's a dumb name for a shrimp mascot.", 5f);
+                        //AudioClip line = Resources.Load<AudioClip>("Voicelines/main");
+                        //AudioManager.Instance.PlayVoice(line);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.Log(e);
+                    }
+                }
+            }
+            // Flashlight
+            /*else if (hit.collider.CompareTag("Flashlight"))
+            {
+                isHovering = true;
+                hoverCaptions.ShowCaptions("Press [E] to pick up");
+                // Interact
+                if (Keyboard.current[interactKey].wasPressedThisFrame)
+                {
+                    GameObject flashlight = hit.collider.GetComponentInParent<GameObject>();
+                    flashlight.SetActive(false);
+                    Flashlight.Instance.canUseFlashlight = true;
+                }
+            }*/
         }
 
         if (!isHovering)
