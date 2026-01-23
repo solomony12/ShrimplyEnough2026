@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardboardCutoutJumpscare
   cutout: {fileID: 7628511751573285919}
+  light: {fileID: 4365194661111899338}
 --- !u!65 &9189699257851600249
 BoxCollider:
   m_ObjectHideFlags: 0
