@@ -858,16 +858,16 @@ MonoBehaviour:
     - Berkeley: Auxiliary Programmer,
     Level Design, Animations, Voice
 
-    - Eric: Music Composer
+    - Eric: Music Composer, Help with Evidence
+    in Level 2
 
 
-    Sound effects,
-    stock images in the OSHRIMP training video, and any additional music are licensed
-    from Pixabay.
+    Sound effects, stock images in the OSHRIMP training video, and
+    any additional music are licensed from Pixabay.
 
 
-    - Shrimply Enough Commercial Music: "Happy Today" by Vlad
-    Krotov from Pixabay'
+    - Shrimply Enough Commercial
+    Music: "Happy Today" by Vlad Krotov from Pixabay'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d8256b1d26f9bd4795b6a13c75a2ab4, type: 2}
   m_sharedMaterial: {fileID: 6327633033948756504, guid: 8d8256b1d26f9bd4795b6a13c75a2ab4, type: 2}
