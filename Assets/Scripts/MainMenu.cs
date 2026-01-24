@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
         EvidenceGeneration.ResetEvidenceCounter();
         Cursor.lockState = CursorLockMode.Locked;
         SceneTransition.Instance.StartOpeningCutscene(playSceneName);
+        EvidenceGeneration.ResetEvidenceCounter();
     }
 
     public void Tutorial()

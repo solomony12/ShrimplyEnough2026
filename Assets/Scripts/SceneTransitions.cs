@@ -23,7 +23,7 @@ public class SceneTransition : MonoBehaviour
 
     private Animator cameraAnimator;
 
-    public static float videoLength = 32f; // TODO: 32f
+    public static float videoLength = 11f; // TODO: 32f
 
     private void Awake()
     {

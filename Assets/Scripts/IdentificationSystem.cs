@@ -321,7 +321,9 @@ public class IdentificationSystem : MonoBehaviour
             // If threshold passed for correct evidence, give the player the option to return when they want (OSHRIMP ending)
             // TODO:
             if (thresholdReached)
-            { }
+            {
+                Debug.Log("Enough evidence collected!");
+            }
 
             return;
         }
