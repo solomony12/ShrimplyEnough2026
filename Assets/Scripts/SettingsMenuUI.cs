@@ -127,6 +127,8 @@ public class SettingsMenuUI : MonoBehaviour
         {
             ScanEvidence.IsDisplayOpen = false;
             UnityEngine.Cursor.lockState = CursorLockMode.None;
+            AudioClip mainMusic = Resources.Load<AudioClip>("Music/main2");
+            AudioManager.Instance.PlayMusic(mainMusic, true);
             SceneTransition.Instance.StartTransition(mainMenuSceneString);
         }
     }
