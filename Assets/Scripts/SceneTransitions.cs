@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 
 public class SceneTransition : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class SceneTransition : MonoBehaviour
 
     private Animator cameraAnimator;
 
-    public static float videoLength = 34f; // TODO: 34f
+    public static float videoLength = 32f; // TODO: 32f
 
     private void Awake()
     {
@@ -42,6 +43,9 @@ public class SceneTransition : MonoBehaviour
 
         canvasGroup.blocksRaycasts = false;
         fadeImage.color = new Color(0, 0, 0, 0);
+
+        canvas = GameObject.FindWithTag("GameCanvas");
+        canvas.SetActive(false);
     }
 
     public void StartTransition(string sceneName)
@@ -108,14 +112,14 @@ public class SceneTransition : MonoBehaviour
         mainCamera = Camera.main;
         player = GameObject.FindWithTag("Player");
         scanner = GameObject.FindWithTag("Scanner");
-        canvas = GameObject.FindWithTag("GameCanvas");
         cameraAnimator = mainCamera.GetComponent<Animator>();
         cameraAnimator.ResetTrigger("StartZoomingOut");
         PlayerController.DisablePlayerControl();
 
         // Set views (animation for camera is already set)
         scanner.SetActive(false);
-        canvas.SetActive(false);
+        //try { canvas.SetActive(false); }
+        //catch (Exception e) { Debug.Log(e);  }
 
         // Fade out
         yield return StartCoroutine(Fade(0.5f, 0f));

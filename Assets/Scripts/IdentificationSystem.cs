@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class IdentificationSystem : MonoBehaviour
 {
@@ -28,7 +29,10 @@ public class IdentificationSystem : MonoBehaviour
 
     [Header("OSHRIMP Data for Scan")]
     private Evidence currentEvidence;
+    private int currentEvidenceIndex;
     private int correctIndex;
+    private float[] evidencePercentages;
+    private float[] normsMultiplier;
 
     private float itemSize;
 
@@ -42,6 +46,8 @@ public class IdentificationSystem : MonoBehaviour
     [SerializeField] private AudioClip uiClip;
 
     public static bool isOisSystemUp;
+
+    private bool thresholdReached = false;
 
     private void Awake()
     {
@@ -62,9 +68,12 @@ public class IdentificationSystem : MonoBehaviour
 
         currentIndex = 0;
 
+        thresholdReached = false;
+
         uiClip = Resources.Load<AudioClip>("Sounds/ui-button-sound-cancel-back-exit-continue-467877");
 
         ReadJsonForEvidence();
+        CalculateNorms();
     }
 
     private void Update()
@@ -89,6 +98,28 @@ public class IdentificationSystem : MonoBehaviour
         string json = jsonFile.text;
 
         evidenceList = JsonUtility.FromJson<EvidenceList>(json);
+    }
+
+    // Normalization for how much each evidence scan should add
+    private void CalculateNorms()
+    {
+        normsMultiplier = new float[evidenceList.evidences.Length];
+
+        float totalSumPercentage = 0;
+        // Get total sum of all correct answers' percentage-wise
+        foreach (Evidence evidence in evidenceList.evidences)
+        {
+            float correctAmount = evidence.rightPercentages[evidence.correctAnswer];
+            totalSumPercentage += correctAmount;
+        }
+
+        // Normalize each value and store the multiplier (which should be a decimal amount < 1)
+        for(int i = 0; i < evidenceList.evidences.Length; i++)
+        {
+            Evidence evidence = evidenceList.evidences[i];
+            normsMultiplier[i] = evidence.rightPercentages[evidence.correctAnswer] / totalSumPercentage;
+        }
+        Debug.Log("Norms calculated");
     }
 
     public IEnumerator StartDisplaySystem(string evidenceName)
@@ -161,7 +192,7 @@ public class IdentificationSystem : MonoBehaviour
         ResetScreen();
 
         // Get new evidence info
-        currentEvidence = GetEvidence(evidenceName);
+        currentEvidence = GetEvidence(evidenceName, out currentEvidenceIndex);
         if (currentEvidence == null)
         {
             Debug.LogError("Evidence not found: " + evidenceName);
@@ -170,6 +201,8 @@ public class IdentificationSystem : MonoBehaviour
 
         // Get correct answer
         correctIndex = currentEvidence.correctAnswer;
+        // Get percentages
+        evidencePercentages = currentEvidence.rightPercentages;
 
         // Create scanned compounds list
         int scannedIndex = 0;
@@ -241,13 +274,18 @@ public class IdentificationSystem : MonoBehaviour
         }
     }
 
-    Evidence GetEvidence(string name)
+    Evidence GetEvidence(string name, out int index)
     {
-        foreach (Evidence e in evidenceList.evidences)
+        for (int i = 0; i < evidenceList.evidences.Length; i++)
         {
-            if (e.evidenceName == name)
-                return e;
+            if (evidenceList.evidences[i].evidenceName == name)
+            {
+                index = i;
+                return evidenceList.evidences[i];
+            }
         }
+
+        index = -1;
         return null;
     }
 
@@ -259,13 +297,32 @@ public class IdentificationSystem : MonoBehaviour
 
         if (inputHandler.ItemSelectTriggered)
         {
+            // New system adds based on percentage (soft answer rather than hard answer)
+            float percentToAdd = evidencePercentages[currentIndex] * normsMultiplier[currentEvidenceIndex];
+            Debug.Log(
+                $"percentToAdd = {percentToAdd} " +
+                $"(evidencePercentages[{currentIndex}] = {evidencePercentages[currentIndex]}, " +
+                $"normsMultiplier[{currentEvidenceIndex}] = {normsMultiplier[currentEvidenceIndex]})"
+            );
+            thresholdReached = EvidenceGeneration.AddPercentage(percentToAdd);
+
+            // Old system only had one correct answer
+            /*
             if (currentIndex == correctIndex)
             {
                 EvidenceGeneration.CorrectEvidenceAmount++;
                 Debug.Log("You guessed correctly!");
             }
             Debug.Log("Evidence Got: " + EvidenceGeneration.CorrectEvidenceAmount.ToString());
+            */
+
             EndDisplaySystem();
+
+            // If threshold passed for correct evidence, give the player the option to return when they want (OSHRIMP ending)
+            // TODO:
+            if (thresholdReached)
+            { }
+
             return;
         }
 
@@ -293,6 +350,7 @@ public class Evidence
     public string[] scannedCompounds;
     public string[] possibleItems;
     public int correctAnswer;
+    public float[] rightPercentages;
 }
 
 [System.Serializable]

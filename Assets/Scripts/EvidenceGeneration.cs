@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EvidenceGeneration : MonoBehaviour
 {
@@ -6,7 +8,15 @@ public class EvidenceGeneration : MonoBehaviour
 
     public static int CorrectEvidenceAmount;
 
-    private int currentThresholdLevel;
+    private static float CurrentThresholdPercentage;
+
+    private static float PercentThreshold = 85.0f;
+
+    public GameObject percentageTextGameObject;
+
+    private static TMP_Text percentageText;
+
+    private const string evidenceText = "Investigation Process:";
 
     private void Awake()
     {
@@ -20,24 +30,39 @@ public class EvidenceGeneration : MonoBehaviour
             Destroy(gameObject);
         }
 
-        CorrectEvidenceAmount = 0;
+        percentageText = percentageTextGameObject.GetComponent<TMP_Text>();
+
+        ResetEvidenceCounter();
     }
 
-    private void UpdateEvidenceThresholds()
+    public void ShowText()
     {
-        // 7 threshold levels (starting at 0)
-        int evidenceInEachSection = 5;
-        int thresholdLevels = 6; // x + 1 (due to starting at 0)
-        int currentThresholdLevel = CorrectEvidenceAmount / evidenceInEachSection;
-        if (currentThresholdLevel > thresholdLevels) currentThresholdLevel = thresholdLevels;
+        percentageTextGameObject.SetActive(true);
+    }
+
+    public void HideText()
+    {
+        percentageTextGameObject.SetActive(false);
+    }
+
+    public static void ResetEvidenceCounter()
+    {
+        CorrectEvidenceAmount = 0;
+        CurrentThresholdPercentage = 0;
+        percentageText.text = $"{evidenceText} 0%";
     }
 
     /// <summary>
-    /// When a new section is loaded, generate evidence
+    /// Adds percent amount (using floats)
     /// </summary>
-    public void GenerateEvidence()
+    /// <param name="percent">Amount to add to evidence percentage</param>
+    /// <returns>True if we've reached the threshold</returns>
+    public static bool AddPercentage(float percent)
     {
-        // Get the game objects of that section
-        // Set the names of those game objects based on threshold levels (Evidence00, Evidence08, etc)
+        CurrentThresholdPercentage += percent;
+        percentageText.text = $"{evidenceText} {CurrentThresholdPercentage:0.00}%";
+
+        // If we've reached the threshold
+        return CurrentThresholdPercentage >= PercentThreshold;
     }
 }

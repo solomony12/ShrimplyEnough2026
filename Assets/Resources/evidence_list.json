@@ -5,92 +5,108 @@
             "evidenceName": "Evidence",
             "scannedCompounds": [ "H2O: 79%", "C6H12O6: 16%", "Unidentified: 5%" ],
             "possibleItems": [ "Water", "Sugar Water", "Blood" ],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [79.0, 16.0, 5.0]
         },
 
         {
             "evidenceName": "T1_TubDisplay01_Evidence",
             "scannedCompounds": [ "PolyResin: 60%", "AcrylicBlend: 20%", "ABSCompound: 15%", "Unidentified: 5%" ],
             "possibleItems": [ "Fake Display", "Rubber Duck", "Toy Brick" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [65.2, 18.9, 15.9]
         },
         {
             "evidenceName": "T1_Cutout01_Evidence",
             "scannedCompounds": [ "Cardboard: 60%", "Paint: 15%", "Glue: 10%", "Ink: 10%", "Varnish: 5%" ],
             "possibleItems": [ "Wooden Drawing", "House", "Cutout" ],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [18.7, 13.9, 67.4]
         },
         {
             "evidenceName": "T1_Cutout02_Evidence",
             "scannedCompounds": [ "Cardboard: 60%", "Paint: 15%", "Glue: 10%", "Ink: 10%", "Varnish: 5%" ],
             "possibleItems": [ "Cutout", "Chessboard", "Cardboard" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [71.0, 16.5, 12.5]
         },
         {
             "evidenceName": "T1_ShrimpPlaque01_Evidence",
             "scannedCompounds": [ "Wood: 65%", "Iron: 20%", "RedPaint: 10%", "Glue: 5%" ],
             "possibleItems": [ "Golem", "Plaque", "Baseball Bat" ],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [12.4, 66.8, 20.8]
+
         },
         {
             "evidenceName": "T1_Television01_Evidence",
             "scannedCompounds": [ "Plastic: 55%", "Glass: 20%", "Aluminum: 15%", "Copper: 8%", "Circuitry: 2%" ],
             "possibleItems": [ "Television", "Tent", "Camera" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [69.1, 16.4, 14.5]
         },
         {
             "evidenceName": "T1_OpenTub01_Evidence",
             "scannedCompounds": [ "OrganicMat: 65", "Plastic: 15%", "PolyFilm: 10%", "Ink: 5%", "Glue: 5%" ],
             "possibleItems": [ "Meat", "Meat Product", "Cyborg" ],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [18.6, 66.4, 15.0]
         },
         {
             "evidenceName": "T1_ShrimpSign01_Evidence",
             "scannedCompounds": [ "Vinyl: 50%", "Aluminum: 25%", "Steel: 15%", "Ink: 8%", "Glue: 2%" ],
             "possibleItems": [ "Counter", "Billboard", "Framed Poster" ],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [18.7, 14.3, 67.0]
         },
         {
             "evidenceName": "T1_OfficeChair01_Evidence",
             "scannedCompounds": [ "Plastic: 35%", "Steel: 25%", "Foam: 20%", "Fabric: 15%", "Rubber: 5%" ],
             "possibleItems": [ "Chair", "Dodge Ball", "Stuffed Toy" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [70.5, 17.1, 12.4]
         },
         {
             "evidenceName": "T1_Whiteboard01_Evidence",
             "scannedCompounds": [ "Melamine: 50%", "Aluminum: 25%", "Steel: 15%", "Plastic: 7%", "Paint: 3%" ],
             "possibleItems": [ "Magic Eraser", "Whiteboard", "Fork" ],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [15.2, 66.8, 18.0]
         },
         {
             "evidenceName": "T1_Box01_Evidence",
             "scannedCompounds": [ "Unknown: 82%", "Cardboard: 12%", "Glue: 4%", "Ink: 2%" ],
             "possibleItems": [ "Horses", "Void", "Box" ],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [10.5, 12.0, 77.5]
         },
         {
             "evidenceName": "T1_Computer01_Evidence",
             "scannedCompounds": [ "Plastic: 45%", "Steel: 20%", "Copper: 10%", "Glass: 10%", "Circuitry: 10%", "Unknown: 5%" ],
             "possibleItems": [ "Robot", "Computer", "Calculator" ],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [14.1, 68.2, 17.7]
         },
         {
             "evidenceName": "T1_Chair01_Evidence",
             "scannedCompounds": [ "Polyprop: 70%", "GlassFiber: 15%", "Paint: 5%", "RubberFeet: 5%", "Unknown: 5%" ],
             "possibleItems": [ "Plastic Chair", "Duck", "Killer Goose" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [70.3, 15.2, 14.5]
         },
         {
             "evidenceName": "T1_Glass01_Evidence",
             "scannedCompounds": [ "Silica: 70%", "SodaAsh: 15%", "Lime: 10%", "Alumina: 3%", "Unknown: 2%" ],
             "possibleItems": [ "Tropical Island", "Lemon Soda", "Killer Goose" ],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [14.0, 15.5, 70.5]
         },
         {
             "evidenceName": "T1_ConcreteColumn01_Evidence",
             "scannedCompounds": [ "Cement: 15%", "Sand: 25%", "Gravel: 35%", "Water: 20%", "Rebar: 5%"],
             "possibleItems": [ "Support Beam", "Stone Hedge", "Statue" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [72.1, 15.9, 12.0]
         },
         
 
@@ -99,47 +115,54 @@
             "evidenceName": "Berk_Evidence_1",
             "scannedCompounds": [ "Water: 77%", "Shrimp DNA: 78%", "Unknown: 22%" ],
             "possibleItems": [ "Shrimp", "Crab", "Berkeley" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [65.7, 18.1, 16.2]
         },
         
         {
           "evidenceName": "T2_Tub_Open_Evidence",
           "scannedCompounds": [ "Water: 55%", "ShrimpMeat: 14%", "Salt: 10%", "Preservative: 8%", "CitricAcid: 4%", "Unknown: 9%" ],
           "possibleItems": [ "Shrimp", "Shrimp Soda", "Shrimp Puree" ],
-          "correctAnswer": 2
+          "correctAnswer": 2,
+          "rightPercentages": [12.3, 15.4, 72.3]
         },
 
         {
           "evidenceName": "T2_BigTub_Evidence",
           "scannedCompounds": [ "OrganicMat: 35%", "Plastic: 30%", "PolyFilm: 10%", "Ink: 5%", "Glue: 20%" ],
           "possibleItems": [ "Shrimp", "Tub of Crab", "Tub of Shrimp" ],
-          "correctAnswer": 2
+          "correctAnswer": 2,
+          "rightPercentages": [12.7, 15.8, 71.5]
         },
 
         {
           "evidenceName": "T2_FlippedTub_Evidence",
           "scannedCompounds": [ "OrganicMat: 35%", "Plastic: 30%", "PolyFilm: 10%", "Ink: 5%", "Glue: 20%" ],
           "possibleItems": [ "Damaged Product", "Perfect Product", "Crab Product" ],
-          "correctAnswer": 0
+          "correctAnswer": 0,
+          "rightPercentages": [69.8, 16.1, 14.1]
         },
         {
           "evidenceName": "T2_FlippedTub2_Evidence",
           "scannedCompounds": [ "OrganicMat: 20%", "Plastic: 30%", "PolyFilm: 10%", "Ink: 5%", "Glue: 20%", "Uranium: 15%" ],
           "possibleItems": [ "Perfect Product", "Crab Product", "Damaged Product" ],
-          "correctAnswer": 2
+          "correctAnswer": 2,
+          "rightPercentages": [11.9, 15.6, 72.5]
         },
 
         {
           "evidenceName": "T2_OldPile_Evidence",
           "scannedCompounds": [ "OrganicMat: 35%", "Bacteria: 10%", "Unknown: 55%" ],
           "possibleItems": [ "Human", "Waste Product", "Alien" ],
-          "correctAnswer": 1
+          "correctAnswer": 1,
+          "rightPercentages": [13.2, 69.4, 17.4]
         },
         {
             "evidenceName": "T2_Cart_Evidence",
             "scannedCompounds": [ "Steel: 58%", "Rubber: 18%", "Plastic: 12%", "Paint: 8%", "Grease: 4%" ],
             "possibleItems": [ "Cart", "Rubber Duck", "Tub" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [71.0, 15.0, 14.0]
         },
 
 
@@ -148,37 +171,43 @@
             "evidenceName": "T3_Blob_Evidence",
             "scannedCompounds": [ "Water: 70%", "Tomato: 24%", "Sugar: 4%", "Vinegar: 1%", "Salt: 0.5%", "Spices: 0.5%" ],
             "possibleItems": [ "Salad", "Ketchup", "Blood" ],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [12.6, 70.1, 17.3]
         },
         {
             "evidenceName": "T3_Shrimpipede_Evidence",
             "scannedCompounds": [ "Water: 37%", "Biofuel: 51%", "Human DNA: 12%" ],
             "possibleItems": [ "Sausage Link", "Accordion", "Shrimpipede" ],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [11.9, 16.3, 71.8]
         },
         {
             "evidenceName": "T3_FigurineEvidence",
             "scannedCompounds": [ "Resin: 85%", "Filler: 10%", "Pigment: 3%", "Pig Blood: 2%" ],
             "possibleItems": [ "ERR#131809", "Figurine", "Vessel of Sin" ],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [13.5, 68.0, 18.5]
         },
         {
             "evidenceName": "T3_ModelTrain_Evidence",
             "scannedCompounds": [ "Quartz: 22%", "Radon Gas: 21%", "Plastic: 57%" ],
             "possibleItems": [ "Model Train", "Table", "Thatcher" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [72.0, 14.2, 13.8]
         },
         {
             "evidenceName": "T3_WeirdSubstance_Evidence",
             "scannedCompounds": [ "Water: 90%", "Proteins: 7%", "Ions: 2%", "Lipids: 1%" ],
             "possibleItems": [ "Cat Whiskers", "Soda Water", "Human Sperm" ],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [11.8, 16.2, 72.0]
         },
         {
             "evidenceName": "T3_ShrimpMating_Evidence",
             "scannedCompounds": [ "Water: 72%", "Protein: 20%", "Eggs: 6%", "Chitin: 2%" ],
             "possibleItems": [ "Wrestling", "Miracle of Life", "Just Friends" ],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [12.1, 17.9, 70.0]
         },
 
 
@@ -187,140 +216,163 @@
             "evidenceName": "T4_ShrimpTank01_Evidence",
             "scannedCompounds": [ "Glass: 50%", "Steel: 20%", "CopperWires: 10%", "Water: 15%", "AlienTissue: 5%" ],
             "possibleItems": [ "Statue", "UFO", "Alien Container" ],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [11.4, 17.6, 71.0]
         },
         {
             "evidenceName": "T4_MiniModel01_Evidence",
             "scannedCompounds": [ "Plastic: 45%", "Cardboard: 20%", "Paint: 15%", "Glue: 10%", "Metal: 5%", "Unknown: 5%" ],
             "possibleItems": [ "Dollhouse", "Model", "Photo Album" ],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [15.0, 67.2, 17.8]
         },
         {
             "evidenceName": "T4_DisplayBoard01_Evidence",
             "scannedCompounds": [ "Plastic: 45%", "Cardboard: 20%", "Paint: 15%", "Glue: 10%", "Metal: 5%", "Unknown: 5%" ],
             "possibleItems": [ "Display Board", "Crime Scene" ],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [70.4, 29.6]
         },
         {
             "evidenceName": "T4_Computer01_Evidence",
             "scannedCompounds": [ "Plastic: 45%", "Cardboard: 20%", "Paint: 15%", "Glue: 10%", "Metal: 5%", "Unknown: 5%" ],
             "possibleItems": [ "Light", "Computer", "Betrayal"],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [14.2, 68.1, 17.7]
         },
         {
             "evidenceName": "T4_CoffeeSpill01_Evidence",
             "scannedCompounds": [ "Water: 82%", "Coffee Beans: 7%", "Sugar: 4%", "Milk: 3%", "Stimulants: 4%" ],
             "possibleItems": [ "Coffee", "Steroids", "Drugs"],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [72.6, 15.0, 12.4]
         },
         {
             "evidenceName": "T4_PetriDish01_Evidence",
             "scannedCompounds": [ "AlienTissue: 40%", "Saline: 25%", "ShrimpCells: 15%", "GrowthGel: 10%", "Unknown: 10%" ],
             "possibleItems": [ "Alien", "Stem Cells", "Petri Dish"],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [14.8, 66.5, 18.7]
         },
         {
             "evidenceName": "T4_AluminumFoil01_Evidence",
             "scannedCompounds": [ "Aluminum: 92%", "Carbon: 3%", "FoodResidue: 3%", "Grease: 2%" ],
             "possibleItems": [ "Aluminum Foil", "Tin Hat", "Stove"],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [73.1, 13.2, 13.7]
         },
         {
             "evidenceName": "T4_StrangePainting01_Evidence",
             "scannedCompounds": [ "Canvas: 35%", "OilPaint: 25%", "WoodFrame: 20%", "Varnish: 10%", "Dust: 5%", "Unknown: 5%" ],
             "possibleItems": [ "Van Gogh", "Captured Soul", "Painting"],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [14.5, 17.8, 67.7]
         },
         {
             "evidenceName": "T4_FleshProduct01_Evidence",
             "scannedCompounds": [ "Water: 60%", "ProteinGel: 15%", "ShrimpTissue: 10%", "FattyAcids: 8%", "Salt: 5%", "Unknown: 2%" ],
             "possibleItems": [ "Rebel Shrimp", "Bad Product", "Human"],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [13.2, 16.4, 70.4]
         },
         {
             "evidenceName": "T4_ShrimpProduct01_Evidence",
             "scannedCompounds": [ "Water: 65%", "ShrimpMeat: 18%", "Salt: 8%", "Preservative: 4%", "CitricAcid: 3%", "Unknown: 2%" ],
             "possibleItems": [ "Shrimp", "Shrimp Soda", "Shrimp Puree"],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [12.7, 15.3, 72.0]
         },
         {
             "evidenceName": "T4_ShrimpProduct02_Evidence",
             "scannedCompounds": [ "Water: 62%", "ShrimpMeat: 15%", "Salt: 7%", "MoldSpores: 6%", "Ammonia: 4%", "Unknown: 6%" ],
             "possibleItems": [ "Mold Colony", "Bad Product", "Shrimp Soup"],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [14.1, 68.0, 17.9]
         },
         {
             "evidenceName": "T4_ShrimpProduct03_Evidence",
             "scannedCompounds": [ "Water: 60%", "ShrimpMeat: 14%", "Salt: 8%", "Bacteria: 7%", "SulfurSmell: 6%", "Unknown: 5%" ],
             "possibleItems": [ "Bad Product", "Shrimp Soup", "Mom's Cooking"],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [71.8, 15.6, 12.6]
         },
         {
             "evidenceName": "T4_Cutout01_Evidence",
             "scannedCompounds": [ "Cardboard: 70%", "PaperCoating: 14%", "Ink: 8%", "Glue: 5%", "Dust: 2%", "SoulDust: 1%" ],
             "possibleItems": [ "Diorama", "Special Cutout", "Souls"],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [14.0, 69.5, 16.5]
         },
         {
             "evidenceName": "T4_BubbleGumShrimp01_Evidence",
             "scannedCompounds": [ "Sugar: 40%", "GumBase: 25%", "ShrimpBits: 15%", "Flavoring: 10%", "Colorant: 5%", "Salt: 5%" ],
             "possibleItems": [ "Bubble Gum", "Shrimp", "BubbleTheShrimp"],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [11.7, 16.9, 71.4]
         },
         {
             "evidenceName": "T4_ShrimpInACup01_Evidence",
             "scannedCompounds": [ "CeramicMug: 45%", "Water: 35%", "ShrimpMeat: 12%", "Salt: 5%", "Spices: 3%" ],
             "possibleItems": [ "Shrimp Mug", "Bath Time", "Elegant Soup"],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [70.2, 16.0, 13.8]
         },
         {
             "evidenceName": "T4_ShrimpTrophy_Evidence",
             "scannedCompounds": [ "PlasticBase: 30%", "MetalPlaque: 20%", "ResinShrimp: 34%", "Paint: 0%", "Unknown: 16%" ],
             "possibleItems": [ "Stuffed Alien", "Trophy", "Your Mom"],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [13.5, 66.0, 20.5]
         },
         {
             "evidenceName": "T4_MascotTub_Evidence",
             "scannedCompounds": [ "PlasticTub: 45%", "ResinShrimp: 30%", "Paint: 10%", "Glue: 5%", "Water: 4%", "Unknown: 6%" ],
             "possibleItems": [ "Plastic Food", "Ice Cream", "Puree Plastic"],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [12.0, 16.3, 71.7]
         },
         {
             "evidenceName": "T4_Finger01_Evidence",
             "scannedCompounds": [ "Water: 70%", "Protein: 20%", "Fat: 7%", "Salt: 2%", "ConnectiveTissue: 1%" ],
             "possibleItems": [ "Toe", "A5 Wagyu", "Shake"],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [69.0, 17.2, 13.8]
         },
         {
             "evidenceName": "T4_Eye01_Evidence",
             "scannedCompounds": [ "AquaGel: 55%", "ClearGel: 25%", "SurfaceFilm: 10%", "SaltSolution: 5%", "Unknown: 5%" ],
             "possibleItems": [ "Eye", "See", "You"],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [70.4, 16.8, 12.8]
         },
 
         {
             "evidenceName": "T7_VideoBlob01_Evidence",
             "scannedCompounds": [ "Polymers: 42%", "Silicon: 28%", "Glass: 18%", "Data Flux: 12%" ],
             "possibleItems": [ "LCD", "Screen", "AI Brain"],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [72.5, 15.0, 12.5]
         },
         {
             "evidenceName": "T7_ShrimpPureeMess01_Evidence",
             "scannedCompounds": [ "Protein: 46%", "Lipids: 22%", "Brine: 18%", "Xenoenz: 14%" ],
             "possibleItems": [ "Ocean", "Shrimp Shake", "Xenomorph"],
-            "correctAnswer": 1
+            "correctAnswer": 1,
+            "rightPercentages": [14.5, 67.8, 17.7]
         },
         {
             "evidenceName": "T7_ShrimpPureeMess02_Evidence",
             "scannedCompounds": [ "Shrimp Prot: 38%", "Unknown Fat: 24%", "Collagen: 21%", "Water: 17%" ],
             "possibleItems": [ "Shrimp Lard", "Shrimp Shake", "Long Pork Mix"],
-            "correctAnswer": 2
+            "correctAnswer": 2,
+            "rightPercentages": [13.8, 16.2, 70.0]
         },
         {
             "evidenceName": "T7_OpenTub01_Evidence",
             "scannedCompounds": [ "Plastic: 48%", "Shrimp Meat: 32%", "Brine: 12%", "Label Ink: 8%" ],
             "possibleItems": [ "Not Shrimp", "John's Pinky", "Bendy"],
-            "correctAnswer": 0
+            "correctAnswer": 0,
+            "rightPercentages": [69.2, 16.1, 14.7]
         }
     ]
 }
