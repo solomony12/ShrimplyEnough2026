@@ -24,7 +24,7 @@ public class VideoEndDetector : MonoBehaviour
 
     private void EndVideo()
     {
-        AudioClip mainMusic = Resources.Load<AudioClip>("Music/main");
+        AudioClip mainMusic = Resources.Load<AudioClip>("Music/main2");
         AudioManager.Instance.PlayMusic(mainMusic, true);
         SceneManager.UnloadSceneAsync(videoScene);
     }
