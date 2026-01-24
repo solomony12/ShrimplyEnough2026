@@ -12,8 +12,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource voiceSource;
     [SerializeField] private AudioSource backgroundHum;
 
-    AudioClip mainMusic;
-
     [Header("Music Transition")]
     [SerializeField] private float musicFadeDuration = 0.5f;
 
@@ -31,8 +29,6 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        mainMusic = Resources.Load<AudioClip>("Music/main");
     }
 
     private void Update()
@@ -339,6 +335,7 @@ public class AudioManager : MonoBehaviour
     {
         float waitTime = SceneTransition.videoLength - 2;
         yield return new WaitForSeconds(waitTime);
-        PlayMusic(mainMusic);
+        AudioClip fasterMusic = Resources.Load<AudioClip>("Music/main2");
+        PlayMusic(fasterMusic);
     }
 }

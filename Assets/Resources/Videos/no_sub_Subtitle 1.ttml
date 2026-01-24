@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:ttm="http://www.w3.org/ns/ttml#metadata" xmlns:tts="http://www.w3.org/ns/ttml#styling" xmlns:ttp="http://www.w3.org/ns/ttml#parameter" xmlns:ittp="http://www.w3.org/ns/ttml/profile/imsc1#parameter" xmlns:itts="http://www.w3.org/ns/ttml/profile/imsc1#styling" ttp:profile="http://www.w3.org/ns/ttml/profile/imsc1/text" ttp:frameRate="24" ttp:timeBase="media">
+  <head>
+    <styling>
+      <style xml:id="s0" tts:color="#ffffff" tts:opacity="1" tts:fontSize="100%" tts:fontFamily="proportionalSansSerif" tts:textOutline="#ffffff 1px" tts:textAlign="center"/>
+    </styling>
+    <layout>
+      <region xml:id="r0" tts:origin="0.000% 84.615%" tts:extent="100.000% 15.463%" tts:displayAlign="center" tts:backgroundColor="#000000" tts:opacity="0.67" tts:showBackground="whenActive"/>
+    </layout>
+  </head>
+  <body>
+    <div xml:id="d0" region="r0" style="s0">
+      <p begin="01:00:03.750" end="01:00:07.958">Right now, come in stores to get a tub of Shrimply Enough <br/>for only $6.66!</p>
+      <p begin="01:00:09.000" end="01:00:14.583">Hungrier than that? Call now and we'll throw in two Mini <br/>Shrimply Enoughs for absolutely free!</p>
+      <p begin="01:00:14.916" end="01:00:17.916">It's an offer you can't refuse!</p>
+      <p begin="01:00:19.625" end="01:00:23.916">Shrimply Enough. Enough is enough.</p>
+    </div>
+  </body>
+</tt>
