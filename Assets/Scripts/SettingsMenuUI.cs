@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class SettingsMenuUI : MonoBehaviour
 {
     [Header("Sliders")]
-    public Slider musicSlider;
-    public Slider sfxSlider;
-    public Slider voiceSlider;
-    public Slider sensitivitySlider;
+    public UnityEngine.UI.Slider musicSlider;
+    public UnityEngine.UI.Slider sfxSlider;
+    public UnityEngine.UI.Slider voiceSlider;
+    public UnityEngine.UI.Slider sensitivitySlider;
+    public UnityEngine.UI.Toggle vsyncToggle;
 
-    public Button resumeButton;
-    public Button mainMenuButton;
+    public UnityEngine.UI.Button resumeButton;
+    public UnityEngine.UI.Button mainMenuButton;
 
     private const string mainMenuSceneString = "MainMenu";
     private const string settingsSceneString = "Settings";
@@ -27,6 +29,10 @@ public class SettingsMenuUI : MonoBehaviour
         sfxSlider.value = GameSettings.Instance.sfxVolume;
         voiceSlider.value = GameSettings.Instance.voiceVolume;
         sensitivitySlider.value = GameSettings.Instance.mouseSensitivity;
+        vsyncToggle.isOn = GameSettings.Instance.vsync;
+
+        // Toggle
+        vsyncToggle.onValueChanged.AddListener(OnVsyncToggleChanged);
 
         // Add listeners
         musicSlider.onValueChanged.AddListener(OnMusicChanged);
@@ -72,6 +78,14 @@ public class SettingsMenuUI : MonoBehaviour
         GameSettings.Instance.SaveSettings();
     }
 
+    void OnVsyncToggleChanged(bool isOn)
+    {
+        QualitySettings.vSyncCount = isOn ? 1 : 0;
+        Debug.Log("Vsync is " + isOn);
+        GameSettings.Instance.vsync = isOn;
+        GameSettings.Instance.SaveSettings();
+    }
+
     public void OnDisable()
     {
         GameSettings.Instance.SaveSettings();
@@ -88,7 +102,7 @@ public class SettingsMenuUI : MonoBehaviour
         SettingsIsOpen = false;
         if (!SceneManager.GetSceneByName(mainMenuSceneString).isLoaded)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
             PlayerController.EnablePlayerControl();
         }
         if (SceneManager.GetSceneByName(settingsSceneString).isLoaded)
@@ -99,8 +113,8 @@ public class SettingsMenuUI : MonoBehaviour
 
     public void MainMenu()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        UnityEngine.Cursor.visible = true;
         SettingsIsOpen = false;
 
         if (SceneManager.GetSceneByName(mainMenuSceneString).isLoaded)
@@ -112,7 +126,7 @@ public class SettingsMenuUI : MonoBehaviour
         else
         {
             ScanEvidence.IsDisplayOpen = false;
-            Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
             SceneTransition.Instance.StartTransition(mainMenuSceneString);
         }
     }
