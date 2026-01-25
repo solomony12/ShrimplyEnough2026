@@ -20,6 +20,7 @@ TagManager:
   - Keycard
   - Flashlight
   - StartingCutout
+  - EvidenceText
   layers:
   - Default
   - TransparentFX

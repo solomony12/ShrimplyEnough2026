@@ -30,6 +30,7 @@ public class EvidenceGeneration : MonoBehaviour
             Destroy(gameObject);
         }
 
+        percentageTextGameObject = GameObject.FindWithTag("EvidenceText");
         percentageText = percentageTextGameObject.GetComponent<TMP_Text>();
 
         ResetEvidenceCounter();
@@ -50,7 +51,9 @@ public class EvidenceGeneration : MonoBehaviour
         Debug.Log("RESET EVIDENCE COUNTER");
         CorrectEvidenceAmount = 0;
         CurrentThresholdPercentage = 0;
-        percentageText.text = $"{evidenceText} 0%";
+        if (percentageText == null)
+            throw new System.Exception("FAILED TO RESET TEXT");
+        percentageText.text = $"{evidenceText} {CurrentThresholdPercentage:0.00}%";
     }
 
     /// <summary>
