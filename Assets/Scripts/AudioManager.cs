@@ -250,7 +250,7 @@ public class AudioManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene Loaded: " + scene.name);
+        //Debug.Log("Scene Loaded: " + scene.name);
 
         if (SceneManager.GetSceneByName("TutorialVideo").isLoaded)
         {
@@ -265,18 +265,18 @@ public class AudioManager : MonoBehaviour
         switch (scene.name)
         {
             case "MainMenu":
-                Debug.Log("MainMenu");
+                //Debug.Log("MainMenu");
                 AudioClip fasterMusic = Resources.Load<AudioClip>("Music/main2");
                 SwitchMusic(fasterMusic, 0.1f);
                 break;
             case "1_IntroScene":
-                Debug.Log("Intro Scene Loaded");
+                //Debug.Log("Intro Scene Loaded");
                 StopMusic();
                 StartCoroutine(WaitForIntro());
                 break;
 
             case "2_Warehouse_Scene":
-                Debug.Log("Warehouse Loaded");
+                //Debug.Log("Warehouse Loaded");
 
                 // Office music for the warehouse
                 AudioClip officeMusic = Resources.Load<AudioClip>("Music/office");
@@ -288,7 +288,7 @@ public class AudioManager : MonoBehaviour
                 break;
 
             case "3_FactoryFloor":
-                Debug.Log("Factory Loaded");
+                //Debug.Log("Factory Loaded");
 
                 // Warehouse music for factory
                 AudioClip warehouseMusic = Resources.Load<AudioClip>("Music/warehouse");
@@ -299,7 +299,7 @@ public class AudioManager : MonoBehaviour
                 break;
 
             case "4_Office":
-                Debug.Log("Office Loaded");
+                //Debug.Log("Office Loaded");
 
                 // Factory music carries over to Office before blackout ends it
 
@@ -308,13 +308,13 @@ public class AudioManager : MonoBehaviour
                 break;
 
             case "6_FinalArea":
-                Debug.Log("Final Area Loaded");
+                //Debug.Log("Final Area Loaded");
                 // Do Final Area stuff here
                 StopMusic();
                 break;
 
             case "7_EndingLevel":
-                Debug.Log("Ending Level Loaded");
+                //Debug.Log("Ending Level Loaded");
                 StopMusic();
                 AudioClip heartbeat = Resources.Load<AudioClip>("Sounds/heartbeat-sound-372448_LV7");
                 PlayBackgroundHum(heartbeat);

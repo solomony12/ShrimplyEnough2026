@@ -11960,7 +11960,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: OfficeDoorway+Door (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8029125248592205073, guid: 4d263bc9fb550d44fa987064729b0863, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12037,12 +12038,12 @@ GameObject:
   - component: {fileID: 476984470}
   - component: {fileID: 476984469}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI_Canvas
   m_TagString: GameCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &476984469
 MonoBehaviour:
   m_ObjectHideFlags: 0

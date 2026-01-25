@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 
 public class SceneTransition : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class SceneTransition : MonoBehaviour
 
     private Animator cameraAnimator;
 
-    public static float videoLength = 34f; // TODO: 34f
+    public static float videoLength = 32f; // TODO: 32f
 
     private void Awake()
     {
@@ -42,6 +43,9 @@ public class SceneTransition : MonoBehaviour
 
         canvasGroup.blocksRaycasts = false;
         fadeImage.color = new Color(0, 0, 0, 0);
+
+        canvas = GameObject.FindWithTag("GameCanvas");
+        canvas.SetActive(false);
     }
 
     public void StartTransition(string sceneName)
@@ -108,14 +112,14 @@ public class SceneTransition : MonoBehaviour
         mainCamera = Camera.main;
         player = GameObject.FindWithTag("Player");
         scanner = GameObject.FindWithTag("Scanner");
-        canvas = GameObject.FindWithTag("GameCanvas");
         cameraAnimator = mainCamera.GetComponent<Animator>();
         cameraAnimator.ResetTrigger("StartZoomingOut");
         PlayerController.DisablePlayerControl();
 
         // Set views (animation for camera is already set)
         scanner.SetActive(false);
-        canvas.SetActive(false);
+        //try { canvas.SetActive(false); }
+        //catch (Exception e) { Debug.Log(e);  }
 
         // Fade out
         yield return StartCoroutine(Fade(0.5f, 0f));
@@ -135,12 +139,13 @@ public class SceneTransition : MonoBehaviour
         // Start game
         scanner.SetActive(true);
         canvas.SetActive(true);
+        EvidenceGeneration.ResetEvidenceCounter();
         Captions.Instance.HideCaptions(0f);
         Destroy(cameraAnimator); // this is cause it breaks the camera crouching
         PlayerController.Instance.StartingPositionSet(0.2f);
         yield return new WaitForSeconds(0.2f);
         IsTransitioning = false;
         PlayerController.EnablePlayerControl();
-        Captions.Instance.TimedShowCaptions("Explore the factory", 7f);
+        Captions.Instance.TimedShowCaptions("Explore the factory\n([W/A/S/D], [Space], [Left Ctrl], [Left Shift])", 10f);
     }
 }

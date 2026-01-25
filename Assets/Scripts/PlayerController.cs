@@ -82,6 +82,8 @@ public class PlayerController : MonoBehaviour
         inputHandler = PlayerInputHandler.Instance;
         cameraPivot = mainCamera.transform;
         canControlCharacter = true;
+        crawlProgress = 1f;
+        lastCrawlState = false;
         ResetRunningConstantly();
     }
 

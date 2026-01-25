@@ -13,6 +13,9 @@ public class GameSettings : MonoBehaviour
     [Header("Controls")]
     public float mouseSensitivity = 2f;
 
+    [Header("Other")]
+    public bool vsync = true;
+
     private PlayerInputHandler inputHandler;
 
     private float inputDelay = 0.15f;
