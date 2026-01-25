@@ -47,6 +47,7 @@ public class EvidenceGeneration : MonoBehaviour
 
     public static void ResetEvidenceCounter()
     {
+        Debug.Log("RESET EVIDENCE COUNTER");
         CorrectEvidenceAmount = 0;
         CurrentThresholdPercentage = 0;
         percentageText.text = $"{evidenceText} 0%";
