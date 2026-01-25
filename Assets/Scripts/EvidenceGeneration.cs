@@ -10,7 +10,7 @@ public class EvidenceGeneration : MonoBehaviour
 
     private static float CurrentThresholdPercentage;
 
-    private static float PercentThreshold = 1.0f; // TODO: 85.0
+    private static float PercentThreshold = 85.0f; // TODO: 85.0
 
     public GameObject percentageTextGameObject;
 
