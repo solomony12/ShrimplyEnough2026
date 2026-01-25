@@ -11,9 +11,11 @@ public class MainMenu : MonoBehaviour
 
     public Button playButton;
 
+    private static bool tutorialPlayed = false;
+
     private void Awake()
     {
-        playButton.interactable = false;
+        playButton.interactable = tutorialPlayed;
     }
 
     public void Play()
@@ -25,7 +27,8 @@ public class MainMenu : MonoBehaviour
     public void Tutorial()
     {
         SceneManager.LoadScene(tutorialSceneName, LoadSceneMode.Additive);
-        playButton.interactable = true;
+        tutorialPlayed = true;
+        playButton.interactable = tutorialPlayed;
     }
 
     public void Settings()
