@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Speeds")]
     [SerializeField] private static float walkSpeed = 3.0f;
     [SerializeField] private float sprintMultiplier = 2.0f;
-    [SerializeField] private float crawlMultiplier = 0.75f;
+    [SerializeField] private float crouchMultiplier = 0.75f;
 
     [Header("Look Sensitivity")]
     [SerializeField] private float mouseSensitivity => GameSettings.Instance.mouseSensitivity;
@@ -17,16 +17,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 3.0f;
     [SerializeField] private float gravity = 9.81f;
 
-    [Header("Crawl Parameters")]
+    [Header("Crouch Parameters")]
     [SerializeField] private float standingHeight = 2.0f;
-    [SerializeField] private float crawlingHeight = 1.0f;
-    [SerializeField] private float crawlTransitionTime = 0.25f;
+    [SerializeField] private float crouchingHeight = 1.0f;
+    [SerializeField] private float crouchTransitionTime = 0.25f;
 
     [Header("Crouch Collision")]
     [SerializeField] private LayerMask obstructionMask;
 
-    private bool lastCrawlState;
-    private float crawlProgress = 1f;
+    private bool lastCrouchState;
+    private float crouchProgress = 1f;
     private float startHeight;
     private float targetHeight;
     private Vector3 startCenter;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     [Header("Camera Parameters")]
     [SerializeField] private Transform cameraPivot;
     [SerializeField] private float cameraStandingHeight = 1.6f;
-    [SerializeField] private float cameraCrawlingHeight = 0.8f;
+    [SerializeField] private float cameraCrouchingHeight = 0.8f;
 
     [Header("Starting Information")]
     private Vector3 gameStartPlayerPos = new Vector3(13.2f, 1.08f, 1.4f);
@@ -82,9 +82,40 @@ public class PlayerController : MonoBehaviour
         inputHandler = PlayerInputHandler.Instance;
         cameraPivot = mainCamera.transform;
         canControlCharacter = true;
-        crawlProgress = 1f;
-        lastCrawlState = false;
+        crouchProgress = 1f;
+        lastCrouchState = false;
         ResetRunningConstantly();
+    }
+
+    private void Start()
+    {
+        // Ensure controller starts at proper standing height
+        characterController.height = standingHeight;
+        characterController.center = new Vector3(0, standingHeight / 2f, 0);
+
+        // Ensure camera is at standing height
+        Vector3 camPos = cameraPivot.localPosition;
+        camPos.y = cameraStandingHeight;
+        cameraPivot.localPosition = camPos;
+
+        crouchProgress = 1f;
+        lastCrouchState = false;
+    }
+
+    public void ForceStanding()
+    {
+        // Force character controller to standing height & center
+        characterController.height = standingHeight;
+        characterController.center = new Vector3(0, standingHeight / 2f, 0);
+
+        // Force camera to standing height
+        Vector3 camPos = cameraPivot.localPosition;
+        camPos.y = cameraStandingHeight;
+        cameraPivot.localPosition = camPos;
+
+        // Reset crouch transition
+        crouchProgress = 1f;
+        lastCrouchState = false;
     }
 
     public static void EnablePlayerControl()
@@ -135,9 +166,9 @@ public class PlayerController : MonoBehaviour
     {
         float multiplier = 1f;
 
-        if (inputHandler.CrawlTriggered)
+        if (inputHandler.CrouchTriggered)
         {
-            multiplier = crawlMultiplier;
+            multiplier = crouchMultiplier;
         }
         else if (!isConstantlyRunning && inputHandler.SprintValue > 0)
         {
@@ -169,7 +200,7 @@ public class PlayerController : MonoBehaviour
         try
         {
             HandleJumping();
-            HandleCrawling();
+            HandleCrouching();
             characterController.Move(currentMovement * Time.deltaTime);
         }
         catch (Exception e)
@@ -195,17 +226,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void HandleCrawling()
+    void HandleCrouching()
     {
         if (characterController.isGrounded)
         {
-            bool crawling = inputHandler.CrawlTriggered;
-
-            // IF on slippery surface and already crouched, force crawl
-            if (isOnSlipperySurface && characterController.height < standingHeight)
-            {
-                crawling = true;
-            }
+            bool crawling = inputHandler.CrouchTriggered;
 
             // If player wants to stand but something is blocking, force crouch
             if (!crawling && !CanStandUp())
@@ -214,32 +239,39 @@ public class PlayerController : MonoBehaviour
             }
 
             // Only reset transition when state actually changes
-            if (crawling != lastCrawlState)
+            if (crawling != lastCrouchState)
             {
-                lastCrawlState = crawling;
-                crawlProgress = 0f;
+                lastCrouchState = crawling;
+                crouchProgress = 0f;
 
                 startHeight = characterController.height;
-                targetHeight = crawling ? crawlingHeight : standingHeight;
+                targetHeight = crawling ? crouchingHeight : standingHeight;
 
                 startCenter = characterController.center;
                 targetCenter = new Vector3(0, targetHeight / 2f, 0);
 
                 startCamHeight = cameraPivot.localPosition.y;
-                targetCamHeight = crawling ? cameraCrawlingHeight : cameraStandingHeight;
+                targetCamHeight = crawling ? cameraCrouchingHeight : cameraStandingHeight;
             }
 
             // Continue transition even if player spams
-            if (crawlProgress < 1f)
+            if (crouchProgress < 1f)
             {
-                crawlProgress += Time.deltaTime / crawlTransitionTime;
-                crawlProgress = Mathf.Clamp01(crawlProgress);
+                crouchProgress += Time.deltaTime / crouchTransitionTime;
+                crouchProgress = Mathf.Clamp01(crouchProgress);
 
-                characterController.height = Mathf.Lerp(startHeight, targetHeight, crawlProgress);
-                characterController.center = Vector3.Lerp(startCenter, targetCenter, crawlProgress);
+                float newHeight = Mathf.Lerp(startHeight, targetHeight, crouchProgress);
+                float heightDelta = characterController.height - newHeight;
+                characterController.height = newHeight;
 
+                // Adjust center so feet stay grounded
+                Vector3 newCenter = Vector3.Lerp(startCenter, targetCenter, crouchProgress);
+                newCenter.y -= heightDelta / 2f;  // subtract half the height difference
+                characterController.center = newCenter;
+
+                // Camera
                 Vector3 camPos = cameraPivot.localPosition;
-                camPos.y = Mathf.Lerp(startCamHeight, targetCamHeight, crawlProgress);
+                camPos.y = Mathf.Lerp(startCamHeight, targetCamHeight, crouchProgress);
                 cameraPivot.localPosition = camPos;
             }
         }

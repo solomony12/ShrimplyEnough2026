@@ -146,6 +146,7 @@ public class SceneTransition : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         IsTransitioning = false;
         PlayerController.EnablePlayerControl();
+        PlayerController.Instance.ForceStanding();
         Captions.Instance.TimedShowCaptions("Explore the factory\n([W/A/S/D], [Space], [Left Ctrl], [Left Shift])", 10f);
     }
 }

@@ -93,6 +93,9 @@ public class GameSettings : MonoBehaviour
         PlayerPrefs.SetFloat("sfxVolume", sfxVolume);
         PlayerPrefs.SetFloat("voiceVolume", voiceVolume);
         PlayerPrefs.SetFloat("mouseSensitivity", mouseSensitivity);
+
+        PlayerPrefs.SetInt("vsyncToggle", vsync ? 1 : 0);
+
         PlayerPrefs.Save();
     }
 
@@ -102,5 +105,7 @@ public class GameSettings : MonoBehaviour
         sfxVolume = PlayerPrefs.GetFloat("sfxVolume", sfxVolume);
         voiceVolume = PlayerPrefs.GetFloat("voiceVolume", voiceVolume);
         mouseSensitivity = PlayerPrefs.GetFloat("mouseSensitivity", mouseSensitivity);
+
+        vsync = PlayerPrefs.GetInt("vsyncToggle", 1) == 1;
     }
 }
