@@ -15,7 +15,7 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string move = "Move";
     [SerializeField] private string look = "Look";
     [SerializeField] private string jump = "Jump";
-    [SerializeField] private string crawl = "Crawl";
+    [SerializeField] private string crouch = "Crouch";
     [SerializeField] private string sprint = "Sprint";
     [SerializeField] private string interact = "Interact";
     [SerializeField] private string itemUp = "ItemUp";
@@ -27,7 +27,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction moveAction;
     private InputAction lookAction;
     private InputAction jumpAction;
-    private InputAction crawlAction;
+    private InputAction crouchAction;
     private InputAction sprintAction;
     private InputAction interactAction;
     private InputAction itemUpAction;
@@ -39,8 +39,8 @@ public class PlayerInputHandler : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
     public bool JumpTriggered { get; private set; }
-    public bool CrawlTriggered { get; private set; }
-    public float CrawlValue { get; private set; }
+    public bool CrouchTriggered { get; private set; }
+    public float CrouchValue { get; private set; }
     public float SprintValue { get; private set; }
     public bool InteractTriggered { get; private set; }
     public bool ItemUpTriggered { get; private set; }
@@ -65,7 +65,7 @@ public class PlayerInputHandler : MonoBehaviour
         moveAction = playerControls.FindActionMap(actionMapName).FindAction(move);
         lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         jumpAction = playerControls.FindActionMap(actionMapName).FindAction(jump);
-        crawlAction = playerControls.FindActionMap(actionMapName).FindAction(crawl);
+        crouchAction = playerControls.FindActionMap(actionMapName).FindAction(crouch);
         sprintAction = playerControls.FindActionMap(actionMapName).FindAction(sprint);
         interactAction = playerControls.FindActionMap(actionMapName).FindAction(interact);
         itemUpAction = playerControls.FindActionMap(actionMapName).FindAction(itemUp);
@@ -87,10 +87,10 @@ public class PlayerInputHandler : MonoBehaviour
         jumpAction.performed += context => JumpTriggered = true;
         jumpAction.canceled += context => JumpTriggered = false;
 
-        crawlAction.performed += context => CrawlTriggered = true;
-        crawlAction.performed += context => CrawlValue = context.ReadValue<float>();
-        crawlAction.canceled += context => CrawlTriggered = false;
-        crawlAction.canceled += context => CrawlValue = 0f;
+        crouchAction.performed += context => CrouchTriggered = true;
+        crouchAction.performed += context => CrouchValue = context.ReadValue<float>();
+        crouchAction.canceled += context => CrouchTriggered = false;
+        crouchAction.canceled += context => CrouchValue = 0f;
 
         sprintAction.performed += context => SprintValue = context.ReadValue<float>();
         sprintAction.canceled += context => SprintValue = 0f;
@@ -119,7 +119,7 @@ public class PlayerInputHandler : MonoBehaviour
         moveAction.Enable();
         lookAction.Enable();
         jumpAction.Enable();
-        crawlAction.Enable();
+        crouchAction.Enable();
         sprintAction.Enable();
         interactAction.Enable();
         itemUpAction.Enable();
@@ -134,7 +134,7 @@ public class PlayerInputHandler : MonoBehaviour
         moveAction.Disable();
         lookAction.Disable();
         jumpAction.Disable();
-        crawlAction.Disable();
+        crouchAction.Disable();
         sprintAction.Disable();
         interactAction.Disable();
         itemUpAction.Disable();
