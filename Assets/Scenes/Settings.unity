@@ -729,6 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 307070579}
   - component: {fileID: 307070580}
+  - component: {fileID: 307070581}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -809,6 +810,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &307070581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307070578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9caea3aa64f91ea4ca1df2e71a3e8881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SliderReleaseHandler
 --- !u!1 &367500996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,6 +1790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 835994274}
   - component: {fileID: 835994275}
+  - component: {fileID: 835994276}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1857,6 +1871,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &835994276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835994273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9caea3aa64f91ea4ca1df2e71a3e8881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SliderReleaseHandler
 --- !u!1 &860300581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,6 +2043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 899250607}
   - component: {fileID: 899250608}
+  - component: {fileID: 899250609}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -2097,6 +2124,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &899250609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899250606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9caea3aa64f91ea4ca1df2e71a3e8881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SliderReleaseHandler
 --- !u!1 &930270219
 GameObject:
   m_ObjectHideFlags: 0
