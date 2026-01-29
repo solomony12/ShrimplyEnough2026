@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.50619036, g: 0.6014479, b: 0.84276724, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e2341a9d03e86ec4290c72b1e22bbc7c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3535,19 +3535,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   sprintMultiplier: 2
-  crawlMultiplier: 0.75
+  crouchMultiplier: 0.75
   upDownRange: 80
   jumpForce: 3
   gravity: 9.81
   standingHeight: 2
-  crawlingHeight: 1
-  crawlTransitionTime: 0.25
+  crouchingHeight: 1
+  crouchTransitionTime: 0.25
   obstructionMask:
     serializedVersion: 2
     m_Bits: 8
   cameraPivot: {fileID: 0}
   cameraStandingHeight: 1.6
-  cameraCrawlingHeight: 0.8
+  cameraCrouchingHeight: 0.8
   slipperyFriction: 0.0001
 --- !u!143 &490544819
 CharacterController:
@@ -10413,6 +10413,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3431835492460829920, guid: 9a5463b3d2995bb40bdfda8c4f1ce36a, type: 3}
   m_PrefabInstance: {fileID: 1619138291}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1623262043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5895309503226553363, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_Name
+      value: Outdoors_Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 52.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528962093893156521, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e77c7401ee7c4ecaa836f1e79803ca0, type: 3}
 --- !u!1 &1654321849
 GameObject:
   m_ObjectHideFlags: 0
@@ -10463,7 +10528,7 @@ MonoBehaviour:
   move: Move
   look: Look
   jump: Jump
-  crawl: Crawl
+  crouch: Crouch
   sprint: Sprint
   interact: Interact
   itemUp: ItemUp
@@ -14528,6 +14593,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutdoorLightCube
       objectReference: {fileID: 0}
+    - target: {fileID: 6438803978827287644, guid: 16bb432ad5664a346b5aa7eae18557ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14723,3 +14792,4 @@ SceneRoots:
   - {fileID: 705264620}
   - {fileID: 2051646198}
   - {fileID: 1612276550}
+  - {fileID: 1623262043}
