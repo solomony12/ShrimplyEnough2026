@@ -32,12 +32,25 @@ public class DoorInteraction : MonoBehaviour
             // Door
             if (hit.collider.CompareTag("Door"))
             {
-                isHovering = true;
-                hoverCaptions.ShowCaptions("Press [E] to interact");
-                // Interact
-                if (Keyboard.current[interactKey].wasPressedThisFrame)
+                Door door = hit.collider.GetComponentInParent<Door>();
+
+                // If door exists and is not locked
+                if (door != null && !door.locked)
                 {
-                    TryInteract();
+                    isHovering = true;
+                    hoverCaptions.ShowCaptions("Press [E] to interact");
+
+                    // Interact
+                    if (Keyboard.current[interactKey].wasPressedThisFrame)
+                    {
+                        TryInteract();
+                    }
+                }
+                else
+                {
+                    // Optionally, clear hover text if locked
+                    isHovering = false;
+                    hoverCaptions.HideCaptions();
                 }
             }
             // Level Door

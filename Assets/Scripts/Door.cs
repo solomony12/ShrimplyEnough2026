@@ -13,7 +13,7 @@ public class Door : MonoBehaviour
     [SerializeField] private bool oneWay = false;
 
     private bool isOpen = false;
-    private bool locked = false;
+    public bool locked = false;
 
     private Quaternion closedRot;
     private Quaternion openRot;

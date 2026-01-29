@@ -15,7 +15,7 @@ public class DoorEntryTrigger : MonoBehaviour
 
         if (!door.IsOneWay()) return;
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !door.locked)
         {
             door.CloseAndLock();
         }
